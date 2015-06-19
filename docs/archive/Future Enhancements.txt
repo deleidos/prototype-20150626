@@ -1,0 +1,4 @@
+Future Enhancement
+ - Recall notice alerts when drugs their taking, in their geography, get flagged.
+ - Drug cocktail negative reactions
+ - 
