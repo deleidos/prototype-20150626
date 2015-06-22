@@ -35,13 +35,46 @@
      * @param $scope
      * @constructor
      */
-    var MapController = function($scope) {
+    var MapController = function($scope, $http) {
         function init() {
-            // Init map
+            angular.extend($scope, {
+                center: {
+                    lat: 39,
+                    lng: -100,
+                    zoom: 4
+                }
+            });
+            var all_locations = [];
+            $http.get("data/us-states.json").success(function(response, status) {
+                state_location = response.features
+                $http.get("data/state-response.json").success(function (data, status) {
+                recall_location = data.states
+                    angular.forEach(recall_location, function (recall_locale) {
+                        angular.forEach(state_location, function (state_locale) {
+                            if (recall_locale == state_locale.properties.name) {
+                                all_locations.push(state_locale);
+                            }
+                        });
+                    });
+                });
+            });
+            angular.extend($scope, {
+                geojson: {
+                    data: all_locations,
+                    style: {
+                        fillColor: "red",
+                        weight: 1,
+                        opacity: 1,
+                        color: 'white',
+                        dashArray: '3',
+                        fillOpacity: 0.7
+                    }
+                }
+            });
         }
         init()
     };
-    angular.module('App').controller('MapController', ['$scope', MapController]);
+    angular.module('App').controller('MapController', ["$scope", "$http", MapController]);
 
 
 }());
