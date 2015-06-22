@@ -7,6 +7,9 @@
                 templateUrl: 'partials/home.html',
                 controller: 'HomeController'
             }).
+            when('/about', {
+                templateUrl: 'partials/about.html'
+            }).
             otherwise({
                 redirectTo: '/'
             });
