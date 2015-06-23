@@ -1,0 +1,29 @@
+Who are the primary users?
+-	Nationwide chain of hospitals, drug stores, etc. Anyone distributing pharmaceuticals over a wide supply chain. Especially if the supply chain is not integrated.
+What user needs will this service address?
+-	Visual perspective of recalled drugs by geography.
+Why does the user want or need this service?
+-	Liability and malpractice.
+Which people will have the most difficulty with the service?
+-	TBD
+Which research methods were used?
+-	In person interviews during prototyping.
+-	Daily review and planning meetings involving multidisciplinary skills and perspectives.
+-	Agile, iterative, software design and development process
+What were the key findings?
+-	The geography data published at OpenFDA for recall enforcement is currently oriented toward the manufacturer. However, the geography data associated from the distribution perspective is published in a freeform text field, making it challenging to render on a map for visualization, as well as being able to search for normalized geographies (i.e. MD vs. Maryland).
+How were the findings documented? Where can future team members access the documentation?
+-	The findings were documented in the project repository, under “docs”.
+How often are you testing with “people”?
+-	Every other business day during prototyping phase.
+What are the different ways (both online and offline) that people currently accomplish the task the digital service is designed to help with?
+-	This prototype assumes that isn’t being done automatically based on the data structure provided. For the sake of this prototype, there was not adequate time to determine.
+Where are user pain points in the current way people accomplish the task?
+-	TBD.
+Where does this specific project fit into the larger way people currently obtain the service being offered?
+-	TBD.
+What metrics will best indicate how well the service is working for its users?
+-	Use of Google Analytics for adoption rate.
+What primary tasks is the user trying to accomplish?
+-	TBD.
+
