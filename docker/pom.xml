@@ -84,7 +84,7 @@
 										<argument>docker</argument>
 										<argument>run</argument>
 										<argument>-d</argument>
-										<argument>--name</argument>
+										<argument>name</argument>
 										<argument>mongod</argument>
 										<argument>digitaledge/mongod:${project.version}</argument>
 									</arguments>
