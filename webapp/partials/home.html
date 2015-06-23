@@ -5,9 +5,9 @@
     </div>
 </div>
 
-<div class="container-fluid">
+<div class="container-fluid" ng-controller="SearchController">
     <div class="row">
-        <div class="col-lg-5 col-lg-offset-1" ng-controller="SearchController">
+        <div class="col-lg-5 col-lg-offset-1">
             <tabset type="pills">
                 <tab ng-repeat="tab in tabs" heading="{{tab.name}}" ng-init="populate(tab.name)">
                     <div ng-include="tab.url"></div>

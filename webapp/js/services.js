@@ -65,4 +65,43 @@
         return factory;
     };
     angular.module('App').factory('searchFactory', ['$http', '$q', searchFactory]);
+
+    var mapFactory = function($http, $q) {
+        var factory = {};
+
+        factory.getRecallsByDrug = function() {
+            return $http.get("data/drugs.json", {cache: true})
+                .then( function( results ) {
+                    return parseDrugNames( results.data['results'] )
+                }, function( error ) {
+                    return $q.reject(error.data)
+                });
+        };
+
+        factory.getRecallsByState = function(selected_state) {
+            //return $http.get("http://ec2-54-147-248-210.compute-1.amazonaws.com:8080/mongorest/mongo/query?host=10.153.211.57&database=dbname&collection=fda_enforcement&filter={%22recall_area%22:%22Maryland%22}", {cache:true})
+            return $http.get("data/state-search.json", {cache: true})
+                .then( function( results ) {
+                    return parseDrugNames( results.data['results'] )
+                }, function( error ) {
+                    return $q.reject(error.data)
+                });
+        };
+
+        function parseDrugNames( result ) {
+            var drug_list = [];
+
+            var length = result.length;
+            for( var i=0; i<length; i++) {
+                drug_list.push(result[i].openfda.brand_name[0][0])
+            }
+
+            return drug_list;
+        }
+
+        return factory;
+    };
+    angular.module('App').factory('mapFactory', ['$http', '$q', mapFactory]);
+
+
 }());
