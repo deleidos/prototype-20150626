@@ -31,6 +31,42 @@
     angular.module('App').controller('HomeController', ['$scope', 'homeFactory', HomeController]);
 
     /**
+     * Search Controller
+     * @param $scope
+     * @constructor
+     */
+    var SearchController = function($scope, searchFactory) {
+        $scope.tabs = searchFactory.tabs;
+
+        $scope.populate = function( tab_name ) {
+            switch( tab_name ) {
+                case $scope.tabs[0].name:
+                    searchFactory.getDrugs()
+                        .then( function( results ) {
+                            $scope.drug_list = results
+                        }, function( error ) {
+                            // TODO show alert
+                            console.log("got an error, ", error)
+                        });
+                    break;
+                case $scope.tabs[1].name:
+                    searchFactory.getStates()
+                        .then( function( results ) {
+                            $scope.state_list = results
+                            $scope.selected_state = results[0].name
+                        }, function( error ) {
+                            // TODO show alert
+                            console.log("got an error, ", error)
+                        });
+                    break;
+                default: break;
+            }
+        };
+
+    };
+    angular.module('App').controller('SearchController', ['$scope', 'searchFactory', SearchController]);
+
+    /**
      * Map Controller
      * @param $scope
      * @constructor
