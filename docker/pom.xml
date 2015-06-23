@@ -63,9 +63,9 @@
 									<arguments>
 										<argument>docker</argument>
 										<argument>build</argument>
-										<argument>--rm=true</argument>
-										<argument>--force-rm=true</argument>
-										<argument>--tag</argument>
+										<argument>rm=true</argument>
+										<argument>force-rm=true</argument>
+										<argument>tag</argument>
 										<argument>digitaledge/mongod:${project.version}</argument>
 										<argument>.</argument>
 									</arguments>
