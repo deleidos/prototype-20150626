@@ -16,7 +16,7 @@
 			<artifactId>deleidos-rtws-ingest-sdk</artifactId>
 			<version>2.1.1-SNAPSHOT</version>
 			<scope>system</scope>
-			<systemPath>${basedir}/sdk/deleidos-rtws-ingest-sdk.jar</systemPath>
+			<systemPath>${basedir}/src/sdk/deleidos-rtws-ingest-sdk.jar</systemPath>
 		</dependency>
 		<dependency>
 			<groupId>junit</groupId>
