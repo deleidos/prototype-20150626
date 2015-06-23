@@ -1,0 +1,9 @@
+---
+# Use to configure a Centos7 OS for running the prototype 
+
+- hosts: all
+  vars:
+    rtws_home: /usr/local/rtws
+            
+  roles:
+  - { role: install, tags: install}
