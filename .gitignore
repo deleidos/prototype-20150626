@@ -22,3 +22,6 @@ hs_err_pid*
 .settings/
 .project
 .metadata/
+
+# Build output
+target/
