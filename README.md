@@ -15,10 +15,12 @@
 * Docker 1.6.x
 * MongoDB 3.x
 
-Once the above dependencies are satisied, building the code including execution of applicable tests, can be
+Once the above dependencies are satisfied, building the code including execution of applicable tests, can be
 achieved by executing the following where you have cloned this repo:
-   
-   mvn clean package 
+
+```bash
+mvn clean package
+``` 
  
 
 # Continuous Integration
