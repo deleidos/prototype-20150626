@@ -1,0 +1,54 @@
+---  
+  - name: Set TimeZone
+    command: /bin/timedatectl set-timezone UTC
+    
+  - name: Updating vm.max_map_count
+    sysctl: name=vm.max_map_count value=262144 state=present sysctl_set=yes reload=no
+    
+  - name: Updating fs.file-max
+    sysctl: name=fs.file-max value=65536 state=present sysctl_set=yes reload=no
+    
+  - name: Installing common/required base packages  (note gdisk is the key for the auto expansion at boot see:https://forums.aws.amazon.com/thread.jspa?messageID=578412)
+    yum: name={{ item }} state=present
+    with_items:
+        - wget
+        - curl
+        - libselinux-python
+        - yum-utils
+        - kernel-devel
+        - module-init-tools
+        - bridge-utils
+        - gdisk
+        - dos2unix
+        
+  - name: Disable selinux as it's currently not supported
+    selinux: state=disabled
+        
+  - name: Install epel
+    yum: name=epel-release
+
+  #- name: Reboot the instance.  This allows for the root disk to grow as needed in AWS
+  #  command: reboot
+  #  async: 0
+  #  poll: 0
+  #  ignore_errors: true
+  
+  #- name: waiting for server to come back
+  #  local_action: wait_for host={{ inventory_hostname }}
+  #                delay=60 timeout=600 state=started
+  #  sudo: false
+ 
+  - include: docker.yml
+  
+  - include: mongo_container.yml
+  
+  #- name: Reboot the instance.  At this point, the appliance should start automatically and function as expected
+  #  command: reboot
+  #  async: 0
+  #  poll: 0
+  #  ignore_errors: true
+
+  #- name: waiting for server to come back
+  #  local_action: wait_for host={{ inventory_hostname }}
+  #                delay=60 timeout=600 state=started
+  #  sudo: false

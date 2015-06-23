@@ -1,0 +1,4 @@
+---   
+  - name: Run the webapp and link it to the mongo container
+    docker: image=webapp:{{ webapp_version }} name=webapp ports=80:8080
+   
