@@ -73,8 +73,19 @@
         };
 
         factory.getDrugRecallInfo = function( drug_name ) {
-            //return $http.get("http://ec2-54-147-248-210.compute-1.amazonaws.com:8080/mongorest/mongo/query?host=10.153.211.57&database=dbname&collection=fda_enforcement&filter={\"openfda.substance_name.0.0\":\"" + drug_name + "\"}");
+            //return $http.get("http://ec2-54-147-248-210.compute-1.amazonaws.com:8080/mongorest/mongo/query?host=10.153.211.57&database=dbname&collection=fda_enforcement&filter={\"openfda.brand_name.0.0\":\"" + drug_name + "\"}");
             return $http.get("data/sample-drug-recall-response.json")
+                .then( function( results ) {
+                    return results.data
+                }, function( error ) {
+                    return $q.reject(error.data)
+                });
+        };
+
+        factory.getManufacturerInfo = function( maker_name ) {
+            var maker_name_urlencode = maker_name.replace(" ", "%20");
+            //return GET on http://ec2-54-147-248-210.compute-1.amazonaws.com:8080/mongorest/mongo/statecount?host=10.153.211.57&database=dbname&collection=fda_enforcement&manufacturer=" + maker_name_urlencode;
+            return $http.get("data/sample-manufacturer-response.json")
                 .then( function( results ) {
                     return results.data
                 }, function( error ) {
