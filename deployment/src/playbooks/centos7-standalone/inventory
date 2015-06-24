@@ -1,4 +1,10 @@
 # Reference: http://docs.ansible.com/intro_inventory.html
 
+# The groups are setup to allow use from outside of EC2 vs inside since you can't resolve 
+# an ec2-xxx from another ec2 instance unless it has a Route53 association
 
-ec2-52-7-223-48.compute-1.amazonaws.com ansible_ssh_user=centos
+[public_config]
+ec2-52-7-223-48.compute-1.amazonaws.com ansible_ssh_user=centos ansible_sudo=true
+
+[private_config]
+10.0.1.34 ansible_ssh_user=centos ansible_sudo=true
