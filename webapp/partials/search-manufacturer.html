@@ -1,0 +1,28 @@
+<br />
+<div class="row">
+    <div class="col-sm-6">
+        <h4>Browse drug manufacturers</h4>
+    </div>
+    <div class="col-sm-6">
+        <div class="input-group">
+            <span class="input-group-addon"><span class="glyphicon glyphicon-search"></span></span>
+            <input type="text" class="form-control" placeholder="Search Manufacturer" ng-model="search.drug_name" ng-change="toggleDropdown()">
+        </div>
+        <div class="btn-group" dropdown is-open="dropdown.isopen">
+            <ul class="dropdown-menu" role="menu">
+                <li ng-repeat="drug in drug_list | filter:search.drug_name | unique: 'drug' | limitTo:10">
+                    <a href="" ng-click="getDrugData(drug)">{{drug | capitalize:true}}</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>
+<div class="row">
+    <div class="col-sm-12" ng-show="selected_drug">
+        <h3>Information for {{selected_drug}}</h3>
+        <h4>Recall Info</h4>
+        <p>Bacon ipsum dolor amet alcatra pork leberkas boudin strip steak kielbasa. Picanha pork loin rump, brisket spare ribs beef ribs chuck pastrami drumstick porchetta boudin shankle kielbasa tenderloin sirloin.</p>
+        <h4>Label Info</h4>
+        <p>Venison corned beef cow beef ribs biltong pastrami shank tenderloin sausage pancetta salami pork chop porchetta short ribs. </p>
+    </div>
+</div>

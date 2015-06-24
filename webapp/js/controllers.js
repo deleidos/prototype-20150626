@@ -59,6 +59,16 @@
                             console.log("got an error, ", error)
                         });
                     break;
+                case $scope.tabs[2].name:
+                    searchFactory.getManufacturers()
+                        .then( function( results ) {
+                            $scope.maker_list = results
+                            $scope.selected_maker = results[0].name
+                        }, function( error ) {
+                            // TODO show alert
+                            console.log("got an error, ", error)
+                        });
+                    break;
                 default: break;
             }
         };

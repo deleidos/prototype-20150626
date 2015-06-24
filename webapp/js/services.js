@@ -30,7 +30,8 @@
 
         factory.tabs = [
             {name : "Search by Drug", url : "partials/search-drugs.html"},
-            {name : "Search by State", url : "partials/search-states.html"}
+            {name : "Search by State", url : "partials/search-states.html"},
+            {name : "Search by Manufacturer", url : "partials/search-manufacturer.html"}
         ];
 
         factory.getDrugs = function() {
@@ -51,12 +52,32 @@
                 });
         };
 
+        factory.getManufacturers = function() {
+            return $http.get("data/manufacturers.json", {cache: true})
+                .then( function( results ) {
+                    return parseManufacturers( results.data['results'] )
+                }, function( error ) {
+                    return $q.reject(error.data)
+                });
+        };
+
         function parseDrugs( result ) {
             var drug_list = [];
 
             var length = result.length;
             for( var i=0; i<length; i++) {
                 drug_list.push(result[i].openfda.brand_name[0][0])
+            }
+
+            return drug_list;
+        }
+
+        function parseManufacturers( result ) {
+            var drug_list = [];
+
+            var length = result.length;
+            for( var i=0; i<length; i++) {
+                drug_list.push(result[i].openfda.manufacturer_name[0][0])
             }
 
             return drug_list;
