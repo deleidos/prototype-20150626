@@ -63,6 +63,17 @@
             }
         };
 
+        $scope.dropdown = {
+            isopen : false
+        };
+
+        $scope.toggleDropdown = function() {
+            $scope.dropdown.isopen = this.search.drug_name.length
+        };
+
+        $scope.getDrugData = function(drug) {
+            $scope.selected_drug = drug
+        }
     };
     angular.module('App').controller('SearchController', ['$scope', 'searchFactory', SearchController]);
 
@@ -72,7 +83,7 @@
      * @constructor
      */
     var MapController = function($scope, $http, $q) {
-        var type = false;
+        var type = true;
 
         function search_by_name() {
             angular.extend($scope, {

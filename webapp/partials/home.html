@@ -8,7 +8,7 @@
 <div class="container-fluid">
     <div class="row">
         <div class="col-lg-5 col-lg-offset-1" ng-controller="SearchController">
-            <tabset type="pills">
+            <tabset type="tabs">
                 <tab ng-repeat="tab in tabs" heading="{{tab.name}}" ng-init="populate(tab.name)">
                     <div ng-include="tab.url"></div>
                 </tab>
