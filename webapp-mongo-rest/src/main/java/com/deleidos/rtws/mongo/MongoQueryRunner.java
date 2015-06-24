@@ -94,7 +94,7 @@ public class MongoQueryRunner {
 	@Path("/statecount")
 	@GET
 	@Produces(MediaType.TEXT_PLAIN)
-	public String bymfr(@QueryParam("host") String host,
+	public String statecount(@QueryParam("host") String host,
 			@QueryParam("database") String databaseName,
 			@QueryParam("collection") String collectionName,
 			@QueryParam("manufacturer") String manufacturer) {
