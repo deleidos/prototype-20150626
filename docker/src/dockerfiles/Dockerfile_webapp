@@ -10,6 +10,8 @@ RUN wget -q -O /root/jetty-distribution-9.3.0.v20150612.zip http://download.ecli
 
 RUN cd /root ; unzip /root/jetty-distribution-9.3.0.v20150612.zip 
 
+ADD webapp.war /root/jetty-distribution-9.3.0.v20150612/webapps
+
 RUN cd /root/jetty-distribution-9.3.0.v20150612 ; java -jar /root/jetty-distribution-9.3.0.v20150612/start.jar --add-to-startd=http,deploy
 
 EXPOSE 8080

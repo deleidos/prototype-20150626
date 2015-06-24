@@ -28,6 +28,34 @@
 			</activation>
 			<build>
 				<plugins>
+					<!-- Copy latest version of the webapp to the build area for inclusion 
+						in the image -->
+					<plugin>
+						<artifactId>maven-dependency-plugin</artifactId>
+						<executions>
+							<execution>
+								<id>include-deployable-artifacts-in-playbook</id>
+								<phase>package</phase>
+								<goals>
+									<goal>copy</goal>
+								</goals>
+								<configuration>
+									<artifactItems>
+										<artifactItem>
+											<groupId>com.deleidos</groupId>
+											<artifactId>webapp</artifactId>
+											<version>${project.version}</version>
+											<type>war</type>
+											<overWrite>true</overWrite>
+											<destFileName>webapp.war</destFileName>
+											<outputDirectory>${project.build.directory}</outputDirectory>
+										</artifactItem>
+									</artifactItems>
+								</configuration>
+							</execution>
+						</executions>
+					</plugin>
+
 					<plugin>
 						<groupId>org.codehaus.mojo</groupId>
 						<artifactId>exec-maven-plugin</artifactId>
@@ -49,144 +77,45 @@
 									</arguments>
 								</configuration>
 							</execution>
-							<!--  TODO Current reuse/remove if decided permanently go with the Official Mongo Docker image -->
-							<!-- 
-							<execution>
-								<id>build-mongo-centos-container</id>
-								<phase>package</phase>
-								<goals>
-									<goal>exec</goal>
-								</goals>
-								<configuration>
-									<executable>sudo</executable>
-									<workingDirectory>${project.build.directory}</workingDirectory>
-									<arguments>
-										<argument>docker</argument>
-										<argument>build</argument>
-										<argument>rm=true</argument>
-										<argument>force-rm=true</argument>
-										<argument>tag</argument>
-										<argument>digitaledge/mongod:${project.version}</argument>
-										<argument>.</argument>
-									</arguments>
-								</configuration>
-							</execution>
-							<execution>
-								<id>run-mongo-centos-container</id>
-								<phase>package</phase>
-								<goals>
-									<goal>exec</goal>
-								</goals>
-								<configuration>
-									<executable>sudo</executable>
-									<workingDirectory>${project.build.directory}</workingDirectory>
-									<arguments>
-										<argument>docker</argument>
-										<argument>run</argument>
-										<argument>-d</argument>
-										<argument>name</argument>
-										<argument>mongod</argument>
-										<argument>digitaledge/mongod:${project.version}</argument>
-									</arguments>
-								</configuration>
-							</execution>
-							<execution>
-								<id>wait-for-mongo-centos-container-to-boot</id>
-								<phase>package</phase>
-								<goals>
-									<goal>exec</goal>
-								</goals>
-								<configuration>
-									<executable>sleep</executable>
-									<workingDirectory>${project.build.directory}</workingDirectory>
-									<arguments>
-										<argument>2m</argument>
-									</arguments>
-								</configuration>
-							</execution>
-							<execution>
-								<id>commit-mongo-centos-container</id>
-								<phase>package</phase>
-								<goals>
-									<goal>exec</goal>
-								</goals>
-								<configuration>
-									<executable>sudo</executable>
-									<workingDirectory>${project.build.directory}</workingDirectory>
-									<arguments>
-										<argument>docker</argument>
-										<argument>commit</argument>
-										<argument>mongod</argument>
-									</arguments>
-								</configuration>
-							</execution>
-							<execution>
-								<id>save-mongo-centos-container</id>
-								<phase>package</phase>
-								<goals>
-									<goal>exec</goal>
-								</goals>
-								<configuration>
-									<executable>sudo</executable>
-									<workingDirectory>${project.build.directory}</workingDirectory>
-									<arguments>
-										<argument>docker</argument>
-										<argument>save</argument>
-										<argument>-o</argument>
-										<argument>${project.build.directory}/digitaledge_mongod_${project.version}.tar</argument>
-										<argument>digitaledge/mongod:${project.version}</argument>
-									</arguments>
-								</configuration>
-							</execution>
-							<execution>
-								<id>stop-mongo-centos-container</id>
-								<phase>package</phase>
-								<goals>
-									<goal>exec</goal>
-								</goals>
-								<configuration>
-									<executable>sudo</executable>
-									<workingDirectory>${project.build.directory}</workingDirectory>
-									<arguments>
-										<argument>docker</argument>
-										<argument>stop</argument>
-										<argument>mongod</argument>
-									</arguments>
-								</configuration>
-							</execution>
-							<execution>
-								<id>remove-mongo-centos-container</id>
-								<phase>package</phase>
-								<goals>
-									<goal>exec</goal>
-								</goals>
-								<configuration>
-									<executable>sudo</executable>
-									<workingDirectory>${project.build.directory}</workingDirectory>
-									<arguments>
-										<argument>docker</argument>
-										<argument>rm</argument>
-										<argument>mongod</argument>
-									</arguments>
-								</configuration>
-							</execution>
-							<execution>
-								<id>remove-mongo-centos-container-image</id>
-								<phase>package</phase>
-								<goals>
-									<goal>exec</goal>
-								</goals>
-								<configuration>
-									<executable>sudo</executable>
-									<workingDirectory>${project.build.directory}</workingDirectory>
-									<arguments>
-										<argument>docker</argument>
-										<argument>rmi</argument>
-										<argument>digitaledge/mongod:${project.version}</argument>
-									</arguments>
-								</configuration>
-							</execution>
-							-->
+							<!-- TODO Current reuse/remove if decided permanently go with the 
+								Official Mongo Docker image -->
+							<!-- <execution> <id>build-mongo-centos-container</id> <phase>package</phase> 
+								<goals> <goal>exec</goal> </goals> <configuration> <executable>sudo</executable> 
+								<workingDirectory>${project.build.directory}</workingDirectory> <arguments> 
+								<argument>docker</argument> <argument>build</argument> <argument>rm=true</argument> 
+								<argument>force-rm=true</argument> <argument>tag</argument> <argument>digitaledge/mongod:${project.version}</argument> 
+								<argument>.</argument> </arguments> </configuration> </execution> <execution> 
+								<id>run-mongo-centos-container</id> <phase>package</phase> <goals> <goal>exec</goal> 
+								</goals> <configuration> <executable>sudo</executable> <workingDirectory>${project.build.directory}</workingDirectory> 
+								<arguments> <argument>docker</argument> <argument>run</argument> <argument>-d</argument> 
+								<argument>name</argument> <argument>mongod</argument> <argument>digitaledge/mongod:${project.version}</argument> 
+								</arguments> </configuration> </execution> <execution> <id>wait-for-mongo-centos-container-to-boot</id> 
+								<phase>package</phase> <goals> <goal>exec</goal> </goals> <configuration> 
+								<executable>sleep</executable> <workingDirectory>${project.build.directory}</workingDirectory> 
+								<arguments> <argument>2m</argument> </arguments> </configuration> </execution> 
+								<execution> <id>commit-mongo-centos-container</id> <phase>package</phase> 
+								<goals> <goal>exec</goal> </goals> <configuration> <executable>sudo</executable> 
+								<workingDirectory>${project.build.directory}</workingDirectory> <arguments> 
+								<argument>docker</argument> <argument>commit</argument> <argument>mongod</argument> 
+								</arguments> </configuration> </execution> <execution> <id>save-mongo-centos-container</id> 
+								<phase>package</phase> <goals> <goal>exec</goal> </goals> <configuration> 
+								<executable>sudo</executable> <workingDirectory>${project.build.directory}</workingDirectory> 
+								<arguments> <argument>docker</argument> <argument>save</argument> <argument>-o</argument> 
+								<argument>${project.build.directory}/digitaledge_mongod_${project.version}.tar</argument> 
+								<argument>digitaledge/mongod:${project.version}</argument> </arguments> </configuration> 
+								</execution> <execution> <id>stop-mongo-centos-container</id> <phase>package</phase> 
+								<goals> <goal>exec</goal> </goals> <configuration> <executable>sudo</executable> 
+								<workingDirectory>${project.build.directory}</workingDirectory> <arguments> 
+								<argument>docker</argument> <argument>stop</argument> <argument>mongod</argument> 
+								</arguments> </configuration> </execution> <execution> <id>remove-mongo-centos-container</id> 
+								<phase>package</phase> <goals> <goal>exec</goal> </goals> <configuration> 
+								<executable>sudo</executable> <workingDirectory>${project.build.directory}</workingDirectory> 
+								<arguments> <argument>docker</argument> <argument>rm</argument> <argument>mongod</argument> 
+								</arguments> </configuration> </execution> <execution> <id>remove-mongo-centos-container-image</id> 
+								<phase>package</phase> <goals> <goal>exec</goal> </goals> <configuration> 
+								<executable>sudo</executable> <workingDirectory>${project.build.directory}</workingDirectory> 
+								<arguments> <argument>docker</argument> <argument>rmi</argument> <argument>digitaledge/mongod:${project.version}</argument> 
+								</arguments> </configuration> </execution> -->
 							<execution>
 								<id>pre-build-webapp-centos-container</id>
 								<phase>package</phase>
@@ -355,25 +284,13 @@
 						<groupId>org.codehaus.mojo</groupId>
 						<artifactId>build-helper-maven-plugin</artifactId>
 						<executions>
-						<!--  TODO Current reuse/remove if decided permanently go with the Official Mongo Docker image -->
-							<!-- 
-							<execution>
-								<id>attach-mongo-centos-container-image</id>
-								<phase>package</phase>
-								<goals>
-									<goal>attach-artifact</goal>
-								</goals>
-								<configuration>
-									<artifacts>
-										<artifact>
-											<file>${project.build.directory}/digitaledge_mongod_${project.version}.tar</file>
-											<type>tar</type>
-											<classifier>mongod-centos-container</classifier>
-										</artifact>
-									</artifacts>
-								</configuration>
-							</execution>
-							-->
+							<!-- TODO Current reuse/remove if decided permanently go with the 
+								Official Mongo Docker image -->
+							<!-- <execution> <id>attach-mongo-centos-container-image</id> <phase>package</phase> 
+								<goals> <goal>attach-artifact</goal> </goals> <configuration> <artifacts> 
+								<artifact> <file>${project.build.directory}/digitaledge_mongod_${project.version}.tar</file> 
+								<type>tar</type> <classifier>mongod-centos-container</classifier> </artifact> 
+								</artifacts> </configuration> </execution> -->
 							<execution>
 								<id>attach-webapp-centos-container-image</id>
 								<phase>package</phase>
