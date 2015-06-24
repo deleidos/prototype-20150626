@@ -3,6 +3,8 @@ package com.deleidos.rtws.mongo;
 import java.net.UnknownHostException;
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.HashSet;
+import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 
@@ -94,7 +96,7 @@ public class MongoQueryRunner {
 	@Path("/statecount")
 	@GET
 	@Produces(MediaType.TEXT_PLAIN)
-	public String statecount(@QueryParam("host") String host,
+	public String stateCount(@QueryParam("host") String host,
 			@QueryParam("database") String databaseName,
 			@QueryParam("collection") String collectionName,
 			@QueryParam("manufacturer") String manufacturer) {
@@ -111,13 +113,36 @@ public class MongoQueryRunner {
 		DBObject fieldNames = new BasicDBObject();
 		fieldNames.put("_id", 0);
 		fieldNames.put("recall_area", 1);
+		fieldNames.put("openfda.brand_name", 1);
+		fieldNames.put("city", 1);
+		fieldNames.put("state", 1);
+		fieldNames.put("country", 1);
 		
 		HashMap<String, Integer> stateCount = new HashMap<String, Integer>();
+		HashSet<String> brandNames = new HashSet<String>();
+		String city = null;
+		String state = null;
+		String country = null;
 		DBCursor cursor = collection.find(query, fieldNames);
 		if (cursor.hasNext()) {
 			while (cursor.hasNext()) {
-				DBObject dbObj = cursor.next();
-				BasicDBList stateNames = (BasicDBList)dbObj.get("recall_area");
+				DBObject record = cursor.next();
+				if (manufacturer != null && city == null) {
+					city = (record.get("city") == null) ? null : record.get("city").toString();
+					state = (record.get("state") == null) ? null : record.get("state").toString();
+					country = (record.get("country") == null) ? null : record.get("country").toString();
+				}
+				
+				DBObject openfda = (DBObject)record.get("openfda");
+				BasicDBList bnList = (BasicDBList)openfda.get("brand_name");
+				BasicDBList brandList = (BasicDBList)bnList.get(0);
+				if (brandList != null) {
+					for (Object brandObj: brandList) {
+						brandNames.add(brandObj.toString());
+					}
+				}
+				
+				BasicDBList stateNames = (BasicDBList)record.get("recall_area");
 				if (stateNames != null) {
 					for (Object stateObj: stateNames) {
 						String stateName = stateObj.toString();
@@ -139,6 +164,15 @@ public class MongoQueryRunner {
 		}
 		DBObject response = new BasicDBObject();
 		response.put("manufacturer", manufacturer);
+		BasicDBList brandList = new BasicDBList();
+		Iterator<String> brandIter = brandNames.iterator();
+	    while (brandIter.hasNext()){
+	    	brandList.add(brandIter.next());
+	    }
+	    response.put("city", city);
+	    response.put("state", state);
+	    response.put("country", country);
+	    response.put("brand_names", brandList);
 		response.put("count", results.size());
 		response.put("results", results);
 		return response.toString();

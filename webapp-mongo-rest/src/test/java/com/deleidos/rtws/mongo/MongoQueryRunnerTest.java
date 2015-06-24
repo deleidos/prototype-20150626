@@ -145,4 +145,32 @@ public class MongoQueryRunnerTest {
     	assertTrue(record.containsField("results"));
     	assertEquals(10, ((BasicDBList)record.get("results")).size());
     }
+    
+    @Test
+    public void testStateCount() throws UnknownHostException, MongoException {
+    	MongoQueryRunner qr = new MongoQueryRunner();
+    	String result = qr.stateCount("localhost", "dbname", "fda_enforcement", "Baxter Healthcare Corporation");
+    	DBObject record = (DBObject) JSON.parse(result);
+    	
+    	assertTrue(record.containsField("count"));
+    	assertEquals(1, record.get("count"));
+    	assertTrue(record.containsField("results"));
+    	assertEquals(1, ((BasicDBList)record.get("results")).size());
+    	
+    	assertEquals("Baxter Healthcare Corporation", record.get("manufacturer").toString());
+    	assertEquals("Deerfield", record.get("city").toString());
+    	assertEquals("IL", record.get("state").toString());
+    	assertEquals("US", record.get("country").toString());
+    	
+    	BasicDBList brandList = (BasicDBList)record.get("brand_names");
+    	assertEquals(2, brandList.size());
+    	assertEquals("DIANEAL LOW CALCIUM WITH DEXTROSE", brandList.get(0).toString());
+    	assertEquals("DEXTROSE", brandList.get(1).toString());
+    	
+    	BasicDBList results = (BasicDBList)record.get("results");
+    	assertEquals(1, results.size());
+    	DBObject result2 = (DBObject)results.get(0);
+    	assertEquals("Nationwide", result2.get("state"));
+    	assertEquals(3, result2.get("count"));
+    }
 }
