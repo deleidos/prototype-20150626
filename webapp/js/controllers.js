@@ -89,7 +89,7 @@
      */
 
     var MapController = function($scope, $http, $rootScope, mapFactory) {
-        var type =false;
+        var type = false;
 
         angular.extend($scope, {
             center: {
@@ -103,7 +103,7 @@
             var all_locations = [];
             $http.get("data/us-states.json").success(function(response, status) {
                 state_location = response.features
-                //$http.get("http://ec2-54-147-248-210.compute-1.amazonaws.com:8080/mongorest/mongo/query?host=10.153.211.57&database=dbname&collection=fda_enforcement&filter={%22openfda.brand_name.0.0%22:%22" + NAME VARIABLE + "%22}").success(function (data, status) {
+                //$http.get("http://ec2-54-147-248-210.compute-1.amazonaws.com:8080/mongorest/mongo/query?host=10.153.211.57&database=dbname&collection=fda_enforcement&filter={%22openfda.brand_name.0.0%22:%22ADVIL%20PM%22}").success(function (data, status) {
                 $http.get("data/state-response.json").success(function (data, status) {
                 recall_location = data.results[0].recall_area
                     angular.forEach(recall_location, function (recall_locale) {
@@ -119,7 +119,7 @@
                 geojson: {
                     data: all_locations,
                     style: {
-                        fillColor: "red",
+                        fillColor: "orange",
                         weight: 1,
                         opacity: 1,
                         color: 'white',
@@ -152,12 +152,11 @@
                         angular.forEach(results, function(drug_name){
                             $rootScope.all_drugs.push(drug_name);
                         });
+                        $rootScope.$broadcast('length-update', ($rootScope.all_drugs).length)
                     }, function (error) {
                         // TODO show alert
                         console.log("got an error, ", error)
                     });
-
-
 
                 var one_location = []
                 $http.get("data/us-states.json").success(function (response, status) {
@@ -192,6 +191,26 @@
         }
     };
     angular.module('App').controller('MapController', ["$scope", "$http", "$rootScope", "mapFactory", MapController]);
+
+    angular.module('App').controller('PaginationCtrl', function ($scope, $rootScope, $log) {
+
+        $scope.$on('length-update', function(event, args){
+            $scope.totalItems = args
+        });
+
+        $scope.currentPage = 1
+        $scope.itemsPerPage = 3
+        $scope.maxSize = 5
+
+        $scope.setPage = function (pageNo) {
+            $scope.currentPage = pageNo
+        };
+
+        $scope.pageChanged = function() {
+            $log.log('Page changed to: ' + $scope.currentPage)
+        };
+
+    });
 
 
 }());

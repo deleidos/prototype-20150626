@@ -9,7 +9,7 @@
 	<modules>
 		<module>transport-openfda-url</module>
 		<module>enrichment-recall-area-normalizer</module>
-		<module>webapp</module>		
+		<module>webapp</module>
 		<module>webapp-mongo-rest</module>
 		<module>docker</module>
 		<module>deployment</module>
@@ -30,6 +30,10 @@
 				<plugin>
 					<artifactId>maven-jar-plugin</artifactId>
 					<version>2.4</version>
+				</plugin>
+				<plugin>
+					<artifactId>maven-war-plugin</artifactId>
+					<version>2.2</version>
 				</plugin>
 				<plugin>
 					<artifactId>maven-assembly-plugin</artifactId>
