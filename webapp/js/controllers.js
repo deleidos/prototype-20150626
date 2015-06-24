@@ -82,6 +82,7 @@
         };
 
         $scope.getDrugData = function(drug) {
+            this.search.drug_name = drug
             searchFactory.getDrugLabelInfo(drug)
                 .then( function( data ) {
                     $scope.selected_drug = drug;

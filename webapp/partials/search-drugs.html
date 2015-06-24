@@ -20,7 +20,7 @@
 <div class="row" ng-show="selected_drug">
     <div class="col-sm-12">
         <h3>{{selected_drug}} &nbsp;<small>{{selected_drug_purpose}}</small></h3>
-        <p class="help-block">{{selected_drug_usage | capitalize}}</p>
+        <p class="help-block drug-usage-description">{{selected_drug_usage | capitalize}}</p>
         <p><strong>Manufacturer: </strong>{{manufacturer_name}}</p>
         <p><strong>Active Ingredient(s): </strong><span ng-repeat="substance in active_ingredients">{{substance.name | capitalize:true}}{{$last ? '' : ', '}} </span>  </p>
         <hr />
