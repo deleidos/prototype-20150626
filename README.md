@@ -36,7 +36,7 @@ are configured to both build and test the software frequently, and also orchestr
 the prototype to the provisioned EC2 instances. Status of the compilation/testing/packaging of the software can 
 be viewed at the top of this page via the "Build Status" button.
 
-Typically a Jenkins master/slave CI environment but for the purposes of simplicity and the size of the protype, a simple single instance 
+Typically a Jenkins master/slave CI environment but for the purposes of simplicity and the size of the prototype, a simple single instance 
 configuration of Jenkins was provisioned.
 
 # Deployment
