@@ -35,7 +35,7 @@
      * @param $scope
      * @constructor
      */
-    var SearchController = function($scope, searchFactory) {
+    var SearchController = function($scope, $rootScope, searchFactory) {
         $scope.tabs = searchFactory.tabs;
 
         $scope.populate = function( tab_name ) {
@@ -73,30 +73,37 @@
 
         $scope.getDrugData = function(drug) {
             $scope.selected_drug = drug
-        }
+        };
+
+        $scope.update = function(state){
+            $rootScope.$broadcast('state-update', state)
+        };
+
     };
-    angular.module('App').controller('SearchController', ['$scope', 'searchFactory', SearchController]);
+    angular.module('App').controller('SearchController', ['$scope', '$rootScope', 'searchFactory', SearchController]);
 
     /**
      * Map Controller
      * @param $scope
      * @constructor
      */
-    var MapController = function($scope, $http, $q) {
-        var type = true;
+
+    var MapController = function($scope, $http, $rootScope, mapFactory) {
+        var type =false;
+
+        angular.extend($scope, {
+            center: {
+                lat: 39,
+                lng: -100,
+                zoom: 4
+            }
+        });
 
         function search_by_name() {
-            angular.extend($scope, {
-                center: {
-                    lat: 39,
-                    lng: -100,
-                    zoom: 4
-                }
-            });
             var all_locations = [];
             $http.get("data/us-states.json").success(function(response, status) {
                 state_location = response.features
-                //$http.get("http://ec2-54-147-248-210.compute-1.amazonaws.com:8080/mongorest/mongo/query?host=10.153.211.57&database=dbname&collection=fda_enforcement&filter={%22openfda.substance_name.0.0%22:%22CANDESARTAN%20CILEXETIL%22}").success(function (data, status) {
+                //$http.get("http://ec2-54-147-248-210.compute-1.amazonaws.com:8080/mongorest/mongo/query?host=10.153.211.57&database=dbname&collection=fda_enforcement&filter={%22openfda.brand_name.0.0%22:%22" + NAME VARIABLE + "%22}").success(function (data, status) {
                 $http.get("data/state-response.json").success(function (data, status) {
                 recall_location = data.results[0].recall_area
                     angular.forEach(recall_location, function (recall_locale) {
@@ -125,6 +132,57 @@
 
         function search_by_state() {
 
+            $scope.$on('state-update', function(event, args) {
+                selected_state = args;
+
+                $rootScope.all_drugs = []
+
+                mapFactory.getRecallsByState(selected_state)
+                    .then(function (results) {
+                        angular.forEach(results, function(drug_name){
+                            $rootScope.all_drugs.push(drug_name);
+                        });
+                    }, function (error) {
+                        // TODO show alert
+                        console.log("got an error, ", error)
+                    });
+
+                mapFactory.getRecallsByState("Nationwide")
+                    .then(function (results) {
+                        angular.forEach(results, function(drug_name){
+                            $rootScope.all_drugs.push(drug_name);
+                        });
+                    }, function (error) {
+                        // TODO show alert
+                        console.log("got an error, ", error)
+                    });
+
+
+
+                var one_location = []
+                $http.get("data/us-states.json").success(function (response, status) {
+                    state_location = response.features
+                    angular.forEach(state_location, function (state_locale) {
+                        if (state_locale.properties.name == selected_state) {
+                            one_location.push(state_locale)
+                        }
+                    });
+                });
+
+                angular.extend($scope, {
+                    geojson: {
+                        data: one_location,
+                        style: {
+                            fillColor: "red",
+                            weight: 1,
+                            opacity: 1,
+                            color: 'white',
+                            dashArray: '3',
+                            fillOpacity: 0.7
+                        }
+                    }
+                });
+            });
         }
 
         if(type) {
@@ -133,7 +191,7 @@
             search_by_state();
         }
     };
-    angular.module('App').controller('MapController', ["$scope", "$http", MapController]);
+    angular.module('App').controller('MapController', ["$scope", "$http", "$rootScope", "mapFactory", MapController]);
 
 
 }());
