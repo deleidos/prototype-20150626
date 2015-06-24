@@ -123,7 +123,9 @@
         };
 
         function setLabelInfo( info ){
-            $scope.selected_drug_purpose = info.purpose[0].replace("PURPOSES ", "")
+            if( info.purpose ){
+                $scope.selected_drug_purpose = info.purpose[0].replace("PURPOSES ", "")
+            }
             $scope.selected_drug_usage = info.indications_and_usage[0].replace("USES ", "")
             $scope.manufacturer_name = info.openfda.manufacturer_name[0]
 
