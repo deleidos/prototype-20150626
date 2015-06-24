@@ -17,9 +17,63 @@
 			<version>${project.version}</version>
 			<type>war</type>
 		</dependency>
+		<dependency>
+			<groupId>com.deleidos</groupId>
+			<artifactId>webapp-mongo-rest</artifactId>
+			<version>${project.version}</version>
+			<type>war</type>
+		</dependency>
 	</dependencies>
+	<profiles>
+		<profile>
+			<id>deploy-to-instance</id>
+			<activation>
+				<file>
+					<exists>/vmlinuz</exists>
+				</file>
+			</activation>
+			<dependencies>
+				<dependency>
+					<groupId>com.deleidos</groupId>
+					<artifactId>webapp-centos-container</artifactId>
+					<version>${project.version}</version>
+					<type>tar</type>
+				</dependency>
+			</dependencies>
+			<build>
+				<plugins>
+				</plugins>
+			</build>
+		</profile>
+	</profiles>
 	<build>
 		<plugins>
+			<plugin>
+				<artifactId>maven-dependency-plugin</artifactId>
+				<executions>
+					<execution>
+						<id>include-deployable-artifacts-in-playbook</id>
+						<phase>package</phase>
+						<goals>
+							<goal>copy</goal>
+						</goals>
+						<configuration>
+							<artifactItems>
+								<artifactItem>
+									<groupId>com.deleidos</groupId>
+									<artifactId>webapp-centos-container</artifactId>
+									<version>${project.version}</version>
+									<type>tar</type>
+									<overWrite>true</overWrite>
+									<destFileName>webapp.tar</destFileName>
+									<outputDirectory>${basedir}/src/playbooks/centos7-standalone/roles/install/files</outputDirectory>
+								</artifactItem>
+							</artifactItems>
+						</configuration>
+					</execution>
+				</executions>
+			</plugin>
 		</plugins>
+
 	</build>
 </project>

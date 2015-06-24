@@ -4,7 +4,7 @@ FROM centos:7.1.1503
 
 RUN echo -e "[mongodb] \nname=mongodb-org-3.0\nbaseurl=http://repo.mongodb.org/yum/redhat/7/mongodb-org/3.0/x86_64/\ngpgcheck=0\nenabled=1" | tee /etc/yum.repos.d/mongodb-org-3.0.repo
 
-RUN yum install -y mongodb-org
+RUN yum -y install mongodb-org
 
 RUN mkdir -p /mnt/rdafs
 
