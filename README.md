@@ -10,6 +10,7 @@ Continuous Deployment:
 
 
 ## Demo
+Click below to view the working prototype:  
 http://openfda.deleidos.com
 
 ## Wiki

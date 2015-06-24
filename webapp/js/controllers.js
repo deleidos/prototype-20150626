@@ -162,6 +162,7 @@
             console.log(regions)
             $rootScope.$broadcast('drug-update', regions)
             $scope.recalls = results
+            $rootScope.$broadcast('length-update', ($scope.recalls).length)
         }
 
         function setManufacturerInfo( response ){
