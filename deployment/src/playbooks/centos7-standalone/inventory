@@ -1,1 +1,4 @@
-ec2-52-7-223-48.compute-1.amazonaws.com
+# Reference: http://docs.ansible.com/intro_inventory.html
+
+
+ec2-52-7-223-48.compute-1.amazonaws.com ansible_ssh_user=centos

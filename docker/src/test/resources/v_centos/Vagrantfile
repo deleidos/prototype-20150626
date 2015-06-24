@@ -85,6 +85,10 @@ Vagrant.configure(2) do |config|
 	echo -e '[mongodb-org-3.0]\nname=MongoDB Repository\nbaseurl=https://repo.mongodb.org/yum/redhat/7/mongodb-org/3.0/x86_64/\ngpgcheck=0\nenabled=1' | tee /etc/yum.repos.d/mongodb-org-3.0.repo
 	yum -y install mongodb-org
 	
+	semanage port -a -t mongod_port_t -p tcp 27017
+	
+	service mongod start
+	
 	echo 'Done provisioning vm.  Use it.'
 SCRIPT
   
