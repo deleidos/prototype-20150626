@@ -6,6 +6,7 @@
 # Package Files #
 *.jar
 *.war
+*.tar
 *.ear
 *.idea
 

@@ -1,6 +1,17 @@
 # -*- mode: ruby -*-
 # vi: set ft=ruby :
 
+# The v_centos is a directory that contain Vagrant config files to spin up Virtual Machines, Centos, 
+# using VirtualBox & Vagrant locally to test building container images from this project.  To use them, after
+# you have both VirtualBox 4.3.12 r93733 and Vagrant 1.7.1 installed, simply from a CMD prompt, run 
+
+# vagrant up
+
+
+# The provisioned VM will have all the necessary components to be able to test out the building of this prototype's 
+# code base as well as the  docker containers either manually via the docker build or through the Maven build
+
+
 # All Vagrant configuration is done below. The "2" in Vagrant.configure
 # configures the configuration version (we support older styles for
 # backwards compatibility). Please don't change it unless you know what
@@ -12,7 +23,8 @@ Vagrant.configure(2) do |config|
 
   # Every Vagrant development environment requires a box. You can search for
   # boxes at https://atlas.hashicorp.com/search.
-  config.vm.box = "relativkreativ/centos-7-minimal"
+  config.vm.box = "chef/centos-7.0"
+  #config.vm.box = "relativkreativ/centos-7-minimal"
 
   # Disable automatic box update checking. If you disable this, then
   # boxes will only be checked for updates when the user runs
@@ -58,14 +70,25 @@ Vagrant.configure(2) do |config|
   #   push.app = "YOUR_ATLAS_USERNAME/YOUR_APPLICATION_NAME"
   # end
 	$script = <<SCRIPT
-
+	
+	yum -y install epel-release
+	
 	yum -y install wget docker java-1.7.0-openjdk-devel
+	
 	wget -O ~/apache-maven-3.3.3-bin.tar.gz "http://mirror.cc.columbia.edu/pub/software/apache/maven/maven-3/3.3.3/binaries/apache-maven-3.3.3-bin.tar.gz"
 	tar -C /usr/local -xzf ~/apache-maven-3.3.3-bin.tar.gz
 	echo 'export PATH=$PATH:/usr/local/apache-maven-3.3.3/bin' > /etc/profile.d/maven.sh
 	rm ~/apache-maven-3.3.3-bin.tar.gz
 	chmod +x /etc/profile.d/maven.sh
 	service docker restart
+	
+	echo -e '[mongodb-org-3.0]\nname=MongoDB Repository\nbaseurl=https://repo.mongodb.org/yum/redhat/7/mongodb-org/3.0/x86_64/\ngpgcheck=0\nenabled=1' | tee /etc/yum.repos.d/mongodb-org-3.0.repo
+	yum -y install mongodb-org
+	
+	semanage port -a -t mongod_port_t -p tcp 27017
+	
+	service mongod start
+	
 	echo 'Done provisioning vm.  Use it.'
 SCRIPT
   
