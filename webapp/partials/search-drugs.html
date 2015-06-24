@@ -17,12 +17,24 @@
         </div>
     </div>
 </div>
-<div class="row">
-    <div class="col-sm-12" ng-show="selected_drug">
-        <h3>Information for {{selected_drug}}</h3>
-        <h4>Recall Info</h4>
-        <p>Bacon ipsum dolor amet alcatra pork leberkas boudin strip steak kielbasa. Picanha pork loin rump, brisket spare ribs beef ribs chuck pastrami drumstick porchetta boudin shankle kielbasa tenderloin sirloin.</p>
-        <h4>Label Info</h4>
-        <p>Venison corned beef cow beef ribs biltong pastrami shank tenderloin sausage pancetta salami pork chop porchetta short ribs. </p>
+<div class="row" ng-show="selected_drug">
+    <div class="col-sm-12">
+        <h3>Information for {{selected_drug}} &nbsp;<small>{{selected_drug_purpose}}</small></h3>
+        <p class="help-block">{{selected_drug_usage | capitalize}}</p>
+        <p><strong>Manufacturer: </strong>{{manufacturer_name}}</p>
+        <p><strong>Active Ingredients: </strong><span ng-repeat="substance in active_ingredients">{{substance.name | capitalize:true}}{{$last ? '' : ', '}} </span>  </p>
+        <hr />
+        <h3>Recalls</h3>
+        <table class="table table-hover">
+            <thead>
+            <tr>
+                <th>Drug Name</th>
+                <th>Recall Reason</th>
+                <th>Date</th>
+            </tr>
+            </thead>
+            <tbody>
+            </tbody>
+        </table>
     </div>
 </div>

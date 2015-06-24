@@ -61,6 +61,19 @@
                 });
         };
 
+        factory.getDrugLabelInfo = function( drug_name ) {
+            var drug_name_urlencode = drug_name.replace(" ", "+");
+            var url = "https://api.fda.gov/drug/label.json?api_key=iNSQYfxgqZX5zRRtCLhDiLjRKOlacIexWT78gxHR&search=openfda.brand_name:\"" + drug_name_urlencode + "\"";
+            console.log(url)
+            //return $http.get("https://api.fda.gov/drug/label.json?api_key=iNSQYfxgqZX5zRRtCLhDiLjRKOlacIexWT78gxHR&search=openfda.brand_name:\"" + drug_name_urlencode + "\"");
+            return $http.get("data/sample-label-response.json")
+                .then( function( results ) {
+                    return results.data
+                }, function( error ) {
+                    return $q.reject(error.data)
+                });
+        };
+
         function parseDrugs( result ) {
             var drug_list = [];
 

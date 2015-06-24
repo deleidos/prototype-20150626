@@ -82,7 +82,24 @@
         };
 
         $scope.getDrugData = function(drug) {
-            $scope.selected_drug = drug
+            searchFactory.getDrugLabelInfo(drug)
+                .then( function( data ) {
+                    drug_info = data.results[0]
+                    $scope.selected_drug = drug
+                    $scope.selected_drug_purpose = drug_info.purpose[0].replace("PURPOSES ", "")
+                    $scope.selected_drug_usage = drug_info.indications_and_usage[0].replace("USES ", "")
+                    $scope.manufacturer_name = drug_info.openfda.manufacturer_name[0]
+
+                    length = drug_info.openfda.substance_name.length;
+                    var active_ingredients= []
+                    for(var i= 0; i<length; i++){
+                        active_ingredients.push({name: drug_info.openfda.substance_name[i]})
+                    }
+                    $scope.active_ingredients = active_ingredients
+
+                }, function( error ) {
+                    console.log("got an error: ", error)
+                });
         };
 
         $scope.update = function(state){
