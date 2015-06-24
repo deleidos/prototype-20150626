@@ -46,7 +46,9 @@
         };
 
         factory.getManufacturers = function() {
-            return $http.get("data/manufacturers.json", {cache: true})
+            var url = mainFactory.useTestData ? "data/manufacturers.json" :
+                "http://" + mainFactory.defaultHost + ":8080/mongorest/mongo/query?host=10.153.211.57&database=dbname&collection=fda_enforcement&fields=openfda.manufacturer_name";
+            return $http.get(url, {cache: true})
                 .then( function( results ) {
                     return parseManufacturers( results.data['results'] )
                 }, function( error ) {
@@ -69,8 +71,20 @@
 
         factory.getDrugRecallInfo = function( drug_name ) {
             var url = mainFactory.useTestData ? "data/sample-drug-recall-response.json" :
-            "http://" + mainFactory.defaultHost + ":8080/mongorest/mongo/query?host=10.153.211.57&database=dbname&collection=fda_enforcement&filter={\"openfda.substance_name.0.0\":\"" + drug_name + "\"}";
+                "http://" + mainFactory.defaultHost + ":8080/mongorest/mongo/query?host=10.153.211.57&database=dbname&collection=fda_enforcement&filter={\"openfda.brand_name.0.0\":\"" + drug_name + "\"}";
 
+            return $http.get(url)
+                .then( function( results ) {
+                    return results.data
+                }, function( error ) {
+                    return $q.reject(error.data)
+                });
+        };
+
+        factory.getManufacturerInfo = function( maker_name ) {
+            var maker_name_urlencode = maker_name.replace(" ", "%20");
+            var url = mainFactory.useTestData ? "data/sample-manufacturer-response.json" :
+                "http://" + mainFactory.defaultHost + ":8080/mongorest/mongo/statecount?host=10.153.211.57&database=dbname&collection=fda_enforcement&manufacturer=" + maker_name_urlencode;
             return $http.get(url)
                 .then( function( results ) {
                     return results.data

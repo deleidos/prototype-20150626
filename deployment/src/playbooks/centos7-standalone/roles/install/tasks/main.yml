@@ -44,13 +44,4 @@
   
   - include: webapp_container.yml
   
-  #- name: Reboot the instance.  At this point, the appliance should start automatically and function as expected
-  #  command: reboot
-  #  async: 0
-  #  poll: 0
-  #  ignore_errors: true
-
-  #- name: waiting for server to come back
-  #  local_action: wait_for host={{ inventory_hostname }}
-  #                delay=60 timeout=600 state=started
-  #  sudo: false
+  - include: cadvisor.yml
