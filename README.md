@@ -6,6 +6,9 @@ Continuous Integration:
 Continuous Deployment:
 [![Deployment Status](http://jenkins.openfda.deleidos.com:8080/job/Deploy_Prototype/badge/icon)](http://jenkins.openfda.deleidos.com:8080/job/Deploy_Prototype/)  
 
+## Approach
+
+
 ## Demo
 http://openfda.deleidos.com
 
@@ -14,3 +17,5 @@ Be sure to check out the wiki to learn more about the prototype, the team and th
 + [Timeline of Prototype Creation](https://github.com/deleidos/prototype-20150626/wiki/Prototype-Timeline)
 + [DevOps Details](https://github.com/deleidos/prototype-20150626/wiki/DevOps)
 + [HowTo Build and Install](https://github.com/deleidos/prototype-20150626/wiki/Build-and-Install)
+
+&copy; Leidos 2015
