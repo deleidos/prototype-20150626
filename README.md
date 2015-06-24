@@ -43,7 +43,7 @@ be viewed at the top of this page via the "Build Status" button.
 Typically a Jenkins master/slave CI environment but for the purposes of simplicity and the size of the prototype, a simple single instance 
 configuration of Jenkins was provisioned.
 
-# Deployment
+# Configuration Management and Continuous Deployment
 Ansible was used to orchestrate the installation and configuration of a Centos 7 OS (currently using the official EC2 AMI) used for hosting the prototype. A 
 Jenkins job allows for the automated deployment of the prototype to one or more Centos 7 instances, but the Ansible playbook can be run outside of the Jenkins environment 
 as was done for the development and testing of the deployment approach.  A Vagrantfile is provided in the deployment project which will allow you 
