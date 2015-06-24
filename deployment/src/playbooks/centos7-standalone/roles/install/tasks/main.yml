@@ -42,6 +42,8 @@
   
   - include: mongo_container.yml
   
+  - include: webapp_container.yml
+  
   #- name: Reboot the instance.  At this point, the appliance should start automatically and function as expected
   #  command: reboot
   #  async: 0
