@@ -84,27 +84,47 @@
         $scope.getDrugData = function(drug) {
             searchFactory.getDrugLabelInfo(drug)
                 .then( function( data ) {
-                    drug_info = data.results[0]
-                    $scope.selected_drug = drug
-                    $scope.selected_drug_purpose = drug_info.purpose[0].replace("PURPOSES ", "")
-                    $scope.selected_drug_usage = drug_info.indications_and_usage[0].replace("USES ", "")
-                    $scope.manufacturer_name = drug_info.openfda.manufacturer_name[0]
-
-                    length = drug_info.openfda.substance_name.length;
-                    var active_ingredients= []
-                    for(var i= 0; i<length; i++){
-                        active_ingredients.push({name: drug_info.openfda.substance_name[i]})
-                    }
-                    $scope.active_ingredients = active_ingredients
-
+                    $scope.selected_drug = drug;
+                    setLabelInfo( data.results[0] )
                 }, function( error ) {
-                    console.log("got an error: ", error)
+                    console.log("got an error: ", error);
+                    $scope.selected_drug = null
+                });
+            searchFactory.getDrugRecallInfo(drug)
+                .then( function( data ) {
+                    setRecallInfo( data.results )
+                }, function( error ) {
+                    console.log("got an error: ", error);
+                    $scope.selected_drug = null
                 });
         };
 
         $scope.update = function(state){
             $rootScope.$broadcast('state-update', state)
         };
+
+        function setLabelInfo( info ){
+            $scope.selected_drug_purpose = info.purpose[0].replace("PURPOSES ", "")
+            $scope.selected_drug_usage = info.indications_and_usage[0].replace("USES ", "")
+            $scope.manufacturer_name = info.openfda.manufacturer_name[0]
+
+            var length = info.openfda.substance_name.length;
+            var active_ingredients= [];
+            for(var i= 0; i<length; i++){
+                active_ingredients.push({name: info.openfda.substance_name[i]})
+            }
+            $scope.active_ingredients = active_ingredients
+        }
+
+        function setRecallInfo( results ){
+            var length = results.length
+            // fix the dates
+            for(var i= 0; i<length; i++){
+                var date = results[i].recall_initiation_date;
+                results[i].recall_initiation_date = new Date(date.substring(0,4), date.substring(4,6), date.substring(6,8)).toDateString()
+            }
+            $scope.recalls = results
+        }
 
     };
     angular.module('App').controller('SearchController', ['$scope', '$rootScope', 'searchFactory', SearchController]);
