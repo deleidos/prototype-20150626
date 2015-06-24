@@ -46,7 +46,6 @@
                     searchFactory.getStates()
                         .then(function (results) {
                             $scope.state_list = results
-                            $scope.selected_state = results[0].name
                         }, function (error) {
                             // TODO show alert
                             console.log("got an error, ", error)
@@ -102,6 +101,7 @@
         };
 
         $scope.getManufacturerData = function(maker) {
+            this.search.maker_name = maker
             searchFactory.getManufacturerInfo(maker)
                 .then( function( data ) {
                     $scope.selected_maker = maker;
@@ -210,7 +210,7 @@
      * @constructor
      */
 
-    var MapController = function($scope, $http, $rootScope, mapFactory, mainFactory) {
+    var MapController = function($scope, $http, $rootScope, mapFactory) {
         var type = false;
 
         angular.extend($scope, {
@@ -340,7 +340,7 @@
         });
 
     };
-    angular.module('App').controller('MapController', ["$scope", "$http", "$rootScope", "mapFactory", "mainFactory", MapController]);
+    angular.module('App').controller('MapController', ["$scope", "$http", "$rootScope", "mapFactory", MapController]);
 
     angular.module('App').controller('PaginationCtrl', function ($scope, $rootScope, $log) {
 
