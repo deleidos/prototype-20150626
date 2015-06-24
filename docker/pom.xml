@@ -53,7 +53,7 @@
 											<version>${project.version}</version>
 											<type>war</type>
 											<overWrite>true</overWrite>
-											<destFileName>webapp.war</destFileName>
+											<destFileName>root.war</destFileName>
 											<outputDirectory>${project.build.directory}</outputDirectory>
 										</artifactItem>
 											<artifactItem>

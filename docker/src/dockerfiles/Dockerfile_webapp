@@ -12,7 +12,7 @@ RUN cd /root ; unzip /root/jetty-distribution-9.3.0.v20150612.zip
 
 RUN cd /root/jetty-distribution-9.3.0.v20150612 ; java -jar /root/jetty-distribution-9.3.0.v20150612/start.jar --add-to-startd=http,deploy
 
-COPY webapp.war /root/jetty-distribution-9.3.0.v20150612/webapps/
+COPY root.war /root/jetty-distribution-9.3.0.v20150612/webapps/
 
 COPY mongorest.war /root/jetty-distribution-9.3.0.v20150612/webapps/
 
