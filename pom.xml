@@ -7,8 +7,12 @@
 	<version>1.0.0-SNAPSHOT</version>
 	<packaging>pom</packaging>
 	<modules>
-		<module>webapp</module>
+		<module>transport-openfda-url</module>
+		<module>enrichment-recall-area-normalizer</module>
+		<module>webapp</module>		
+		<module>webapp-mongo-rest</module>
 		<module>docker</module>
+		<module>deployment</module>
 	</modules>
 	<build>
 		<pluginManagement>
