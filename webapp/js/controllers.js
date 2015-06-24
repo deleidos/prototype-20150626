@@ -53,7 +53,7 @@
                     searchFactory.getStates()
                         .then( function( results ) {
                             $scope.state_list = results
-                            $scope.selected_state = results[0].name
+                            $scope.selected_state = "Choose..."
                         }, function( error ) {
                             // TODO show alert
                             console.log("got an error, ", error)
@@ -151,7 +151,7 @@
 
         function search_by_name() {
             var all_locations = [];
-            $http.get("data/us-states.json").success(function(response, status) {
+            $http.get("data/us-states.json", {cache: true}).success(function(response, status) {
                 state_location = response.features
                 //$http.get("http://ec2-54-147-248-210.compute-1.amazonaws.com:8080/mongorest/mongo/query?host=10.153.211.57&database=dbname&collection=fda_enforcement&filter={%22openfda.brand_name.0.0%22:%22ADVIL%20PM%22}").success(function (data, status) {
                 $http.get("data/state-response.json").success(function (data, status) {
@@ -209,7 +209,7 @@
                     });
 
                 var one_location = []
-                $http.get("data/us-states.json").success(function (response, status) {
+                $http.get("data/us-states.json", {cache: true}).success(function (response, status) {
                     state_location = response.features
                     angular.forEach(state_location, function (state_locale) {
                         if (state_locale.properties.name == selected_state) {

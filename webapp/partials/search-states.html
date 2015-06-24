@@ -1,13 +1,15 @@
-<h3>Select the state you wish to search for</h3>
+<br />
 <div class="row">
-    <div class="col-lg-6">
+    <div class="col-sm-6">
+        <h4>Browse state recalls</h4>
+    </div>
+    <div class="col-sm-6">
         <select class="form-control" ng-model="selected_state" ng-options="state.name as state.name for state in state_list" ng-change="update(selected_state)">
+            <option value="">Choose...</option>
         </select>
     </div>
-    <div class="col-lg-6">
-        <p>Selected: {{selected_state}}</p>
-    </div>
 </div>
+
 <div class="row">
     <br/><br/>
 </div>
