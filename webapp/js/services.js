@@ -79,7 +79,7 @@
         };
 
         factory.getRecallsByState = function(selected_state) {
-            //return $http.get("http://ec2-54-147-248-210.compute-1.amazonaws.com:8080/mongorest/mongo/query?host=10.153.211.57&database=dbname&collection=fda_enforcement&filter={%22recall_area%22:%22Maryland%22}", {cache:true})
+            //return $http.get("http://ec2-54-147-248-210.compute-1.amazonaws.com:8080/mongorest/mongo/query?host=10.153.211.57&database=dbname&collection=fda_enforcement&filter={%22recall_area%22:%22" + selected_state + "%22}", {cache:true})
             return $http.get("data/state-search.json", {cache: true})
                 .then( function( results ) {
                     return parseDrugNames( results.data['results'] )
@@ -90,10 +90,19 @@
 
         function parseDrugNames( result ) {
             var drug_list = [];
+            var drug_list_obj
 
             var length = result.length;
             for( var i=0; i<length; i++) {
-                drug_list.push(result[i].openfda.brand_name[0][0])
+                drug_list_obj = {}
+                drug_list_obj.name = result[i].openfda.brand_name[0][0]
+                drug_list_obj.reason = result[i].reason_for_recall
+                dateString = result[i].recall_initiation_date
+                year = dateString.substring(0,4);
+                month = dateString.substring(4,6);
+                day = dateString.substring(6,8);
+                drug_list_obj.date = year + "-" + month + "-" + day
+                drug_list.push(drug_list_obj)
             }
 
             return drug_list;

@@ -1,8 +1,38 @@
 <h3>Select the state you wish to search for</h3>
-<div class="col-lg-6">
-    <select class="form-control" ng-model="selected_state" ng-options="state.name as state.name for state in state_list" ng-change="update(selected_state)">
-    </select>
+<div class="row">
+    <div class="col-lg-6">
+        <select class="form-control" ng-model="selected_state" ng-options="state.name as state.name for state in state_list" ng-change="update(selected_state)">
+        </select>
+    </div>
+    <div class="col-lg-6">
+        <p>Selected: {{selected_state}}</p>
+    </div>
 </div>
-<div class="col-lg-6">
-    <p>Selected: {{selected_state}}</p>
+<div class="row">
+    <br/><br/>
 </div>
+<div class="row">
+    <div class="col-lg-12 text-center">
+        <h4>Drug Recalls</h4>
+        <p>DRUGS!</p>
+        <table class="table table-hover">
+            <thead>
+            <tr>
+                <th>Drug Name</th>
+                <th>Recall Reason</th>
+                <th>Date</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr ng-repeat="recall_drug in all_drugs">
+                <td>{{recall_drug.name}}</td>
+                <td>{{recall_drug.reason}}</td>
+                <td>{{recall_drug.date}}</td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+
+
+

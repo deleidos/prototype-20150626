@@ -75,7 +75,7 @@
      * @param $scope
      * @constructor
      */
-    var MapController = function($scope, $http, mapFactory) {
+    var MapController = function($scope, $http, $rootScope, mapFactory) {
         var type =false;
 
         angular.extend($scope, {
@@ -90,7 +90,7 @@
             var all_locations = [];
             $http.get("data/us-states.json").success(function(response, status) {
                 state_location = response.features
-                //$http.get("http://ec2-54-147-248-210.compute-1.amazonaws.com:8080/mongorest/mongo/query?host=10.153.211.57&database=dbname&collection=fda_enforcement&filter={%22openfda.substance_name.0.0%22:%22CANDESARTAN%20CILEXETIL%22}").success(function (data, status) {
+                //$http.get("http://ec2-54-147-248-210.compute-1.amazonaws.com:8080/mongorest/mongo/query?host=10.153.211.57&database=dbname&collection=fda_enforcement&filter={%22openfda.brand_name.0.0%22:%22" + NAME VARIABLE + "%22}").success(function (data, status) {
                 $http.get("data/state-response.json").success(function (data, status) {
                 recall_location = data.results[0].recall_area
                     angular.forEach(recall_location, function (recall_locale) {
@@ -120,16 +120,31 @@
         function search_by_state() {
 
             $scope.$on('state-update', function(event, args) {
-                console.log(args)
                 selected_state = args;
+
+                $rootScope.all_drugs = []
 
                 mapFactory.getRecallsByState(selected_state)
                     .then(function (results) {
-                        console.log(results)
+                        angular.forEach(results, function(drug_name){
+                            $rootScope.all_drugs.push(drug_name);
+                        });
                     }, function (error) {
                         // TODO show alert
                         console.log("got an error, ", error)
                     });
+
+                mapFactory.getRecallsByState("Nationwide")
+                    .then(function (results) {
+                        angular.forEach(results, function(drug_name){
+                            $rootScope.all_drugs.push(drug_name);
+                        });
+                    }, function (error) {
+                        // TODO show alert
+                        console.log("got an error, ", error)
+                    });
+
+
 
                 var one_location = []
                 $http.get("data/us-states.json").success(function (response, status) {
@@ -163,7 +178,7 @@
             search_by_state();
         }
     };
-    angular.module('App').controller('MapController', ["$scope", "$http", "mapFactory", MapController]);
+    angular.module('App').controller('MapController', ["$scope", "$http", "$rootScope", "mapFactory", MapController]);
 
 
 }());
