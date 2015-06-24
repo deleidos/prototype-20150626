@@ -1,0 +1,783 @@
+
+
+{
+  "count": 5,
+  "results": [
+    {
+      "_id": {
+        "$oid": "55897f5360b24f0590ca8b1e"
+      },
+      "standardHeader": {
+        "uuid": "e02430a8-ed8b-45f8-be91-bc92f1905dd3",
+        "source": "UNKNOWN",
+        "accessLabel": "UNCLASSIFIED",
+        "modelName": "fda_enforcement",
+        "modelVersion": "1.1"
+      },
+      "recall_number": "D-1361-2014",
+      "openfda": {
+        "pharm_class_cs": [
+
+        ],
+        "original_packager_product_ndc": [
+
+        ],
+        "pharm_class_epc": [
+          [
+            "Serotonin and Norepinephrine Reuptake Inhibitor [EPC]"
+          ]
+        ],
+        "nui": [
+          [
+            "N0000175749",
+            "N0000000109",
+            "N0000000102"
+          ]
+        ],
+        "manufacturer_name": [
+          [
+            "Greenstone LLC"
+          ]
+        ],
+        "application_number": [
+          [
+            "NDA020699"
+          ]
+        ],
+        "product_type": [
+          [
+            "HUMAN PRESCRIPTION DRUG"
+          ]
+        ],
+        "brand_name": [
+          [
+            "VENLAFAXINE HYDROCHLORIDE"
+          ]
+        ],
+        "route": [
+          [
+            "ORAL"
+          ]
+        ],
+        "substance_name": [
+          [
+            "VENLAFAXINE HYDROCHLORIDE"
+          ]
+        ],
+        "rxcui": [
+          [
+            "313583",
+            "313581",
+            "313585"
+          ]
+        ],
+        "pharm_class_pe": [
+
+        ],
+        "package_ndc": [
+          [
+            "59762-0181-1",
+            "59762-0181-3",
+            "59762-0181-2",
+            "59762-0181-4",
+            "59762-0180-4",
+            "59762-0180-1",
+            "59762-0180-2",
+            "59762-0180-3",
+            "59762-0182-2",
+            "59762-0182-3",
+            "59762-0182-1",
+            "59762-0182-4"
+          ]
+        ],
+        "generic_name": [
+          [
+            "VENLAFAXINE HYDROCHLORIDE"
+          ]
+        ],
+        "spl_id": [
+          [
+            "ad27c05f-bd7f-42bd-ba3a-c62eb169c7c9"
+          ]
+        ],
+        "upc": [
+          [
+            "359762018229"
+          ]
+        ],
+        "is_original_packager": [
+          [
+            true
+          ]
+        ],
+        "pharm_class_moa": [
+          [
+            "Norepinephrine Uptake Inhibitors [MoA]",
+            "Serotonin Uptake Inhibitors [MoA]"
+          ]
+        ],
+        "product_ndc": [
+          [
+            "59762-0181",
+            "59762-0180",
+            "59762-0182"
+          ]
+        ],
+        "spl_set_id": [
+          [
+            "4c401522-0108-49cb-8a41-fb5ad4dd0fb1"
+          ]
+        ],
+        "unii": [
+          [
+            "GRZ5RCB1QG"
+          ]
+        ]
+      },
+      "product_quantity": "16,018 bottles",
+      "state": "NJ",
+      "recall_initiation_date": "20140306",
+      "event_id": "67637",
+      "product_description": "Venlafaxine HCl Extended-Release Capsules, 150 mg, 90-count Unit of Use bottles, Rx only, Distributed by: Greenstone LLC, Peapack, NJ  07977, NDC 59762-0182-2, UPC 3 59762-0182-2 9.",
+      "recalling_firm": "Greenstone Llc",
+      "city": "Peapack",
+      "@epoch": 1424553174.8365,
+      "code_info": "V130014, Exp 08\/15",
+      "reason_for_recall": "Presence of Foreign Tablets\/Capsules: A Pharmacist reported a foreign capsule with markings (TKN 250) and identified as a Tikosyn (dofetilide) capsule in a lot of Effexor XR 150 mg capsules that was packaged in the same packaging campaign as this Venlafaxine HCl lot.",
+      "distribution_pattern": "Nationwide and Puerto Rico",
+      "status": "Ongoing",
+      "product_type": "Drugs",
+      "country": "US",
+      "report_date": "20140618",
+      "voluntary_mandated": "Voluntary: Firm Initiated",
+      "classification": "Class I",
+      "@id": "1dee8a8b116f163ead7c36beed9c9c643596bed01ac94a3dea88945304b9b97e",
+      "initial_firm_notification": "Two or more of the following: Email, Fax, Letter, Press Release, Telephone, Visit",
+      "recall_area": [
+        "Nationwide"
+      ]
+    },
+    {
+      "_id": {
+        "$oid": "55897f3f60b24f0590ca8994"
+      },
+      "standardHeader": {
+        "uuid": "1295a314-4390-4ba3-8710-25b47f722965",
+        "source": "UNKNOWN",
+        "accessLabel": "UNCLASSIFIED",
+        "modelName": "fda_enforcement",
+        "modelVersion": "1.1"
+      },
+      "recall_number": "D-1067-2013",
+      "openfda": {
+        "pharm_class_cs": [
+
+        ],
+        "original_packager_product_ndc": [
+
+        ],
+        "pharm_class_epc": [
+          [
+            "Serotonin and Norepinephrine Reuptake Inhibitor [EPC]"
+          ]
+        ],
+        "nui": [
+          [
+            "N0000175749",
+            "N0000000109",
+            "N0000000102"
+          ]
+        ],
+        "manufacturer_name": [
+          [
+            "Kremers Urban Pharmaceuticals Inc."
+          ]
+        ],
+        "application_number": [
+          [
+            "NDA022104"
+          ]
+        ],
+        "product_type": [
+          [
+            "HUMAN PRESCRIPTION DRUG"
+          ]
+        ],
+        "brand_name": [
+          [
+            "VENLAFAXINE HYDROCHLORIDE"
+          ]
+        ],
+        "route": [
+          [
+            "ORAL"
+          ]
+        ],
+        "substance_name": [
+          [
+            "VENLAFAXINE HYDROCHLORIDE"
+          ]
+        ],
+        "rxcui": [
+          [
+            "808744",
+            "808753",
+            "808748",
+            "808751"
+          ]
+        ],
+        "pharm_class_pe": [
+
+        ],
+        "package_ndc": [
+          [
+            "0131-3266-46",
+            "0131-3267-32",
+            "0131-3267-46",
+            "0131-3265-46",
+            "0131-3268-46",
+            "0131-3268-32",
+            "0131-3265-32",
+            "0131-3266-32"
+          ]
+        ],
+        "generic_name": [
+          [
+            "VENLAFAXINE HYDROCHLORIDE"
+          ]
+        ],
+        "spl_id": [
+          [
+            "46596bfd-f89e-46c4-9ff8-e5e19917fb69"
+          ]
+        ],
+        "upc": [
+
+        ],
+        "is_original_packager": [
+          [
+            true
+          ]
+        ],
+        "pharm_class_moa": [
+          [
+            "Norepinephrine Uptake Inhibitors [MoA]",
+            "Serotonin Uptake Inhibitors [MoA]"
+          ]
+        ],
+        "product_ndc": [
+          [
+            "0131-3266",
+            "0131-3267",
+            "0131-3265",
+            "0131-3268"
+          ]
+        ],
+        "spl_set_id": [
+          [
+            "908bc748-21e3-4f07-bab3-8e3b3da99be0"
+          ]
+        ],
+        "unii": [
+          [
+            "GRZ5RCB1QG"
+          ]
+        ]
+      },
+      "product_quantity": "57857 bottles",
+      "state": "GA",
+      "recall_initiation_date": "20130916",
+      "event_id": "66226",
+      "product_description": "Venlafaxine (Venlafaxine Hydrochloride) extended release Tablets, 225 mg, packaged in a) 30- count bottle (NDC 0131-3268-32) and b) 90-count bottle (NDC: 0131-3268-46), Rx only, Manufactured by: Kremers Urban Pharmaceuticals Inc. For: Osmotica Pharmaceutical Corp., Wilmington, NC 28405, USA.",
+      "recalling_firm": "Osmotica Pharmaceutical Corp",
+      "city": "Marietta",
+      "@epoch": 1424553174.8365,
+      "code_info": "Lot #: a) 58975, 58976, 58977, 65165 , Exp 01\/14; b) 58973, 58974, 65131, Exp: 01\/14",
+      "reason_for_recall": "Failed Dissolution Specification; 12 hour time point at 18 months shelf life",
+      "distribution_pattern": "Nationwide",
+      "status": "Ongoing",
+      "product_type": "Drugs",
+      "country": "US",
+      "report_date": "20131009",
+      "voluntary_mandated": "Voluntary: Firm Initiated",
+      "classification": "Class III",
+      "@id": "0b5b9c7194d10259a9fd7ebdd3cdf68c9636a7e2d663ea8bc0a1c6b50aa85a9b",
+      "initial_firm_notification": "Letter",
+      "recall_area": [
+        "Nationwide"
+      ]
+    },
+    {
+      "_id": {
+        "$oid": "55897f4760b24f0590ca8a07"
+      },
+      "standardHeader": {
+        "uuid": "d64707d4-c5b2-4b6d-9d76-fadb721e83b0",
+        "source": "UNKNOWN",
+        "accessLabel": "UNCLASSIFIED",
+        "modelName": "fda_enforcement",
+        "modelVersion": "1.1"
+      },
+      "recall_number": "D-1284-2014",
+      "openfda": {
+        "pharm_class_cs": [
+
+        ],
+        "original_packager_product_ndc": [
+
+        ],
+        "pharm_class_epc": [
+          [
+            "Serotonin and Norepinephrine Reuptake Inhibitor [EPC]"
+          ]
+        ],
+        "nui": [
+          [
+            "N0000175749",
+            "N0000000109",
+            "N0000000102"
+          ]
+        ],
+        "manufacturer_name": [
+          [
+            "Sun Pharma Global Inc."
+          ]
+        ],
+        "application_number": [
+          [
+            "ANDA091272"
+          ]
+        ],
+        "product_type": [
+          [
+            "HUMAN PRESCRIPTION DRUG"
+          ]
+        ],
+        "brand_name": [
+          [
+            "VENLAFAXINE HYDROCHLORIDE"
+          ]
+        ],
+        "route": [
+          [
+            "ORAL"
+          ]
+        ],
+        "substance_name": [
+          [
+            "VENLAFAXINE HYDROCHLORIDE"
+          ]
+        ],
+        "rxcui": [
+          [
+            "808744",
+            "808753",
+            "808751"
+          ]
+        ],
+        "pharm_class_pe": [
+
+        ],
+        "package_ndc": [
+          [
+            "41616-759-18",
+            "41616-760-83",
+            "41616-760-81",
+            "41616-758-83",
+            "41616-758-81",
+            "41616-760-88",
+            "41616-759-83",
+            "41616-759-81",
+            "41616-759-08",
+            "41616-760-18",
+            "41616-760-08",
+            "41616-758-88",
+            "41616-759-88",
+            "41616-758-08",
+            "41616-758-18"
+          ]
+        ],
+        "generic_name": [
+          [
+            "VENLAFAXINE HYDROCHLORIDE"
+          ]
+        ],
+        "spl_id": [
+          [
+            "989705dd-929b-4b62-9ef4-e768f0e366cb"
+          ]
+        ],
+        "upc": [
+          [
+            "341616760811",
+            "341616760835"
+          ]
+        ],
+        "is_original_packager": [
+          [
+            true
+          ]
+        ],
+        "pharm_class_moa": [
+          [
+            "Norepinephrine Uptake Inhibitors [MoA]",
+            "Serotonin Uptake Inhibitors [MoA]"
+          ]
+        ],
+        "product_ndc": [
+          [
+            "41616-760",
+            "41616-758",
+            "41616-759"
+          ]
+        ],
+        "spl_set_id": [
+          [
+            "989705dd-929b-4b62-9ef4-e768f0e366cb"
+          ]
+        ],
+        "unii": [
+          [
+            "GRZ5RCB1QG"
+          ]
+        ]
+      },
+      "product_quantity": "91,777 bottles",
+      "state": "MI",
+      "recall_initiation_date": "20140320",
+      "event_id": "67784",
+      "product_description": "Venlafaxine Hydrochloride Extended-Release Tablets, 37.5 mg, packaged in a) 30-count bottles (NDC 41616-760-83, UPC 3 41616 76083 5); and b) 90-count bottles (NDC 41616-760-81, UPC 3 41616 76081 1), Rx only, Distributed by: Caraco Pharmaceutical Laboratories, Ltd., 1150 Elijah McCoy Drive, Detroit, MI  48202; Manufactured at: Sun Pharmaceutical Ind. Ltd., Halol-Baroda Highway, Halol-389 350, Gujarat, India.",
+      "recalling_firm": "Caraco Pharmaceutical Laboratories, Ltd.",
+      "city": "Detroit",
+      "@epoch": 1424553174.8365,
+      "code_info": "Lot #: a) JKL4344A, Exp 07\/14; JKL5460A, Exp 10\/14; JKL5458A, Exp 11\/14; b) JKL4344B, Exp 07\/14; JKL5460B, Exp 10\/14; JKL5458B, Exp 11\/14.",
+      "reason_for_recall": "Failed Dissolution Specifications: Stability results found the product did not meet the drug release dissolution specifications.",
+      "distribution_pattern": "Nationwide and Puerto Rico",
+      "status": "Ongoing",
+      "product_type": "Drugs",
+      "country": "US",
+      "report_date": "20140507",
+      "voluntary_mandated": "Voluntary: Firm Initiated",
+      "classification": "Class II",
+      "@id": "8c653b2878a14a4900141f9d01b5046c04a8dd7e5f843f91aabecd2106ccd186",
+      "initial_firm_notification": "Two or more of the following: Email, Fax, Letter, Press Release, Telephone, Visit",
+      "recall_area": [
+        "Nationwide"
+      ]
+    },
+    {
+      "_id": {
+        "$oid": "55897f5360b24f0590ca8a8e"
+      },
+      "standardHeader": {
+        "uuid": "c4a33058-1052-4849-acee-cd85c5b383e5",
+        "source": "UNKNOWN",
+        "accessLabel": "UNCLASSIFIED",
+        "modelName": "fda_enforcement",
+        "modelVersion": "1.1"
+      },
+      "recall_number": "D-1415-2014",
+      "openfda": {
+        "pharm_class_cs": [
+
+        ],
+        "original_packager_product_ndc": [
+
+        ],
+        "pharm_class_epc": [
+          [
+            "Serotonin and Norepinephrine Reuptake Inhibitor [EPC]"
+          ]
+        ],
+        "nui": [
+          [
+            "N0000175749",
+            "N0000000109",
+            "N0000000102"
+          ]
+        ],
+        "manufacturer_name": [
+          [
+            "Sun Pharma Global Inc."
+          ]
+        ],
+        "application_number": [
+          [
+            "ANDA091272"
+          ]
+        ],
+        "product_type": [
+          [
+            "HUMAN PRESCRIPTION DRUG"
+          ]
+        ],
+        "brand_name": [
+          [
+            "VENLAFAXINE HYDROCHLORIDE"
+          ]
+        ],
+        "route": [
+          [
+            "ORAL"
+          ]
+        ],
+        "substance_name": [
+          [
+            "VENLAFAXINE HYDROCHLORIDE"
+          ]
+        ],
+        "rxcui": [
+          [
+            "808744",
+            "808753",
+            "808751"
+          ]
+        ],
+        "pharm_class_pe": [
+
+        ],
+        "package_ndc": [
+          [
+            "41616-759-18",
+            "41616-760-83",
+            "41616-760-81",
+            "41616-758-83",
+            "41616-758-81",
+            "41616-760-88",
+            "41616-759-83",
+            "41616-759-81",
+            "41616-759-08",
+            "41616-760-18",
+            "41616-760-08",
+            "41616-758-88",
+            "41616-759-88",
+            "41616-758-08",
+            "41616-758-18"
+          ]
+        ],
+        "generic_name": [
+          [
+            "VENLAFAXINE HYDROCHLORIDE"
+          ]
+        ],
+        "spl_id": [
+          [
+            "989705dd-929b-4b62-9ef4-e768f0e366cb"
+          ]
+        ],
+        "upc": [
+
+        ],
+        "is_original_packager": [
+          [
+            true
+          ]
+        ],
+        "pharm_class_moa": [
+          [
+            "Norepinephrine Uptake Inhibitors [MoA]",
+            "Serotonin Uptake Inhibitors [MoA]"
+          ]
+        ],
+        "product_ndc": [
+          [
+            "41616-760",
+            "41616-758",
+            "41616-759"
+          ]
+        ],
+        "spl_set_id": [
+          [
+            "989705dd-929b-4b62-9ef4-e768f0e366cb"
+          ]
+        ],
+        "unii": [
+          [
+            "GRZ5RCB1QG"
+          ]
+        ]
+      },
+      "product_quantity": "26,530 30-Count Bottles; 14,597 90-Count Bottles",
+      "state": "MI",
+      "recall_initiation_date": "20140612",
+      "event_id": "68637",
+      "product_description": "Venlafaxine Hydrochloride Extended-Release Tablets, 150 mg, Rx only, Packaged in 30 Count and 90 Count Bottles. Distributed by: Caraco Pharmaceutical Laboratories, Ltd., 1150 Elijah McCoy Drive, Detroit, MI 48202; Manufactured at: Sun Pharmaceutical Ind. Ltd., Halol-Baroda Highway, Halol-389 350, Gujarat, India. 30-Count Bottle NDC: 41616-758-83,  90-Count Bottle: NDC 41616-758-81.",
+      "recalling_firm": "Caraco Pharmaceutical Laboratories, Ltd.",
+      "city": "Detroit",
+      "@epoch": 1424553174.8365,
+      "code_info": "30 Count Bottle: Lot #: JKL5054A, Expiry: 08\/2014; Lot #: JKM2305A, Expiry: 03\/2015.  90 Count Bottle: Lot #: JKL5054B, Expiry: 08\/2014; Lot #: JKM2305B, Expiry: 03\/2015.",
+      "reason_for_recall": "Failed Dissolution Specifications: Stability results found the product did not meet the drug release dissolution specifications.",
+      "distribution_pattern": "Nationwide including Puerto Rico",
+      "status": "Ongoing",
+      "product_type": "Drugs",
+      "country": "US",
+      "report_date": "20140709",
+      "voluntary_mandated": "Voluntary: Firm Initiated",
+      "classification": "Class II",
+      "@id": "1c82b17f4299f21f7d04c0f2d21f8df59b38800a617c3c2c06bb7167aa50725f",
+      "initial_firm_notification": "Letter",
+      "recall_area": [
+        "Nationwide"
+      ]
+    },
+    {
+      "_id": {
+        "$oid": "55897f5360b24f0590ca8ae4"
+      },
+      "standardHeader": {
+        "uuid": "19e95598-dc8d-4b38-a60f-de77c97a1f49",
+        "source": "UNKNOWN",
+        "accessLabel": "UNCLASSIFIED",
+        "modelName": "fda_enforcement",
+        "modelVersion": "1.1"
+      },
+      "recall_number": "D-1283-2014",
+      "openfda": {
+        "pharm_class_cs": [
+
+        ],
+        "original_packager_product_ndc": [
+
+        ],
+        "pharm_class_epc": [
+          [
+            "Serotonin and Norepinephrine Reuptake Inhibitor [EPC]"
+          ]
+        ],
+        "nui": [
+          [
+            "N0000175749",
+            "N0000000109",
+            "N0000000102"
+          ]
+        ],
+        "manufacturer_name": [
+          [
+            "Sun Pharma Global Inc."
+          ]
+        ],
+        "application_number": [
+          [
+            "ANDA091272"
+          ]
+        ],
+        "product_type": [
+          [
+            "HUMAN PRESCRIPTION DRUG"
+          ]
+        ],
+        "brand_name": [
+          [
+            "VENLAFAXINE HYDROCHLORIDE"
+          ]
+        ],
+        "route": [
+          [
+            "ORAL"
+          ]
+        ],
+        "substance_name": [
+          [
+            "VENLAFAXINE HYDROCHLORIDE"
+          ]
+        ],
+        "rxcui": [
+          [
+            "808744",
+            "808753",
+            "808751"
+          ]
+        ],
+        "pharm_class_pe": [
+
+        ],
+        "package_ndc": [
+          [
+            "41616-759-18",
+            "41616-760-83",
+            "41616-760-81",
+            "41616-758-83",
+            "41616-758-81",
+            "41616-760-88",
+            "41616-759-83",
+            "41616-759-81",
+            "41616-759-08",
+            "41616-760-18",
+            "41616-760-08",
+            "41616-758-88",
+            "41616-759-88",
+            "41616-758-08",
+            "41616-758-18"
+          ]
+        ],
+        "generic_name": [
+          [
+            "VENLAFAXINE HYDROCHLORIDE"
+          ]
+        ],
+        "spl_id": [
+          [
+            "989705dd-929b-4b62-9ef4-e768f0e366cb"
+          ]
+        ],
+        "upc": [
+          [
+            "341616758818",
+            "341616758832"
+          ]
+        ],
+        "is_original_packager": [
+          [
+            true
+          ]
+        ],
+        "pharm_class_moa": [
+          [
+            "Norepinephrine Uptake Inhibitors [MoA]",
+            "Serotonin Uptake Inhibitors [MoA]"
+          ]
+        ],
+        "product_ndc": [
+          [
+            "41616-760",
+            "41616-758",
+            "41616-759"
+          ]
+        ],
+        "spl_set_id": [
+          [
+            "989705dd-929b-4b62-9ef4-e768f0e366cb"
+          ]
+        ],
+        "unii": [
+          [
+            "GRZ5RCB1QG"
+          ]
+        ]
+      },
+      "product_quantity": "160,105 bottles",
+      "state": "MI",
+      "recall_initiation_date": "20140320",
+      "event_id": "67784",
+      "product_description": "Venlafaxine Hydrochloride Extended-Release Tablets, 150 mg, packaged in a) 30-count bottles (NDC 41616-758-83, UPC 3 41616 75883 2); and b) 90-count bottles (NDC 41616-758-81, UPC 3 41616 75881 8), Rx only, Distributed by: Caraco Pharmaceutical Laboratories, Ltd., 1150 Elijah McCoy Drive, Detroit, MI  48202; Manufactured at: Sun Pharmaceutical Ind. Ltd., Halol-Baroda Highway, Halol-389 350, Gujarat, India.",
+      "recalling_firm": "Caraco Pharmaceutical Laboratories, Ltd.",
+      "city": "Detroit",
+      "@epoch": 1424553174.8365,
+      "code_info": "Lot #: a) JKL3354A, Exp 04\/14; JKL5444A, Exp 08\/14; JKL5457B, JKL5445A, Exp 09\/14; JKL5840A, Exp 10\/14; JKL6588A, Exp 11\/14; b) JKL3354B, Exp 04\/14; JKL5444B, Exp 08\/14; JKL5457C, JKL5445B, Exp 09\/14; JKL5840B, Exp 10\/14.",
+      "reason_for_recall": "Failed Dissolution Specifications: Stability results found the product did not meet the drug release dissolution specifications.",
+      "distribution_pattern": "Nationwide and Puerto Rico",
+      "status": "Ongoing",
+      "product_type": "Drugs",
+      "country": "US",
+      "report_date": "20140507",
+      "voluntary_mandated": "Voluntary: Firm Initiated",
+      "classification": "Class II",
+      "@id": "ea2b4dcabc92d771424fba2f299c00a4b4cff8056617358306c3db7cd86df44f",
+      "initial_firm_notification": "Two or more of the following: Email, Fax, Letter, Press Release, Telephone, Visit",
+      "recall_area": [
+        "Nationwide"
+      ]
+    }
+  ]
+}
+

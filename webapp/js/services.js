@@ -30,7 +30,8 @@
 
         factory.tabs = [
             {name : "Search by Drug", url : "partials/search-drugs.html"},
-            {name : "Search by State", url : "partials/search-states.html"}
+            {name : "Search by State", url : "partials/search-states.html"},
+            {name : "Search by Manufacturer", url : "partials/search-manufacturer.html"}
         ];
 
         factory.getDrugs = function() {
@@ -51,12 +52,53 @@
                 });
         };
 
+        factory.getManufacturers = function() {
+            return $http.get("data/manufacturers.json", {cache: true})
+                .then( function( results ) {
+                    return parseManufacturers( results.data['results'] )
+                }, function( error ) {
+                    return $q.reject(error.data)
+                });
+        };
+
+        factory.getDrugLabelInfo = function( drug_name ) {
+            var drug_name_urlencode = drug_name.replace(" ", "+");
+            //return $http.get("https://api.fda.gov/drug/label.json?api_key=iNSQYfxgqZX5zRRtCLhDiLjRKOlacIexWT78gxHR&search=openfda.brand_name:\"" + drug_name_urlencode + "\"");
+            return $http.get("data/sample-label-response.json")
+                .then( function( results ) {
+                    return results.data
+                }, function( error ) {
+                    return $q.reject(error.data)
+                });
+        };
+
+        factory.getDrugRecallInfo = function( drug_name ) {
+            //return $http.get("http://ec2-54-147-248-210.compute-1.amazonaws.com:8080/mongorest/mongo/query?host=10.153.211.57&database=dbname&collection=fda_enforcement&filter={\"openfda.substance_name.0.0\":\"" + drug_name + "\"}");
+            return $http.get("data/sample-drug-recall-response.json")
+                .then( function( results ) {
+                    return results.data
+                }, function( error ) {
+                    return $q.reject(error.data)
+                });
+        };
+
         function parseDrugs( result ) {
             var drug_list = [];
 
             var length = result.length;
             for( var i=0; i<length; i++) {
                 drug_list.push(result[i].openfda.brand_name[0][0])
+            }
+
+            return drug_list;
+        }
+
+        function parseManufacturers( result ) {
+            var drug_list = [];
+
+            var length = result.length;
+            for( var i=0; i<length; i++) {
+                drug_list.push(result[i].openfda.manufacturer_name[0][0])
             }
 
             return drug_list;

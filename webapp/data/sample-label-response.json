@@ -1,0 +1,144 @@
+{
+  "meta": {
+    "disclaimer": "openFDA is a beta research project and not for clinical use. While we make every effort to ensure that data is accurate, you should assume all results are unvalidated.",
+    "license": "http://open.fda.gov/license",
+    "last_updated": "2015-05-31",
+    "results": {
+      "skip": 0,
+      "limit": 1,
+      "total": 3
+    }
+  },
+  "results": [
+    {
+      "set_id": "405afdb4-c157-1d88-f232-848063ba4714",
+      "indications_and_usage": [
+        "USES for relief of occasional sleeplessness when associated with minor aches and pains helps you fall asleep and stay asleep"
+      ],
+      "stop_use": [
+        "Stop use and ask a doctor if you experience any of the following signs of stomach bleeding: feel faint vomit blood have bloody or black stools have stomach pain that does not get better pain gets worse or lasts more than 10 days sleeplessness persists continuously for more than 2 weeks. Insomnia may be a symptom of a serious underlying medical illness. redness or swelling is present in the painful area any new symptoms appear"
+      ],
+      "keep_out_of_reach_of_children": [
+        "Keep out of reach of children. In case of overdose, get medical help or contact a Poison Control Center right away."
+      ],
+      "ask_doctor": [
+        "Ask a doctor before use if stomach bleeding warning applies to you you have problems or serious side effects from taking pain relievers or fever reducers you have a history of stomach problems, such as heartburn you have high blood pressure, heart disease, liver cirrhosis, kidney disease, or asthma you are taking a diuretic you have a breathing problem such as emphysema or chronic bronchitis you have glaucoma you have trouble urinating due to an enlarged prostate gland"
+      ],
+      "questions": [
+        "QUESTIONS OR COMMENTS? Call weekdays 9 AM to 5 PM EST at 1-800-88-ADVIL"
+      ],
+      "dosage_and_administration": [
+        "DIRECTIONS do not take more than directed adults and children 12 years and over: take 2 capsules at bedtime do not take more than 2 capsules in 24 hours"
+      ],
+      "purpose": [
+        "PURPOSES Nighttime sleep-aid Pain reliever"
+      ],
+      "ask_doctor_or_pharmacist": [
+        "Ask a doctor or pharmacist before use if you are taking sedatives or tranquilizers, or any other sleep-aid under a doctor's care for any continuing medical illness taking any other antihistamines taking aspirin for heart attack or stroke, because ibuprofen may decrease this benefit of aspirin taking any other drug"
+      ],
+      "do_not_use": [
+        "Do not use if you have ever had an allergic reaction to any other pain reliever/fever reducer unless you have time for a full night's sleep in children under 12 years of age right before or after heart surgery with any other product containing diphenhydramine, even one used on skin if you have sleeplessness without pain"
+      ],
+      "version": "10",
+      "id": "0e4630c8-be3d-4e7a-bdce-29379fb47496",
+      "package_label_principal_display_panel": [
+        "PRINCIPAL DISPLAY PANEL - 8 Capsule Blister Pack See warnings before use Advil ® PM LIQUI-GELS® Solubilized Ibuprofen, 200 mg / Diphenhydramine HCl, 25 mg Do Not Use if foil barrier is broken. Dist. by: Pzifer, Madison, NJ 07940 USA AREA FOR EXP. & LOT SEPARATE FIRST PEEL & PUSH PRINCIPAL DISPLAY PANEL - 8 Capsule Blister Pack",
+        "PRINCIPAL DISPLAY PANEL - 16 Capsule Blister Pack Carton READ AND KEEP CARTON FOR COMPLETE WARNINGS AND INFORMATION Advil ® PM LIQUI-GELS ® Solubilized Ibuprofen, 200 mg/Diphenhydramine HCl, 25 mg Pain Reliever (NSAID)/Nighttime Sleep-Aid 16 Liqui-Gels®* *Liquid Filled Capsules Liquid Filled Capsules PRINCIPAL DISPLAY PANEL - 16 Capsule Blister Pack Carton",
+        "PRINCIPAL DISPLAY PANEL - 80 Capsule Bottle Label Advil ® PM LIQUI-GELS ® Solubilized Ibuprofen, 200 mg/Diphenhydramine HCl, 25 mg Pain Reliever (NSAID)/Nighttime Sleep-Aid 80 Liquid Filled Capsules Liquid Filled Capsules READ AND KEEP CARTON FOR COMPLETE WARNINGS AND INFORMATION Principal Display Panel - 80 Capsule Bottle Label",
+        "PRINCIPAL DISPLAY PANEL - 80 Capsule Bottle Carton GREAT VALUE! Advil ® PM LIQUI-GELS ® Solubilized Ibuprofen, 200 mg/ Diphenhydramine HCl, 25 mg Pain Reliever (NSAID)/Nighttime Sleep-Aid 80 Liqui-Gels®* *Liquid Filled Capsules Liquid Filled Capsules Principal Display Panel - 80 Capsule Bottle Carton"
+      ],
+      "pregnancy_or_breast_feeding": [
+        "If pregnant or breast-feeding, ask a health professional before use. It is especially important not to use ibuprofen during the last 3 months of pregnancy unless definitely directed to do so by a doctor because it may cause problems in the unborn child or complications during delivery."
+      ],
+      "active_ingredient": [
+        "ACTIVE INGREDIENTS (IN EACH CAPSULE) Diphenhydramine hydrochloride 25 mg Solubilized ibuprofen equal to 200 mg ibuprofen (NSAID)* (present as the free acid and potassium salt) *nonsteroidal anti-inflammatory drug"
+      ],
+      "inactive_ingredient": [
+        "INACTIVE INGREDIENTS D&C red no. 33, FD&C blue no. 1, fractionated coconut oil, gelatin, pharmaceutical ink, polyethylene glycol, potassium hydroxide, purified water, sorbitan, sorbitol"
+      ],
+      "@epoch": 1424554804.670997,
+      "effective_time": "20150127",
+      "openfda": {
+        "unii": [
+          "8GTS82S83M"
+        ],
+        "spl_id": [
+          "ba428391-b323-4c6a-954b-9924e3fdb9ef"
+        ],
+        "product_ndc": [
+          "0573-0167"
+        ],
+        "substance_name": [
+          "DIPHENHYDRAMINE HYDROCHLORIDE",
+          "IBUPROFEN"
+        ],
+        "rxcui": [
+          "901814",
+          "902633"
+        ],
+        "spl_set_id": [
+          "405afdb4-c157-1d88-f232-848063ba4714"
+        ],
+        "product_type": [
+          "HUMAN OTC DRUG"
+        ],
+        "upc": [
+          "0305730167109"
+        ],
+        "manufacturer_name": [
+          "Pfizer Consumer Healthcare"
+        ],
+        "brand_name": [
+          "ADVIL PM"
+        ],
+        "is_original_packager": [
+          true
+        ],
+        "route": [
+          "ORAL"
+        ],
+        "nui": [
+          "N0000175587",
+          "N0000000190"
+        ],
+        "pharm_class_moa": [
+          "Histamine H1 Receptor Antagonists [MoA]"
+        ],
+        "package_ndc": [
+          "0573-0167-42",
+          "0573-0167-43",
+          "0573-0167-55",
+          "0573-0167-18",
+          "0573-0167-19",
+          "0573-0167-26",
+          "0573-0167-10",
+          "0573-0167-25",
+          "0573-0167-21",
+          "0573-0167-20"
+        ],
+        "pharm_class_epc": [
+          "Histamine-1 Receptor Antagonist [EPC]"
+        ],
+        "generic_name": [
+          "DIPHENHYDRAMINE HCL, IBUPROFEN"
+        ],
+        "application_number": [
+          "NDA021393"
+        ]
+      },
+      "spl_product_data_elements": [
+        "ADVIL PM diphenhydramine HCl, ibuprofen DIPHENHYDRAMINE HYDROCHLORIDE DIPHENHYDRAMINE IBUPROFEN IBUPROFEN D&C RED NO. 33 FD&C BLUE NO. 1 MEDIUM-CHAIN TRIGLYCERIDES GELATIN POLYETHYLENE GLYCOLS POTASSIUM HYDROXIDE WATER SORBITAN SORBITOL Clear blue Oval liqui-gel Advil;PM"
+      ],
+      "warnings": [
+        "WARNINGS Allergy alert: Ibuprofen may cause a severe allergic reaction, especially in people allergic to aspirin. Symptoms may include: hives facial swelling asthma (wheezing) shock skin reddening rash blisters If an allergic reaction occurs, stop use and seek medical help right away. Stomach bleeding warning: This product contains an NSAID, which may cause severe stomach bleeding. The chance is higher if you are age 60 or older have had stomach ulcers or bleeding problems take a blood thinning (anticoagulant) or steroid drug take other drugs containing prescription or nonprescription NSAIDs [aspirin, ibuprofen, naproxen, or others] have 3 or more alcoholic drinks every day while using this product take more or for a longer time than directed Do not use if you have ever had an allergic reaction to any other pain reliever/fever reducer unless you have time for a full night's sleep in children under 12 years of age right before or after heart surgery with any other product containing diphenhydramine, even one used on skin if you have sleeplessness without pain Ask a doctor before use if stomach bleeding warning applies to you you have problems or serious side effects from taking pain relievers or fever reducers you have a history of stomach problems, such as heartburn you have high blood pressure, heart disease, liver cirrhosis, kidney disease, or asthma you are taking a diuretic you have a breathing problem such as emphysema or chronic bronchitis you have glaucoma you have trouble urinating due to an enlarged prostate gland Ask a doctor or pharmacist before use if you are taking sedatives or tranquilizers, or any other sleep-aid under a doctor's care for any continuing medical illness taking any other antihistamines taking aspirin for heart attack or stroke, because ibuprofen may decrease this benefit of aspirin taking any other drug When using this product drowsiness will occur avoid alcoholic drinks do not drive a motor vehicle or operate machinery take with food or milk if stomach upset occurs the risk of heart attack or stroke may increase if you use more than directed or for longer than directed Stop use and ask a doctor if you experience any of the following signs of stomach bleeding: feel faint vomit blood have bloody or black stools have stomach pain that does not get better pain gets worse or lasts more than 10 days sleeplessness persists continuously for more than 2 weeks. Insomnia may be a symptom of a serious underlying medical illness. redness or swelling is present in the painful area any new symptoms appear If pregnant or breast-feeding, ask a health professional before use. It is especially important not to use ibuprofen during the last 3 months of pregnancy unless definitely directed to do so by a doctor because it may cause problems in the unborn child or complications during delivery. Keep out of reach of children. In case of overdose, get medical help or contact a Poison Control Center right away."
+      ],
+      "when_using": [
+        "When using this product drowsiness will occur avoid alcoholic drinks do not drive a motor vehicle or operate machinery take with food or milk if stomach upset occurs the risk of heart attack or stroke may increase if you use more than directed or for longer than directed"
+      ],
+      "spl_unclassified_section": [
+        "DRUG FACTS",
+        "OTHER INFORMATION each capsule contains: potassium 20 mg read all warnings and directions before use. Keep carton. store at 20-25°C (68-77°F) avoid excessive heat above 40°C (104°F) protect from light"
+      ]
+    }
+  ]
+}
