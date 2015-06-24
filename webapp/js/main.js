@@ -1,5 +1,5 @@
 (function() {
-    var app = angular.module('App', ['ngRoute', 'ui.bootstrap', 'ngAnimate', 'leaflet-directive']);
+    var app = angular.module('App', ['ui.utils', 'ngRoute', 'ui.bootstrap', 'ngAnimate', 'leaflet-directive']);
 
     app.config(['$routeProvider', '$httpProvider', function($routeProvider, $httpProvider) {
         $httpProvider.defaults.useXDomain = true;
