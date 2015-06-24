@@ -75,23 +75,74 @@ public class MongoQueryRunnerTest {
     	
     	assertTrue(record.containsField("count"));
     	assertEquals(50, record.get("count"));
-    	
-    	System.out.println(record.get("results").getClass());
+    	assertTrue(record.containsField("results"));
     	assertEquals(50, ((BasicDBList)record.get("results")).size());
     }
     
     @Test
-    public void testQueryFilterForDrug() throws UnknownHostException, MongoException {
+    public void testQueryFilterDrugName() throws UnknownHostException, MongoException {
     	assertEquals(50, collection.getCount());
     	MongoQueryRunner qr = new MongoQueryRunner();
-    	String result = qr.query("localhost", "dbname", "fda_enforcement", null, null, null);
+    	String result = qr.query("localhost", "dbname", "fda_enforcement", "{\"openfda.substance_name.0.0\":\"CARBOPLATIN\"}", null, null);
     	DBObject record = (DBObject) JSON.parse(result);
     	
     	assertTrue(record.containsField("count"));
-    	assertEquals(50, record.get("count"));
+    	assertEquals(1, record.get("count"));
+    	assertTrue(record.containsField("results"));
+    	assertEquals(1, ((BasicDBList)record.get("results")).size());
     	
-    	System.out.println(record.get("results").getClass());
-    	assertEquals(50, ((BasicDBList)record.get("results")).size());
+    	BasicDBList results = (BasicDBList)record.get("results");
+    	DBObject result1 = (DBObject)results.get(0);
+    	DBObject openfda = (DBObject)result1.get("openfda");
+    	BasicDBList list1 = (BasicDBList)openfda.get("substance_name");
+    	BasicDBList list2 = (BasicDBList)list1.get(0);
+    	assertEquals("CARBOPLATIN", list2.get(0));
     }
-
+    
+    @Test
+    public void testQueryFilterRecallArea() throws UnknownHostException, MongoException {
+    	assertEquals(50, collection.getCount());
+    	MongoQueryRunner qr = new MongoQueryRunner();
+    	String result = qr.query("localhost", "dbname", "fda_enforcement", "{\"recall_area\":\"California\"}", null, null);
+    	DBObject record = (DBObject) JSON.parse(result);
+    	
+    	assertTrue(record.containsField("count"));
+    	assertEquals(1, record.get("count"));
+    	assertTrue(record.containsField("results"));
+    	assertEquals(1, ((BasicDBList)record.get("results")).size());
+    	
+    	BasicDBList results = (BasicDBList)record.get("results");
+    	DBObject result1 = (DBObject)results.get(0);
+    	assertTrue(result1.get("recall_area").toString().indexOf("California") > -1);
+    }
+    
+    @Test
+    public void testQueryLimitFields() throws UnknownHostException, MongoException {
+    	assertEquals(50, collection.getCount());
+    	MongoQueryRunner qr = new MongoQueryRunner();
+    	String result = qr.query("localhost", "dbname", "fda_enforcement", "{\"recall_area\":\"California\"}", "recall_area", null);
+    	DBObject record = (DBObject) JSON.parse(result);
+    	
+    	assertTrue(record.containsField("count"));
+    	assertEquals(1, record.get("count"));
+    	assertTrue(record.containsField("results"));
+    	assertEquals(1, ((BasicDBList)record.get("results")).size());
+    	
+    	BasicDBList results = (BasicDBList)record.get("results");
+    	DBObject result1 = (DBObject)results.get(0);
+    	assertEquals(1, result1.keySet().size());
+    	assertTrue(result1.containsField("recall_area"));
+    }
+    
+    @Test
+    public void testQueryLimitRecordCount() throws UnknownHostException, MongoException {
+    	MongoQueryRunner qr = new MongoQueryRunner();
+    	String result = qr.query("localhost", "dbname", "fda_enforcement", null, null, "10");
+    	DBObject record = (DBObject) JSON.parse(result);
+    	
+    	assertTrue(record.containsField("count"));
+    	assertEquals(10, record.get("count"));
+    	assertTrue(record.containsField("results"));
+    	assertEquals(10, ((BasicDBList)record.get("results")).size());
+    }
 }
