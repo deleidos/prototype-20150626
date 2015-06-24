@@ -23,7 +23,7 @@
 			<id>containers</id>
 			<activation>
 				<file>
-					<exists>/vmlinuz</exists>
+					<exists>/etc/centos-release</exists>
 				</file>
 			</activation>
 			<build>

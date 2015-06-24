@@ -29,7 +29,7 @@
 			<id>deploy-to-instance</id>
 			<activation>
 				<file>
-					<exists>/vmlinuz</exists>
+					<exists>/etc/centos-release</exists>
 				</file>
 			</activation>
 			<dependencies>
