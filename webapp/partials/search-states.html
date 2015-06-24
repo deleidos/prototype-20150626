@@ -5,7 +5,7 @@
     </div>
     <div class="col-sm-6">
         <select class="form-control" ng-model="selected_state" ng-options="state.name as state.name for state in state_list" ng-change="update(selected_state)">
-            <option value="">Choose...</option>
+            <option value="" disabled>Choose...</option>
         </select>
     </div>
 </div>

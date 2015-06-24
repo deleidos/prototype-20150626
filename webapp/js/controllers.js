@@ -13,22 +13,15 @@
     angular.module('App').controller('NavController', ['$scope', '$location', NavController]);
 
     /**
-     * Home Controller
+     * Main Controller
      * @param $scope
+     * @param $location
      * @constructor
      */
-    var HomeController = function($scope, homeFactory) {
-        function init() {
-            homeFactory.init()
-                .then(function (response) {
-                    $scope.message = response.data.message
-                }, function (e) {
-                    $scope.message = "oops! Something went wrong."
-                });
-        }
-        init()
+    var MainController = function($routeParams, mainFactory) {
+        mainFactory.useTestData = $routeParams['debug'] === 'true';
     };
-    angular.module('App').controller('HomeController', ['$scope', 'homeFactory', HomeController]);
+    angular.module('App').controller('MainController', ['$routeParams', 'mainFactory', MainController]);
 
     /**
      * Search Controller
@@ -138,7 +131,7 @@
      * @constructor
      */
 
-    var MapController = function($scope, $http, $rootScope, mapFactory) {
+    var MapController = function($scope, $http, $rootScope, mapFactory, mainFactory) {
         var type = false;
 
         angular.extend($scope, {
@@ -150,11 +143,13 @@
         });
 
         function search_by_name() {
+            var url = mainFactory.useTestData ? "data/state-response.json" :
+                "http://" + mainFactory.defaultHost + ":8080/mongorest/mongo/query?host=10.153.211.57&database=dbname&collection=fda_enforcement&filter={%22openfda.brand_name.0.0%22:%22ADVIL%20PM%22}";
+
             var all_locations = [];
             $http.get("data/us-states.json", {cache: true}).success(function(response, status) {
-                state_location = response.features
-                //$http.get("http://ec2-54-147-248-210.compute-1.amazonaws.com:8080/mongorest/mongo/query?host=10.153.211.57&database=dbname&collection=fda_enforcement&filter={%22openfda.brand_name.0.0%22:%22ADVIL%20PM%22}").success(function (data, status) {
-                $http.get("data/state-response.json").success(function (data, status) {
+                state_location = response.features;
+                $http.get(url).success(function (data, status) {
                 recall_location = data.results[0].recall_area
                     angular.forEach(recall_location, function (recall_locale) {
                         angular.forEach(state_location, function (state_locale) {
@@ -240,7 +235,7 @@
             search_by_state();
         }
     };
-    angular.module('App').controller('MapController', ["$scope", "$http", "$rootScope", "mapFactory", MapController]);
+    angular.module('App').controller('MapController', ["$scope", "$http", "$rootScope", "mapFactory", "mainFactory", MapController]);
 
     angular.module('App').controller('PaginationCtrl', function ($scope, $rootScope, $log) {
 

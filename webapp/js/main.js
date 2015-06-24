@@ -9,7 +9,7 @@
         $routeProvider.
             when('/', {
                 templateUrl: 'partials/home.html',
-                controller: 'HomeController'
+                controller: 'MainController'
             }).
             when('/about', {
                 templateUrl: 'partials/about.html'

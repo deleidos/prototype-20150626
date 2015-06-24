@@ -1,31 +1,21 @@
 (function() {
     /**
-     * Home Factory
-     * @param $http
+     * Main Factory
      * @returns {{}}
      */
-    var homeFactory = function($http) {
+    var mainFactory = function() {
         var factory = {};
-
-        factory.init = function() {
-            return $http.get("data/sample.json")
-                .then( function( results ) {
-                    return results
-                }, function( error ) {
-                    return $q.reject(error.data)
-                });
-        };
-
+        factory.defaultHost = "ec2-54-147-248-210.compute-1.amazonaws.com";
         return factory;
     };
-    angular.module('App').factory('homeFactory', ['$http', homeFactory]);
+    angular.module('App').factory('mainFactory', [ mainFactory ]);
 
     /**
      * Search Factory
      * @param $http
      * @returns {{}}
      */
-    var searchFactory = function($http, $q) {
+    var searchFactory = function($http, $q, mainFactory) {
         var factory = {};
 
         factory.tabs = [
@@ -35,8 +25,10 @@
         ];
 
         factory.getDrugs = function() {
-            //return $http.get("http://ec2-54-147-248-210.compute-1.amazonaws.com:8080/mongorest/mongo/query?host=10.153.211.57&database=dbname&collection=fda_enforcement&fields=openfda.brand_name", {cache: true})
-            return $http.get("data/drugs.json", {cache: true})
+            var url = mainFactory.useTestData ? "data/drugs.json" :
+                "http://" + mainFactory.defaultHost + ":8080/mongorest/mongo/query?host=10.153.211.57&database=dbname&collection=fda_enforcement&fields=openfda.brand_name";
+
+            return $http.get(url, {cache: true})
                 .then( function( results ) {
                     return parseDrugs( results.data['results'] )
                 }, function( error ) {
@@ -64,8 +56,10 @@
 
         factory.getDrugLabelInfo = function( drug_name ) {
             var drug_name_urlencode = drug_name.replace(" ", "+");
-            //return $http.get("https://api.fda.gov/drug/label.json?api_key=iNSQYfxgqZX5zRRtCLhDiLjRKOlacIexWT78gxHR&search=openfda.brand_name:\"" + drug_name_urlencode + "\"")
-            return $http.get("data/sample-label-response.json")
+            var url = mainFactory.useTestData ? "data/sample-label-response.json" :
+                "https://api.fda.gov/drug/label.json?api_key=iNSQYfxgqZX5zRRtCLhDiLjRKOlacIexWT78gxHR&search=openfda.brand_name:\"" + drug_name_urlencode + "\"";
+
+            return $http.get(url)
                 .then( function( results ) {
                     return results.data
                 }, function( error ) {
@@ -74,8 +68,10 @@
         };
 
         factory.getDrugRecallInfo = function( drug_name ) {
-            //return $http.get("http://ec2-54-147-248-210.compute-1.amazonaws.com:8080/mongorest/mongo/query?host=10.153.211.57&database=dbname&collection=fda_enforcement&filter={\"openfda.substance_name.0.0\":\"" + drug_name + "\"}")
-            return $http.get("data/sample-drug-recall-response.json")
+            var url = mainFactory.useTestData ? "data/sample-drug-recall-response.json" :
+            "http://" + mainFactory.defaultHost + ":8080/mongorest/mongo/query?host=10.153.211.57&database=dbname&collection=fda_enforcement&filter={\"openfda.substance_name.0.0\":\"" + drug_name + "\"}";
+
+            return $http.get(url)
                 .then( function( results ) {
                     return results.data
                 }, function( error ) {
@@ -107,9 +103,9 @@
 
         return factory;
     };
-    angular.module('App').factory('searchFactory', ['$http', '$q', searchFactory]);
+    angular.module('App').factory('searchFactory', ['$http', '$q', 'mainFactory', searchFactory]);
 
-    var mapFactory = function($http, $q) {
+    var mapFactory = function($http, $q, mainFactory) {
         var factory = {};
 
         factory.getRecallsByDrug = function() {
@@ -122,8 +118,10 @@
         };
 
         factory.getRecallsByState = function(selected_state) {
-            //return $http.get("http://ec2-54-147-248-210.compute-1.amazonaws.com:8080/mongorest/mongo/query?host=10.153.211.57&database=dbname&collection=fda_enforcement&filter={%22recall_area%22:%22" + selected_state + "%22}", {cache:true})
-            return $http.get("data/state-search.json", {cache: true})
+            var url = mainFactory.useTestData ? "data/state-search.json" :
+            "http://" + mainFactory.defaultHost + ":8080/mongorest/mongo/query?host=10.153.211.57&database=dbname&collection=fda_enforcement&filter={%22recall_area%22:%22" + selected_state + "%22}";
+
+            return $http.get(url, {cache: true})
                 .then( function( results ) {
                     return parseDrugNames( results.data['results'] )
                 }, function( error ) {
@@ -153,7 +151,7 @@
 
         return factory;
     };
-    angular.module('App').factory('mapFactory', ['$http', '$q', mapFactory]);
+    angular.module('App').factory('mapFactory', ['$http', '$q', 'mainFactory', mapFactory]);
 
 
 }());
