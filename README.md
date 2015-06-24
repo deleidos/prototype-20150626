@@ -15,7 +15,7 @@ on how to configure their installation and use to work behind a proxy.
 ### If building the code on a Windows 7 or better OS
 * Sun JDK 1.7.x
 * Apache Maven 3.x
-* MongoDB 3.x
+* MongoDB 2.4.x
 
 For Windows users who would like to use Virtualbox and Vagrant to provision a Centos 7 VM, Vagrantfile(s) are provided in this repo's 
 docker & deployment projects for use.  Please see a brief description at the top of each respectively for additional information.
@@ -24,7 +24,7 @@ docker & deployment projects for use.  Please see a brief description at the top
 * OpenJDK 1.7.x
 * Apache Maven 3.3.x
 * Docker 1.6.x
-* MongoDB 3.x
+* MongoDB 2.4.x
 
 Once the above dependencies are satisfied, building the code including execution of applicable tests, can be
 achieved by executing the following where you have cloned this repo:
