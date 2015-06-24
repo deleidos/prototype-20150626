@@ -2,6 +2,8 @@
 
 [![Build Status](http://ec2-52-4-234-87.compute-1.amazonaws.com:8080/buildStatus/icon?job=prototype-20150626_master)](http://ec2-52-4-234-87.compute-1.amazonaws.com:8080/job/prototype-20150626_master/)
 
+[![Deployment Status](http://ec2-52-4-234-87.compute-1.amazonaws.com:8080/job/Deploy_Prototype/badge/icon)](http://ec2-52-4-234-87.compute-1.amazonaws.com:8080/job/Deploy_Prototype/)
+
 # Building the code
 ## Prerequisites
 It is assumed that the OS used to build the software does not require a proxy in order access to the internet for things like yum installs, maven dependency
@@ -40,7 +42,8 @@ Typically a Jenkins master/slave CI environment but for the purposes of simplici
 configuration of Jenkins was provisioned.
 
 # Deployment
-Ansible was used to orchestrate the installation and configuration of a Centos 7 OS (currently using the official EC2 AMI) used for hosting the prototype.  The 
-<placeholder> Jenkins job allows for the automated deployment of the prototype to one or more Centos 7 instances, but the Ansible playbook can be run outside of the Jenkins environment 
+Ansible was used to orchestrate the installation and configuration of a Centos 7 OS (currently using the official EC2 AMI) used for hosting the prototype. A 
+Jenkins job allows for the automated deployment of the prototype to one or more Centos 7 instances, but the Ansible playbook can be run outside of the Jenkins environment 
 as was done for the development and testing of the deployment approach.  A Vagrantfile is provided in the deployment project which will allow you 
-to configure a simple control machine outside of the Jenkins environment to use for development/testing.
+to configure a simple control machine outside of the Jenkins environment to use for development/testing.  The status of the deploy can be viewed at the 
+top of this page via the "Deployment Status" button.

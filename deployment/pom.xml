@@ -37,6 +37,7 @@
 					<groupId>com.deleidos</groupId>
 					<artifactId>webapp-centos-container</artifactId>
 					<version>${project.version}</version>
+					<classifier>webapp-centos-container</classifier>
 					<type>tar</type>
 				</dependency>
 			</dependencies>
@@ -61,12 +62,12 @@
 							<artifactItems>
 								<artifactItem>
 									<groupId>com.deleidos</groupId>
-									<artifactId>webapp-centos-container</artifactId>
+									<artifactId>docker</artifactId>
 									<version>${project.version}</version>
 									<classifier>webapp-centos-container</classifier>
 									<type>tar</type>
 									<overWrite>true</overWrite>
-									<destFileName>webapp.tar</destFileName>
+									<destFileName>digitaledge_webapp_${project.version}.tar</destFileName>
 									<outputDirectory>${basedir}/src/playbooks/centos7-standalone/roles/install/files</outputDirectory>
 								</artifactItem>
 							</artifactItems>
