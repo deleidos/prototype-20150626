@@ -1,10 +1,9 @@
 ---   
-  - name: Cadvisor
+  - name: Run cadvisor
     docker: 
       image: google/cadvisor:latest
       name: cadvisor
-      ports: 8080:8080
-      command: "detached=true"
+      ports: 8080:8080     
       volumes:
         - /:/rootfs:ro
         - /var/run:/var/run:rw
