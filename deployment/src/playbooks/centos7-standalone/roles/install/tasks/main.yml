@@ -44,4 +44,4 @@
   
   - include: webapp_container.yml
   
-  #- include: cadvisor.yml
+  - include: cadvisor.yml
