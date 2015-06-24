@@ -35,6 +35,7 @@
         ];
 
         factory.getDrugs = function() {
+            //return $http.get("http://ec2-54-147-248-210.compute-1.amazonaws.com:8080/mongorest/mongo/query?host=10.153.211.57&database=dbname&collection=fda_enforcement&fields=openfda.brand_name", {cache: true})
             return $http.get("data/drugs.json", {cache: true})
                 .then( function( results ) {
                     return parseDrugs( results.data['results'] )
@@ -63,7 +64,7 @@
 
         factory.getDrugLabelInfo = function( drug_name ) {
             var drug_name_urlencode = drug_name.replace(" ", "+");
-            //return $http.get("https://api.fda.gov/drug/label.json?api_key=iNSQYfxgqZX5zRRtCLhDiLjRKOlacIexWT78gxHR&search=openfda.brand_name:\"" + drug_name_urlencode + "\"");
+            //return $http.get("https://api.fda.gov/drug/label.json?api_key=iNSQYfxgqZX5zRRtCLhDiLjRKOlacIexWT78gxHR&search=openfda.brand_name:\"" + drug_name_urlencode + "\"")
             return $http.get("data/sample-label-response.json")
                 .then( function( results ) {
                     return results.data
@@ -73,7 +74,7 @@
         };
 
         factory.getDrugRecallInfo = function( drug_name ) {
-            //return $http.get("http://ec2-54-147-248-210.compute-1.amazonaws.com:8080/mongorest/mongo/query?host=10.153.211.57&database=dbname&collection=fda_enforcement&filter={\"openfda.substance_name.0.0\":\"" + drug_name + "\"}");
+            //return $http.get("http://ec2-54-147-248-210.compute-1.amazonaws.com:8080/mongorest/mongo/query?host=10.153.211.57&database=dbname&collection=fda_enforcement&filter={\"openfda.substance_name.0.0\":\"" + drug_name + "\"}")
             return $http.get("data/sample-drug-recall-response.json")
                 .then( function( results ) {
                     return results.data
