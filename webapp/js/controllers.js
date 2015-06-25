@@ -81,7 +81,7 @@
             $rootScope.$broadcast('reset-update', [])
             $scope.selected_drug = null
             $scope.selected_maker = null
-            $scope.all_drugs = null
+            $rootScope.all_drugs = null
         };
 
         $scope.getDrugData = function(drug) {
