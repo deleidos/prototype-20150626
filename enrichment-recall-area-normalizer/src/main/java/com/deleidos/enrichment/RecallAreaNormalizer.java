@@ -13,21 +13,22 @@ import com.deleidos.rtws.core.framework.processor.AbstractEnrichmentProcessor;
 import com.deleidos.rtws.core.framework.processor.EnrichmentAction;
 import com.deleidos.rtws.core.framework.processor.ParameterList;
 
+/**
+ * Processes the free form "distribution_pattern" field in the enforcment data to produce a new normalized 
+ * list of recall areas for mapping purposes.  The normalized list is to include either "Nationwide", and 
+ * array of state names ([California, New York, Florida, etc.]), or "Unknown".
+ */
 @EnrichmentDefinition(type = "recall_area_normalizer", description = "Normalizes the free form distribution pattern descriptions for recalled FDA drugs.", 
 properties = { @EnrichmentProperty(
 		name="parameters",
 		description="The pre-normalized distribution pattern for the recalled drug",
 		type="java.lang.String"
 	) })
-/**
- * Processes the free form "distribution_pattern" field in the enforcment data to produce a new normalized 
- * list of recall areas for mapping purposes.  The normalized list is to include either "Nationwide", and 
- * array of state names ([California, New York, Florida, etc.]), or "Unknown".
- */
 public class RecallAreaNormalizer extends AbstractEnrichmentProcessor {
 
-	//private static final Logger logger = Logger.getLogger(DistroPatternNormalizer.class);
-	
+	/**
+	 * Array of standard US Postal Codes
+	 */
 	protected static final String[] POSTAL_CODES = 
 		{ "AL", "AK", "AZ", "AR", "CA", "CO", "CT", "DE", "DC", 
 		  "FL", "GA", "HI", "ID", "IL", "IN", "IA", "KS", "KY", 
@@ -36,6 +37,9 @@ public class RecallAreaNormalizer extends AbstractEnrichmentProcessor {
 		  "OK", "OR", "PA", "PR", "RI", "SC", "SD", "TN", "TX", 
 		  "UT", "VT", "VA", "WA", "WV", "WI", "WY" };
 	
+	/**
+	 * Array of standar US State Names
+	 */
 	protected static final String[] STATE_NAMES = 
 		{ "Alabama", "Alaska", "Arizona", "Arkansas", "California", 
 		"Colorado", "Connecticut", "Delaware", "Dist. of Columbia", "Florida", 
@@ -47,30 +51,44 @@ public class RecallAreaNormalizer extends AbstractEnrichmentProcessor {
 		"Rhode Island", "South Carolina", "South Dakota", "Tennessee", "Texas", "Utah", 
 		"Vermont", "Virginia", "Washington", "West Virginia", "Wisconsin", "Wyoming" };
 	
+	/**
+	 * Post Code to State Name lookup map
+	 */
 	protected static HashMap<String, String> stateNameLookup = new HashMap<String, String>();
 
+	/**
+	 * No-arg constructor
+	 */
 	public RecallAreaNormalizer() {
 		super();
 	}	
 	
+	/**
+	 * Returns the Type name to be listed in DE Enrichment listing
+	 */
 	@Override
 	public String getType() {
 		return "recall_area_normalizer";
 	}
 	
+	/**
+	 * One time initialization step, load state lookup map
+	 */
 	@Override
 	public void initialize() {
 		super.initialize();
 		loadLookup();
 	}
 	
+	/**
+	 * Loads the lookup map to associate Postal Codes to State Names
+	 */
 	protected void loadLookup() {
 		for (int i=0; i<POSTAL_CODES.length; i++) {
 			stateNameLookup.put(POSTAL_CODES[i], STATE_NAMES[i]);
 		}
 	}
 
-	@Override
 	/**
 	 * The public method invoked by the DigitalEdge pipeline that performs the actual enrichment.
 	 * The free form distribution_pattern field from the openFDA data is processed as following: 
@@ -79,6 +97,7 @@ public class RecallAreaNormalizer extends AbstractEnrichmentProcessor {
 	 * @param action details to assist in tailoring the enrichment process
 	 * @param parameters the raw input fields to be enriched
 	 */
+	@Override
 	public JSONObject buildEnrichedElement(EnrichmentAction action, ParameterList parameters) {
 		String distribution_pattern = parameters.get(0, String.class);
 		if (distribution_pattern == null || distribution_pattern.isEmpty()) {
@@ -109,6 +128,12 @@ public class RecallAreaNormalizer extends AbstractEnrichmentProcessor {
 		}
 	}
 	
+	/**
+	 * Finds which fields in the searchFields array are contained with the given searchString
+	 * @param searchString
+	 * @param searchFields
+	 * @return the list of searchFields that were found in the search String
+	 */
 	protected List<String> findMatches(String searchString, String[] searchFields) {
 		List<String> matches = new ArrayList<String>();
 		for (String searchField: searchFields) {
@@ -119,6 +144,11 @@ public class RecallAreaNormalizer extends AbstractEnrichmentProcessor {
 		return matches;
 	}
 	
+	/**
+	 * Retrieves the US State Name associated with the given Postal Code
+	 * @param postalCodes
+	 * @return the matching State Name
+	 */
 	protected List<String> lookupStateNames(List<String> postalCodes) {
 		List<String> codes = new ArrayList<String>();
 		for (String code: postalCodes) {
