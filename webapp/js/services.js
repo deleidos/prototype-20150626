@@ -5,7 +5,7 @@
      */
     var mainFactory = function() {
         var factory = {};
-        factory.defaultHost = "ec2-54-147-248-210.compute-1.amazonaws.com";
+        factory.defaultHost = "openfda.deleidos.com";
         return factory;
     };
     angular.module('App').factory('mainFactory', [ mainFactory ]);
@@ -26,7 +26,7 @@
 
         factory.getDrugs = function() {
             var url = mainFactory.useTestData ? "data/drugs.json" :
-                "http://" + mainFactory.defaultHost + ":8080/mongorest/mongo/query?host=10.153.211.57&database=dbname&collection=fda_enforcement&fields=openfda.brand_name";
+                "http://" + mainFactory.defaultHost + "/mongorest/mongo/query?host=mongo&database=dbname&collection=fda_enforcement&fields=openfda.brand_name";
 
             return $http.get(url, {cache: true})
                 .then( function( results ) {
