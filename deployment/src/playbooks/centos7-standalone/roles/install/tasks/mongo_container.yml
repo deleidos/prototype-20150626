@@ -18,4 +18,4 @@
       chdir: /mnt/mdb_extra/
     
   - name: Pre-load the collection
-    shell: docker run -v /mnt/mdb_extra/:/mnt/mdb_extra/ -it --link mongo:mongo mongo:2.4.14 sh -c 'exec mongorestore -h mongo --drop --collection fda_enforcement --db dbname /mnt/mdb_extra/dbname/fda_enforcement.bson'
+    shell: docker run -name importer -v /mnt/mdb_extra/:/mnt/mdb_extra/ -it --link mongo:mongo mongo:2.4.14 sh -c 'exec mongorestore -h mongo --drop --collection fda_enforcement --db dbname /mnt/mdb_extra/dbname/fda_enforcement.bson'
