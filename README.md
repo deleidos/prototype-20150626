@@ -40,7 +40,7 @@ mvn clean install
 
 ## Software Stack and Licensing
 
-The software stack for this prototype includes numerous open source technologies, such as DigitalEdge, Docker, AngularJS, Linux and MongoDB, to name a few. The entire software stack is [licensed under an open source license](https://github.com/deleidos/prototype-20150626/wiki#licenses).
+The software stack for this prototype includes numerous open source technologies. Specifically, Docker, AngularJS, CentOS, MongoDB and DigitalEdge, to name five modern and open-sourced technologies. The entire software stack is [licensed under an open source license](https://github.com/deleidos/prototype-20150626/wiki#licenses).
 
 ## Wiki
 Be sure to check out the wiki to learn more about the prototype, the team and the process:
