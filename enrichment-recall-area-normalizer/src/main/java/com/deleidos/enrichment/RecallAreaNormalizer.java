@@ -19,6 +19,11 @@ properties = { @EnrichmentProperty(
 		description="The pre-normalized distribution pattern for the recalled drug",
 		type="java.lang.String"
 	) })
+/**
+ * Processes the free form "distribution_pattern" field in the enforcment data to produce a new normalized 
+ * list of recall areas for mapping purposes.  The normalized list is to include either "Nationwide", and 
+ * array of state names ([California, New York, Florida, etc.]), or "Unknown".
+ */
 public class RecallAreaNormalizer extends AbstractEnrichmentProcessor {
 
 	//private static final Logger logger = Logger.getLogger(DistroPatternNormalizer.class);
@@ -66,6 +71,14 @@ public class RecallAreaNormalizer extends AbstractEnrichmentProcessor {
 	}
 
 	@Override
+	/**
+	 * The public method invoked by the DigitalEdge pipeline that performs the actual enrichment.
+	 * The free form distribution_pattern field from the openFDA data is processed as following: 
+	 * If the term "Nationwide" is found in the field "Nationwide" is returned, if a list of Postal
+	 * Codes or State names are found a list of State names is returned, otherwise "Unknown" is returned.
+	 * @param action details to assist in tailoring the enrichment process
+	 * @param parameters the raw input fields to be enriched
+	 */
 	public JSONObject buildEnrichedElement(EnrichmentAction action, ParameterList parameters) {
 		String distribution_pattern = parameters.get(0, String.class);
 		if (distribution_pattern == null || distribution_pattern.isEmpty()) {

@@ -13,6 +13,13 @@ import com.deleidos.rtws.core.framework.Description;
 import com.deleidos.rtws.core.framework.UserConfigured;
 
 @Description("Retrieves data from the openFDA API via URL Rest calls")
+/**
+ * Retrieves data from the openFDA API via URL Rest calls to transport into DE for processing.  
+ * This transport is currently configured to retrieve recall/enforcement data from the 
+ * https://api.fda.gov/drug/enforcement.json endpoint for the years 2004-2015.  Both the API 
+ * endpoint and year range are configurable.  Records without the harmonized "openfda" fields 
+ * are filtered out, but can be included via configuration change.
+ */
 public class OpenFdaUrlTransportService extends AbstractTransportService {
 
 	private Logger logger = Logger.getLogger(OpenFdaUrlTransportService.class);
@@ -43,6 +50,11 @@ public class OpenFdaUrlTransportService extends AbstractTransportService {
 	}
 
 	@Override
+	/**
+	 * The public method invoked by the DigitalEdge pipeline to start the transport process of openFDA data
+	 * into DigitalEdge.  Calls the openFDA REST API to retrieve enforcement/recall data and sends it into
+	 * DigitalEdge for processing.
+	 */
 	public void execute() {
 		int count = 0, skip = 0;
 		int total = getTotal();
