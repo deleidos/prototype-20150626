@@ -137,7 +137,7 @@ public class MongoQueryRunnerTest {
     @Test
     public void testQueryLimitRecordCount() throws UnknownHostException, MongoException {
     	MongoQueryRunner qr = new MongoQueryRunner();
-    	String result = qr.query("localhost", "dbname", "fda_enforcement", null, null, "10");
+    	String result = qr.query("localhost", "dbname", "fda_enforcement", null, null, 10);
     	DBObject record = (DBObject) JSON.parse(result);
     	
     	assertTrue(record.containsField("count"));

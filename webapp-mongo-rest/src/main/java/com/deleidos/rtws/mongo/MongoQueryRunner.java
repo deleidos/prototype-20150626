@@ -25,8 +25,11 @@ import com.mongodb.DBObject;
 import com.mongodb.Mongo;
 import com.mongodb.MongoException;
 import com.mongodb.util.JSON;
+import com.wordnik.swagger.annotations.Api;
+import com.wordnik.swagger.annotations.ApiOperation;
+import com.wordnik.swagger.annotations.ApiParam;
 
-
+@Api(value = "/mongo", description = "Simple MongoDB REST API for DigitalEdge/openFDA Mongo database")
 @Path("/mongo")
 public class MongoQueryRunner {
 
@@ -49,15 +52,20 @@ public class MongoQueryRunner {
 		return mongoClients.get(host);
 	}
 	
+	@ApiOperation(value = "Provides read-only query access to the MongoDB",
+				notes = "An example value for the filter param is {\"recall_area\":\"Nationwide\"}.  For details on the proper format for the filter parameter " +
+						"please see http://docs.mongodb.org/manual/reference/method/db.collection.find/ " +
+						"and http://docs.mongodb.org/manual/reference/operator/",
+			    response = String.class)
 	@Path("/query")
 	@GET
 	@Produces(MediaType.TEXT_PLAIN)
-	public String query(@QueryParam("host") String host,
-			@QueryParam("database") String databaseName,
-			@QueryParam("collection") String collectionName,
-			@QueryParam("filter") String filter,
-			@QueryParam("fields") String fields,
-			@QueryParam("limit") String limit) {
+	public String query(@ApiParam(value = "The Mongo hostname or IP address", defaultValue="mongo", required = true) @QueryParam("host") String host,
+			@ApiParam(value = "The Mongo database name", defaultValue="dbname", required = true) @QueryParam("database") String databaseName,
+			@ApiParam(value = "The Mongo collection name", defaultValue="fda_enforcement", required = true) @QueryParam("collection") String collectionName,
+			@ApiParam(value = "A standard Mongo JSON formatted query operator to filter results, if omitted the query is for all records ({})", required = false) @QueryParam("filter") String filter,
+			@ApiParam(value = "A list of comma separated field names to return in the result, if omitted all fields are returned", required = false) @QueryParam("fields") String fields,
+			@ApiParam(value = "A limit for the number of records to return, if omitted all records matching the query are returned", required = false) @QueryParam("limit") Integer limit) {
 		
 		Mongo mongoClient = getMongoClient(host);
 		DB mongoDatabase = mongoClient.getDB(databaseName);
@@ -76,8 +84,8 @@ public class MongoQueryRunner {
 		}
 		
 		DBCursor cursor = (fieldNames == null) ? collection.find(query) : collection.find(query, fieldNames);
-		if (limit != null && !limit.isEmpty()) {
-			cursor.limit(Integer.parseInt(limit));
+		if (limit != null && limit != 0) {
+			cursor.limit((limit));
 		}
 		
 		List<DBObject> results = new ArrayList<DBObject>();
@@ -93,13 +101,15 @@ public class MongoQueryRunner {
 		return response.toString();
 	}
 	
+	@ApiOperation(value = "Aggregates the number of recalls for a given manufacturer by state and returns the count of recalls per state",
+		    response = String.class)
 	@Path("/statecount")
 	@GET
 	@Produces(MediaType.TEXT_PLAIN)
-	public String stateCount(@QueryParam("host") String host,
-			@QueryParam("database") String databaseName,
-			@QueryParam("collection") String collectionName,
-			@QueryParam("manufacturer") String manufacturer) {
+	public String stateCount(@ApiParam(value = "The Mongo hostname or IP address", defaultValue="mongo", required = true) @QueryParam("host") String host,
+			@ApiParam(value = "The Mongo database name", defaultValue="dbname", required = true) @QueryParam("database") String databaseName,
+			@ApiParam(value = "The Mongo collection name", defaultValue="fda_enforcement", required = true) @QueryParam("collection") String collectionName,
+			@ApiParam(value = "The name of the manufacturer, if omitted all recalls for all manufacturers are counted by state/region", required = false) @QueryParam("manufacturer") String manufacturer) {
 		
 		logger.info("manufacturer="+manufacturer);
 		Mongo mongoClient = getMongoClient(host);
@@ -178,19 +188,4 @@ public class MongoQueryRunner {
 		return response.toString();
 	}
 	
-	@Path("/aggregate")
-	@GET
-	@Produces(MediaType.TEXT_PLAIN)
-	public String aggregate(@QueryParam("host") String host,
-			@QueryParam("database") String databaseName,
-			@QueryParam("collection") String collectionName,
-			@QueryParam("group") String match,
-			@QueryParam("unwind") String unwind,
-			@QueryParam("group") String group,
-			@QueryParam("limit") String limit) {
-		
-		// need the newer version of the mongo driver to do this
-		return null;
-	}
-		
 }
