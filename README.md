@@ -26,13 +26,15 @@ For the sake of this prototype, a couple individuals outside of the design/devel
 
 Generally, the team operates on short iterations of two weeks, called sprints, with daily status meetings. For this rapid prototype response, the team operated on 24-hours Sprints for the first three business days and then settled into daily scrums for the remainder of the prototyping period before submission. During this time, the team intermixed meetings with the "People" every other day and adjusted course based upon feedback, as well as usability testing. 
 
-In addition to the team working with the end-user to create the prototype, the team also began setting up and working in the DevOps environment. This included setting up a GitHub repository, Jenkins, an AWS account and automated processes. The wiki contains [a more specific presentation of this timeline](https://github.com/deleidos/prototype-20150626/wiki/Prototype-Timeline). 
+In addition to the team working with the end-user to create the prototype, the team also began setting up and working in the DevOps environment. This included setting up a GitHub repository, Jenkins, an AWS account and automated processes. 
   
 In summary, for iterative projects such as this prototype, Leidos will employ an agile development methodology as it is especially well suited to programs with unclear or evolving mission requirements. For more than a decade, Leidos has fine-tuned our agile development process across many customer engagements to produce optimized, cost effective and mission impacting results. We believe implementation of an agile approach will best enable our clients to thrive and adapt to changing needs, resources and schedules.  
 
+The wiki contains [a more specific presentation of the timeline unfolding using this approach](https://github.com/deleidos/prototype-20150626/wiki/Prototype-Timeline). 
+
 ## Technical Focus
 
-This prototype is meant to highlight the technical aspects of (1) consuming data from a publically available API; (2) enriching the data record by transforming a freeform text field into structured elements; (3) leveraging a populated data repository to create query-time summarizations and publishing those results via a ReST API; (4) presenting the data elements in an intuitive GUI; and (5) enabling the GUI to add supplementary information by dynamically querying the source API.
+This prototype was built to highlight the technical aspects of (1) consuming data from a publically available API; (2) enriching the data record by transforming a freeform text field into structured elements; (3) leveraging a populated data repository to create query-time summarizations and publishing those results via a ReST API; (4) presenting the data elements in an intuitive GUI; and (5) enabling the GUI to add supplementary information by dynamically querying the source API.
 
 ## Build and Install
 
