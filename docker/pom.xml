@@ -77,6 +77,22 @@
 						<version>1.2.1</version>
 						<executions>
 							<execution>
+								<id>include-swagger-artifacts-in-playbook</id>
+								<phase>package</phase>
+								<goals>
+									<goal>exec</goal>
+								</goals>
+								<configuration>
+									<executable>cp</executable>
+									<workingDirectory>${project.build.directory}</workingDirectory>
+									<arguments>
+										<argument>-fv</argument>
+										<argument>${basedir}/src/swaggerui.war</argument>
+										<argument>swaggerui.war</argument>
+									</arguments>
+								</configuration>
+							</execution>
+							<execution>
 								<id>pre-build-mongo-centos-container</id>
 								<phase>package</phase>
 								<goals>
