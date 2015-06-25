@@ -30,6 +30,10 @@ In addition to the team working with the end-user to create the prototype, the t
   
 In summary, for iterative projects such as this prototype, Leidos will employ an agile development methodology as it is especially well suited to programs with unclear or evolving mission requirements. For more than a decade, Leidos has fine-tuned our agile development process across many customer engagements to produce optimized, cost effective and mission impacting results. We believe implementation of an agile approach will best enable our clients to thrive and adapt to changing needs, resources and schedules.  
 
+## Technical Focus
+
+This prototype is meant to highlight the technical aspects of (1) consume data from a publically available API; (2) enriching the data record by transforming a freeform text field into structured elements; (3) leveraging a populated data repository to create query-time summarizations and publishing those results via a ReST API; (4) presenting the data elements in an intuitive GUI; and (5) enabling the GUI to add additional information by dynamically querying the source API.
+
 ## Build and Install
 
 Once the [dependencies are satisfied](https://github.com/deleidos/prototype-20150626/wiki#build-and-install), building the code including execution of applicable tests, can be achieved by executing the following where you have cloned this repo:
