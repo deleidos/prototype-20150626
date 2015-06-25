@@ -29,7 +29,7 @@ import com.wordnik.swagger.annotations.Api;
 import com.wordnik.swagger.annotations.ApiOperation;
 import com.wordnik.swagger.annotations.ApiParam;
 
-@Api(value = "/mongo", description = "Simple MongoDB REST API for DigitalEdge/openFDA Mongo database")
+@Api(value = "/mongo", description = "REST API for DigitalEdge/openFDA Mongo database")
 @Path("/mongo")
 public class MongoQueryRunner {
 
@@ -52,10 +52,13 @@ public class MongoQueryRunner {
 		return mongoClients.get(host);
 	}
 	
-	@ApiOperation(value = "Provides read-only query access to the MongoDB",
-				notes = "An example value for the filter param is {\"recall_area\":\"Nationwide\"}.  For details on the proper format for the filter parameter " +
-						"please see http://docs.mongodb.org/manual/reference/method/db.collection.find/ " +
-						"and http://docs.mongodb.org/manual/reference/operator/",
+	@ApiOperation(value = "Provides basic read-only query access to the recall data informaton in the MongoDB",
+				notes = "The data in this MongoDB is obtained from the openFDA API recall information at https://api.fda.gov/drug/event.json. " +
+						"Please see https://open.fda.gov/drug/enforcement/ for more information.  The data stored is from 2004-2015 and enriched " +
+						"by DigitalEdge http://www.deleidos.com/ to normalize the \"distribution_pattern\" field for use in the FDA recall prototype " +
+						"application http://openfda.deleidos.com  This query method returns a JSON String contaning the database records that match the " +
+						"query parameters as well as a count of number of records returned.  For more information on the filter paramater syntax please " +
+						"see the MongoDB documentation at http://docs.mongodb.org/manual/reference/method/db.collection.find/",
 			    response = String.class)
 	@Path("/query")
 	@GET
@@ -102,6 +105,7 @@ public class MongoQueryRunner {
 	}
 	
 	@ApiOperation(value = "Aggregates the number of recalls for a given manufacturer by state and returns the count of recalls per state",
+			notes = "This method accesses the same MongoDB recall records as described in the \"query\" method above",
 		    response = String.class)
 	@Path("/statecount")
 	@GET
