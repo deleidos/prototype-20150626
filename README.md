@@ -38,6 +38,10 @@ Once the [dependencies are satisfied](https://github.com/deleidos/prototype-2015
 mvn clean install
 ``` 
 
+## Software Stack and Licensing
+
+The software stack for this prototype includes numerous open source technologies, such as DigitalEdge, Docker, AngularJS, Linux and MongoDB, to name a few. The entire software stack is [licensed under an open source license](https://github.com/deleidos/prototype-20150626/wiki#licenses).
+
 ## Wiki
 Be sure to check out the wiki to learn more about the prototype, the team and the process:
 + [Timeline of Prototype Creation](https://github.com/deleidos/prototype-20150626/wiki/Prototype-Timeline)
