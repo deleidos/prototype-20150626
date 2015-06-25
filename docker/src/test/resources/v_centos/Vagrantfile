@@ -75,7 +75,7 @@ Vagrant.configure(2) do |config|
 	
 	yum -y install wget docker java-1.7.0-openjdk-devel
 	
-	wget -O ~/apache-maven-3.3.3-bin.tar.gz "http://mirror.cc.columbia.edu/pub/software/apache/maven/maven-3/3.3.3/binaries/apache-maven-3.3.3-bin.tar.gz"
+	wget -q -O ~/apache-maven-3.3.3-bin.tar.gz "http://mirror.cc.columbia.edu/pub/software/apache/maven/maven-3/3.3.3/binaries/apache-maven-3.3.3-bin.tar.gz"
 	tar -C /usr/local -xzf ~/apache-maven-3.3.3-bin.tar.gz
 	echo 'export PATH=$PATH:/usr/local/apache-maven-3.3.3/bin' > /etc/profile.d/maven.sh
 	rm ~/apache-maven-3.3.3-bin.tar.gz
@@ -84,8 +84,6 @@ Vagrant.configure(2) do |config|
 	
 	echo -e '[mongodb-org-3.0]\nname=MongoDB Repository\nbaseurl=https://repo.mongodb.org/yum/redhat/7/mongodb-org/3.0/x86_64/\ngpgcheck=0\nenabled=1' | tee /etc/yum.repos.d/mongodb-org-3.0.repo
 	yum -y install mongodb-org
-	
-	semanage port -a -t mongod_port_t -p tcp 27017
 	
 	service mongod start
 	
