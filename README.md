@@ -32,7 +32,7 @@ In summary, for iterative projects such as this prototype, Leidos will employ an
 
 ## Build and Install
 
-Once the [dependencies are satisfied](https://github.com/deleidos/prototype-20150626/wiki/Build-and-Install), building the code including execution of applicable tests, can be achieved by executing the following where you have cloned this repo:
+Once the [dependencies are satisfied](https://github.com/deleidos/prototype-20150626/wiki#build-and-install), building the code including execution of applicable tests, can be achieved by executing the following where you have cloned this repo:
 
 ```bash
 mvn clean install
@@ -42,6 +42,6 @@ mvn clean install
 Be sure to check out the wiki to learn more about the prototype, the team and the process:
 + [Timeline of Prototype Creation](https://github.com/deleidos/prototype-20150626/wiki/Prototype-Timeline)
 + [DevOps Details](https://github.com/deleidos/prototype-20150626/wiki/DevOps)
-+ [HowTo Build and Install](https://github.com/deleidos/prototype-20150626/wiki/Build-and-Install)
++ [HowTo Build and Install](https://github.com/deleidos/prototype-20150626/wiki#build-and-install)
 
 &copy; Leidos 2015
