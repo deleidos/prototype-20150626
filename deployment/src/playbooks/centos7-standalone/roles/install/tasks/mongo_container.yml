@@ -1,12 +1,16 @@
 ---   
   - name: Run mongo
-    docker: image=mongo:2.4.14 name=mongo ports=27017 command="--noprealloc --smallfiles"
+    docker: 
+      image: mongo:2.4.14
+      name: mongo
+      ports: 27017
+      memory_limit: 1024MB
+      command: "--noprealloc --smallfiles"
     
   - file: path=/mnt/mdb_extra state=directory owner=root group=root mode=0444
   
   - name: Copy mongo pre-seed data
     copy: src=dbname.tgz dest=/mnt/mdb_extra/dbname.tgz force=yes owner=root group=root mode=0444
-    
     
   - name: Pre-load the collection
     shell: mongorestore --drop --collection fda_enforcement --db dbname dbname/fda_enforcement.bson
