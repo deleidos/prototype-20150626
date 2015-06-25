@@ -15,8 +15,10 @@ body {
     color: red;
 }
 
-
-
+.drug-usage-description{
+    max-height: 100px;
+    overflow-y: auto;
+}
 
 
 

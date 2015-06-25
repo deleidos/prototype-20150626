@@ -1,8 +1,34 @@
 ---   
   - name: Run mongo
-    docker: image=mongo:2.4.14 name=mongo ports=27017 command="--noprealloc --smallfiles"
+    docker: 
+      image: mongo:2.4.14
+      name: mongo
+      ports: 27017
+      memory_limit: 1024MB
+      command: "--noprealloc --smallfiles"
+    
+  - file: path=/mnt/mdb_extra state=directory owner=root group=root mode=0444
+  
+  - name: Copy mongo pre-seed data
+    copy: src=dbname.tgz dest=/mnt/mdb_extra/dbname.tgz force=yes owner=root group=root mode=0444
+    
+  - name: Extract the extract
+    shell: tar -xzvf dbname.tgz
+    args:
+      chdir: /mnt/mdb_extra/
+      
+  - name: Remove the previous importer container
+    docker: 
+      image: mongo:2.4.14
+      name: importer
+      state: absent
     
   - name: Pre-load the collection
-    shell: mongorestore --drop --collection fda_enforcement --db dbname dbname/fda_enforcement.bson
-    ignore_errors: true
-   
+    shell: docker run -name importer -v /mnt/mdb_extra/:/mnt/mdb_extra/ -it --link mongo:mongo mongo:2.4.14 sh -c 'exec mongorestore -h mongo --drop --collection fda_enforcement --db dbname /mnt/mdb_extra/dbname/fda_enforcement.bson'
+    
+  - name: Remove the previous importer container
+    docker: 
+      image: mongo:2.4.14
+      name: importer
+      state: absent  
+    

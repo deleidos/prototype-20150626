@@ -3,10 +3,15 @@
     copy: src={{ webapp_image_tar }} dest=/tmp/{{ webapp_image_tar }} force=yes owner=root group=root mode=0444
     
   - name: Stop the previous webapp container
-    docker: image=digitaledge/webapp:{{ webapp_version }} name=webapp state=absent
+    docker: 
+      image: digitaledge/webapp:{{ webapp_version }}
+      name: webapp
+      state: absent
     
   - name: Remove the previous image
-    docker: image=digitaledge/webapp:{{ webapp_version }} state=absent
+    docker: 
+      image: digitaledge/webapp:{{ webapp_version }}
+      state: absent
     
   - name: Load the new image
     shell: docker load -i /tmp/{{ webapp_image_tar }}
@@ -15,5 +20,10 @@
     file: path=/tmp/{{ webapp_image_tar }} state=absent
   
   - name: Run the webapp and link it to the mongo container
-    docker: image=digitaledge/webapp:{{ webapp_version }} name=webapp ports=80:8080
-   
+    docker: 
+      image: digitaledge/webapp:{{ webapp_version }}
+      name: webapp
+      memory_limit: 256MB
+      ports: 80:8080
+      links:
+        - mongo

@@ -1,28 +1,42 @@
 <br />
 <div class="row">
     <div class="col-sm-6">
-        <h4>Browse drug manufacturers</h4>
+        <h4>Browse drug manufacturers:</h4>
     </div>
     <div class="col-sm-6">
         <div class="input-group">
             <span class="input-group-addon"><span class="glyphicon glyphicon-search"></span></span>
-            <input type="text" class="form-control" placeholder="Search Manufacturer" ng-model="search.drug_name" ng-change="toggleDropdown()">
+            <input type="text" class="form-control" placeholder="Search Manufacturer" ng-model="search.maker_name" ng-change="toggleMakerDropdown()">
         </div>
         <div class="btn-group" dropdown is-open="dropdown.isopen">
             <ul class="dropdown-menu" role="menu">
-                <li ng-repeat="drug in drug_list | filter:search.drug_name | unique: 'drug' | limitTo:10">
-                    <a href="" ng-click="getDrugData(drug)">{{drug | capitalize:true}}</a>
+                <li ng-repeat="maker in maker_list | filter:search.maker_name | unique: 'maker' | limitTo:10">
+                    <a href="" ng-click="getManufacturerData(maker)">{{maker| capitalize:true}}</a>
                 </li>
             </ul>
         </div>
     </div>
 </div>
-<div class="row">
-    <div class="col-sm-12" ng-show="selected_drug">
-        <h3>Information for {{selected_drug}}</h3>
-        <h4>Recall Info</h4>
-        <p>Bacon ipsum dolor amet alcatra pork leberkas boudin strip steak kielbasa. Picanha pork loin rump, brisket spare ribs beef ribs chuck pastrami drumstick porchetta boudin shankle kielbasa tenderloin sirloin.</p>
-        <h4>Label Info</h4>
-        <p>Venison corned beef cow beef ribs biltong pastrami shank tenderloin sausage pancetta salami pork chop porchetta short ribs. </p>
+<hr />
+<div class="row" ng-show="selected_maker" ng-controller="PaginationCtrl">
+    <div class="col-sm-12">
+        <h3>{{selected_maker}}</h3>
+        <p><strong>Location: </strong>{{manufacturer_city}}, {{manufacturer_state}}</p>
+        <p>{{manufacturer_count}} <strong>Total Recalls</strong></p>
+        <hr />
+
+        <table class="table table-hover">
+            <thead>
+            <tr>
+                <th>Recalled Drug Name</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr ng-repeat="drug in maker_drug_recalls.slice(((currentPage-1)*itemsPerPage), ((currentPage)*itemsPerPage))">
+                <td>{{drug.name}}</td>
+            </tr>
+            </tbody>
+        </table>
+        <pagination total-items="totalItems" ng-model="currentPage" max-size="maxSize" class="pagination-sm" items-per-page="itemsPerPage" boundary-links="true"></pagination>
     </div>
 </div>

@@ -1,0 +1,7 @@
+---   
+  - name: Run cadvisor
+    docker: 
+      image: google/cadvisor:latest
+      name: cadvisor
+      state: absent 
+   
