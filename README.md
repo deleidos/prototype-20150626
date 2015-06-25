@@ -1,10 +1,10 @@
 # prototype-20150626
 
 Continuous Integration:
-[![Build Status](http://jenkins.openfda.deleidos.com:8080/buildStatus/icon?job=prototype-20150626_master)](http://jenkins.openfda.deleidos.com:8080/job/prototype-20150626_master/) 
+[![Build Status](https://jenkins.openfda.deleidos.com/buildStatus/icon?job=prototype-20150626_master)](https://jenkins.openfda.deleidos.com/job/prototype-20150626_master/) 
 
 Continuous Deployment:
-[![Deployment Status](http://jenkins.openfda.deleidos.com:8080/job/Deploy_Prototype/badge/icon)](http://jenkins.openfda.deleidos.com:8080/job/Deploy_Prototype/)  
+[![Deployment Status](https://jenkins.openfda.deleidos.com/job/Deploy_Prototype/badge/icon)](https://jenkins.openfda.deleidos.com/job/Deploy_Prototype/)  
 
 ## Approach
 
