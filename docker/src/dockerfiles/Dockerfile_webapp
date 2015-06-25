@@ -2,9 +2,7 @@
 
 FROM centos:7.1.1503
 
-RUN yum -y install epel-release wget unzip
-
-RUN yum -y install java-1.8.0-openjdk-headless
+RUN yum -y install epel-release wget unzip java-1.8.0-openjdk-headless
 
 RUN wget -q -O /root/jetty-distribution-9.3.0.v20150612.zip http://download.eclipse.org/jetty/stable-9/dist/jetty-distribution-9.3.0.v20150612.zip
 
@@ -18,4 +16,4 @@ COPY mongorest.war /root/jetty-distribution-9.3.0.v20150612/webapps/
 
 EXPOSE 8080
 
-ENTRYPOINT cd /root/jetty-distribution-9.3.0.v20150612 ; java -jar /root/jetty-distribution-9.3.0.v20150612/start.jar jetty.http.port=8080 jetty.home=/root/jetty-distribution-9.3.0.v20150612
+ENTRYPOINT cd /root/jetty-distribution-9.3.0.v20150612 ; java -Xmx128m -jar /root/jetty-distribution-9.3.0.v20150612/start.jar jetty.http.port=8080 jetty.home=/root/jetty-distribution-9.3.0.v20150612
