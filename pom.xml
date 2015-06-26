@@ -7,13 +7,13 @@
 	<version>1.0.0-SNAPSHOT</version>
 	<packaging>pom</packaging>
 	<modules>
+		<module>docs</module>
 		<module>transport-openfda-url</module>
 		<module>enrichment-recall-area-normalizer</module>
 		<module>webapp</module>
 		<module>webapp-mongo-rest</module>
 		<module>docker</module>
 		<module>deployment</module>
-		<module>docs</module>
 	</modules>
 	<build>
 		<pluginManagement>
@@ -60,7 +60,7 @@
 						<execution>
 							<phase>package</phase>
 							<goals>
-								<goal>aggregate</goal>
+								<goal>aggregate-jar</goal>
 							</goals>
 						</execution>
 					</executions>

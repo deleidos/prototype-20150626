@@ -56,13 +56,23 @@
 											<destFileName>root.war</destFileName>
 											<outputDirectory>${project.build.directory}</outputDirectory>
 										</artifactItem>
-											<artifactItem>
+										<artifactItem>
 											<groupId>com.deleidos</groupId>
 											<artifactId>webapp-mongo-rest</artifactId>
 											<version>${project.version}</version>
 											<type>war</type>
 											<overWrite>true</overWrite>
 											<destFileName>mongorest.war</destFileName>
+											<outputDirectory>${project.build.directory}</outputDirectory>
+										</artifactItem>
+										<artifactItem>
+											<groupId>com.deleidos</groupId>
+											<artifactId>fda-prototype</artifactId>
+											<version>${project.version}</version>
+											<classifier>javadoc</classifier>
+											<type>jar</type>
+											<overWrite>true</overWrite>
+											<destFileName>javadocs.war</destFileName>
 											<outputDirectory>${project.build.directory}</outputDirectory>
 										</artifactItem>
 									</artifactItems>
