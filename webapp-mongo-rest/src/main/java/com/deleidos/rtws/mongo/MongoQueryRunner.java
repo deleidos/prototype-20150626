@@ -196,7 +196,7 @@ public class MongoQueryRunner {
 	@ApiOperation(value = "Aggregates the number of recalls for a given manufacturer by drug and returns the count of recalls per drug",
 			notes = "This method accesses the same MongoDB recall records as described in the \"query\" method",
 		    response = String.class)
-	@Path("/drugCount")
+	@Path("/drugcount")
 	@GET
 	@Produces(MediaType.TEXT_PLAIN)
 	public String drugCount(@ApiParam(value = "The Mongo hostname or IP address", defaultValue="mongo", required = true) @QueryParam("host") String host,

@@ -24,7 +24,7 @@
         </init-param>
         <init-param>
             <param-name>swagger.api.basepath</param-name>
-            <param-value>http://localhost:8080/mongorest</param-value>
+            <param-value>http://openfda.deleidos.com/mongorest</param-value>
         </init-param>
         <load-on-startup>2</load-on-startup>
     </servlet>
