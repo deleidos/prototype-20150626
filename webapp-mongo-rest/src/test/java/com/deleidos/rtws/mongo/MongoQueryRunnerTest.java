@@ -38,7 +38,7 @@ public class MongoQueryRunnerTest {
     @BeforeClass
     public static void setUp() throws Exception {
         MongodStarter runtime = MongodStarter.getDefaultInstance();
-        _mongodExe = runtime.prepare(new MongodConfig(Version.Main.V2_3, 27107, Network.localhostIsIPv6()));
+        _mongodExe = runtime.prepare(new MongodConfig(Version.Main.V2_3, 27017, Network.localhostIsIPv6()));
         _mongod = _mongodExe.start();
         seedDatabase();
     }
