@@ -38,7 +38,7 @@ public class MongoQueryRunnerTest {
     @BeforeClass
     public static void setUp() throws Exception {
         MongodStarter runtime = MongodStarter.getDefaultInstance();
-        _mongodExe = runtime.prepare(new MongodConfig(Version.Main.V2_3, 27107, Network.localhostIsIPv6()));
+        _mongodExe = runtime.prepare(new MongodConfig(Version.Main.V2_3, 27017, Network.localhostIsIPv6()));
         _mongod = _mongodExe.start();
         seedDatabase();
     }
@@ -172,5 +172,31 @@ public class MongoQueryRunnerTest {
     	DBObject result2 = (DBObject)results.get(0);
     	assertEquals("Nationwide", result2.get("state"));
     	assertEquals(3, result2.get("count"));
+    }
+    
+    @Test
+    public void testDrugCount() throws UnknownHostException, MongoException {
+    	MongoQueryRunner qr = new MongoQueryRunner();
+    	String result = qr.drugCount("localhost", "dbname", "fda_enforcement", "Baxter Healthcare Corporation");
+    	DBObject record = (DBObject) JSON.parse(result);
+    	
+    	assertTrue(record.containsField("count"));
+    	assertEquals(2, record.get("count"));
+    	assertTrue(record.containsField("results"));
+    	assertEquals(2, ((BasicDBList)record.get("results")).size());
+    	
+    	assertEquals("Baxter Healthcare Corporation", record.get("manufacturer").toString());
+    	
+    	BasicDBList results = (BasicDBList)record.get("results");
+    	assertEquals(2, results.size());
+    	DBObject drug1 = (DBObject)results.get(0);
+    	assertEquals("DIANEAL LOW CALCIUM WITH DEXTROSE", drug1.get("drug_name"));
+    	assertEquals(1, drug1.get("count"));
+    	assertEquals("Nationwide", ((BasicDBList)drug1.get("recall_area")).get(0).toString());
+    	
+    	DBObject drug2 = (DBObject)results.get(1);
+    	assertEquals("DEXTROSE", drug2.get("drug_name"));
+    	assertEquals(2, drug2.get("count"));
+    	assertEquals("Nationwide", ((BasicDBList)drug2.get("recall_area")).get(0).toString());
     }
 }

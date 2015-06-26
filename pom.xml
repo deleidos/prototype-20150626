@@ -13,6 +13,7 @@
 		<module>webapp-mongo-rest</module>
 		<module>docker</module>
 		<module>deployment</module>
+		<module>docs</module>
 	</modules>
 	<build>
 		<pluginManagement>

@@ -1,0 +1,12 @@
+#!/bin/bash 
+
+# Simple test to always check and fail the build if the project's README exceeds the specifications  :)
+
+CT="$(wc -w ../README.md | awk '{print $1 }')"
+
+if [[ "$CT" -gt 750 ]]; then
+	echo "ERROR: ../README.md exceeds the allowed number of words.  Current count is: $CT"
+	exit 1
+fi
+
+exit 0

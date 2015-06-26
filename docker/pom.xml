@@ -87,8 +87,8 @@
 									<workingDirectory>${project.build.directory}</workingDirectory>
 									<arguments>
 										<argument>-fv</argument>
-										<argument>${basedir}/src/swaggerui.war</argument>
-										<argument>swaggerui.war</argument>
+										<argument>${basedir}/src/apidocs.war</argument>
+										<argument>apidocs.war</argument>
 									</arguments>
 								</configuration>
 							</execution>
