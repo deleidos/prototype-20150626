@@ -44,21 +44,19 @@
 					<artifactId>maven-dependency-plugin</artifactId>
 					<version>2.7</version>
 				</plugin>
-				<plugins>
-					<plugin>
-						<groupId>org.apache.maven.plugins</groupId>
-						<artifactId>maven-javadoc-plugin</artifactId>
-						<version>2.4</version>
-						<configuration>
-							<detectLinks />
-							<windowtitle>prototype-20150626</windowtitle>
-							<author>false</author>
-							<use>true</use>
-							<attach>true</attach>
-							<aggregate>true</aggregate>
-						</configuration>
-					</plugin>
-				</plugins>
+				<plugin>
+					<groupId>org.apache.maven.plugins</groupId>
+					<artifactId>maven-javadoc-plugin</artifactId>
+					<version>2.4</version>
+					<configuration>
+						<detectLinks />
+						<windowtitle>prototype-20150626</windowtitle>
+						<author>false</author>
+						<use>true</use>
+						<attach>true</attach>
+						<aggregate>true</aggregate>
+					</configuration>
+				</plugin>
 				<plugin>
 					<groupId>org.codehaus.mojo</groupId>
 					<artifactId>build-helper-maven-plugin</artifactId>
