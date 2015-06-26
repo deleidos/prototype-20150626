@@ -122,6 +122,8 @@
         function setLabelInfo( info ){
             if( info.purpose ){
                 $scope.selected_drug_purpose = info.purpose[0].replace("PURPOSES ", "")
+            } else {
+                $scope.selected_drug_purpose = ""
             }
             $scope.selected_drug_usage = info.indications_and_usage[0].replace("USES ", "")
             $scope.manufacturer_name = info.openfda.manufacturer_name[0]
@@ -372,6 +374,7 @@
                     angular.forEach(results, function(drug_name){
                         $rootScope.all_drugs.push(drug_name);
                     });
+                    $rootScope.$broadcast('length-update', ($rootScope.all_drugs).length)
                 }, function (error) {
                     // TODO show alert
                     console.log("got an error, ", error)
