@@ -18,7 +18,7 @@ body {
 }
 
 #content{
-    padding-top: 140px;
+    padding-top: 120px;
 }
 
 #logo {
@@ -39,8 +39,22 @@ body {
     overflow-y: auto;
 }
 
+@media (max-width: 1199px) {
 
-@media (min-width: 480px) {
+    #content{
+        padding-top: 80px;
+    }
+}
+
+@media (max-width: 480px) {
+
+    #map {
+        width: 80%;
+    }
+
+    #content{
+        padding-top: 40px;
+    }
 
 }
 

@@ -3,6 +3,7 @@
     <h3>{{selected_maker}}</h3>
     <p><strong>Location: </strong>{{manufacturer_city}}, {{manufacturer_state}}</p>
     <p>{{manufacturer_count}} <strong>Total Recalls</strong></p>
+    <p ng-repeat="info in manufacturer_state_count">{{info.state}} : {{info.count}}</p>
     <hr />
     <h3>Recalls</h3>
     <table class="table table-hover">

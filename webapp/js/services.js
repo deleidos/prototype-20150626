@@ -142,6 +142,17 @@
                 });
         };
 
+        factory.getRecallsCountByState = function(selected_state) {
+            var url = mainFactory.useTestData ? "data/state-search.json" :
+                "http://" + mainFactory.defaultHost + "/mongorest/mongo/query?host=mongo&database=dbname&collection=fda_enforcement&filter={%22recall_area%22:%22" + selected_state + "%22}";
+            return $http.get(url, {cache: true})
+                .then( function( results ) {
+                    return (results.data.count)
+                }, function( error ) {
+                    return 0
+                });
+        };
+
         function parseDrugNames( result ) {
             var drug_list = [];
             var drug_list_obj
