@@ -22,6 +22,8 @@ Leidos’ SCRUM agile development methodology emphasizes:
 +	Streamlined agility by process reduction, design simplification, and incubation of innovative ideas  
 +	A scaled-up set of agile management processes, to support larger, more diverse teams as well as apply agility across all organizations of the program  
 
+![](https://raw.githubusercontent.com/deleidos/prototype-20150626/master/docs/archive/scrum_diagram1.png)
+
 For the sake of this prototype, a couple individuals outside of the design/development team took on the role of "People". They asked two questions: (1) "Which drugs have been recalled in their state?" and (2) "For a given manufacturer, which states were affected by drugs produced by the manufacturer?".
 
 Generally, the team operates on short iterations of two weeks, called sprints, with daily status meetings. For this rapid prototype response, the team operated on 24-hours Sprints for the first three business days and then settled into daily scrums for the remainder of the prototyping period before submission. During this time, the team intermixed meetings with the "People" every other day and adjusted course based upon feedback, as well as usability testing. 
@@ -36,6 +38,8 @@ The wiki contains [a more specific presentation of the timeline unfolding using 
 
 This prototype was built to highlight the technical aspects of (1) consuming data from a publically available API; (2) enriching the data record by transforming a freeform text field into structured elements; (3) leveraging a populated data repository to create query-time summarizations and publishing those results via a ReST API; (4) presenting the data elements in an intuitive GUI; and (5) enabling the GUI to add supplementary information by dynamically querying the source API.
 
+![](https://raw.githubusercontent.com/deleidos/prototype-20150626/master/docs/archive/prototype_architecture-v1b.png)
+
 ## Build and Install
 
 Once the [dependencies are satisfied](https://github.com/deleidos/prototype-20150626/wiki#build-and-install), building the code including execution of applicable tests, can be achieved by executing the following where you have cloned this repo:
@@ -44,14 +48,14 @@ Once the [dependencies are satisfied](https://github.com/deleidos/prototype-2015
 mvn clean install
 ``` 
 
-## Software Stack and Licensing
+## Software Licensing and Technologies
 
-The software stack for this prototype includes numerous open source technologies. Specifically, Docker, AngularJS, CentOS, MongoDB and DigitalEdge, to name five modern and open-sourced technologies. The entire software stack is [licensed under an open source license](https://github.com/deleidos/prototype-20150626/wiki#licenses).
+The software stack for this prototype includes [numerous open source licensed technologies](https://github.com/deleidos/prototype-20150626/wiki#licenses). Specifically, Bootstrap, Docker, AngularJS, CentOS, MongoDB, Leaflet and DigitalEdge, to name at least five modern and open-sourced technologies.
 
-## Wiki
-Be sure to check out the wiki to learn more about the prototype, the team and the process:
+## Documentation
+Be sure to [check out the wiki](https://github.com/deleidos/prototype-20150626/wiki) to learn more about the prototype, the team and the process:
 + [Timeline of Prototype Creation](https://github.com/deleidos/prototype-20150626/wiki/Prototype-Timeline)
 + [DevOps Details](https://github.com/deleidos/prototype-20150626/wiki/DevOps)
-+ [HowTo Build and Install](https://github.com/deleidos/prototype-20150626/wiki#build-and-install)
++ [Add More!](https://github.com/deleidos/prototype-20150626/wiki)
 
 &copy; Leidos 2015
