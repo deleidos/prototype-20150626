@@ -48,14 +48,14 @@ Once the [dependencies are satisfied](https://github.com/deleidos/prototype-2015
 mvn clean install
 ``` 
 
-## Software Stack and Licensing
+## Software Licensing and Technologies
 
-The software stack for this prototype includes numerous open source technologies. Specifically, Docker, AngularJS, CentOS, MongoDB and DigitalEdge, to name five modern and open-sourced technologies. The entire software stack is [licensed under an open source license](https://github.com/deleidos/prototype-20150626/wiki#licenses).
+The software stack for this prototype includes [numerous open source licensed technologies](https://github.com/deleidos/prototype-20150626/wiki#licenses). Specifically, Bootstrap, Docker, AngularJS, CentOS, MongoDB, Leaflet and DigitalEdge, to name at least five modern and open-sourced technologies.
 
-## Wiki
-Be sure to check out the wiki to learn more about the prototype, the team and the process:
+## Documentation
+Be sure to [check out the wiki](https://github.com/deleidos/prototype-20150626/wiki) to learn more about the prototype, the team and the process:
 + [Timeline of Prototype Creation](https://github.com/deleidos/prototype-20150626/wiki/Prototype-Timeline)
 + [DevOps Details](https://github.com/deleidos/prototype-20150626/wiki/DevOps)
-+ [HowTo Build and Install](https://github.com/deleidos/prototype-20150626/wiki#build-and-install)
++ [Add More!](https://github.com/deleidos/prototype-20150626/wiki#build-and-install)
 
 &copy; Leidos 2015
