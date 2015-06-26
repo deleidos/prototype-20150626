@@ -1,27 +1,29 @@
-<div class="jumbotron">
-    <div class="container">
-        <div class="col-lg-6">
-            <h1>FDA Recalls</h1>
-            <p>Use this tool to view the regions of drug recalls.</p>
-        </div>
-        <div class="col-lg-6">
-            <h3>*Disclaimer</h3>
-            <p id="disclaimer">openFDA is a beta research project and not for clinical use. While we make every effort to ensure that data is accurate, you should assume all results are unvalidated.</p>
-        </div>
+<img id="banner" src="css/vendor/images/verticies.svg">
+<!--<div id="banner-text" class="container">
+    <div class="col-lg-12">
+        <h1>FDA Recalls</h1>
+        <p>Use this tool to view the regions of drug recalls.</p>
+        <hr />
     </div>
-</div>
+</div>-->
 
 <div class="container-fluid" ng-controller="SearchController">
-    <div class="row">
-        <div class="col-lg-5 col-lg-offset-1">
+    <div id="content" class="row">
+        <div id="search" class="col-xs-12 col-lg-5 col-lg-offset-1">
             <tabset type="tabs">
                 <tab ng-repeat="tab in tabs" heading="{{tab.name}}" ng-init="populate(tab.name)" ng-click="reset()">
                     <div ng-include="tab.url"></div>
                 </tab>
             </tabset>
+            <div id="map" ng-controller="MapController">
+                <leaflet center="center" geojson="geojson" width="100%" height="350px"></leaflet>
+                <p ng-show="total_recalls">{{total_recalls}} Total Recalls for {{total_recalls_state}}</p>
+            </div>
         </div>
-        <div class="col-lg-5" ng-controller="MapController">
-            <leaflet center="center" geojson="geojson" width="100%" height="400px"></leaflet>
+        <div id="results" class="col-xs-12 col-lg-6">
+            <state></state>
+            <manufacturer></manufacturer>
+            <drugs></drugs>
         </div>
     </div>
 </div>

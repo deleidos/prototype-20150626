@@ -47,7 +47,7 @@
 
         factory.getManufacturers = function() {
             var url = mainFactory.useTestData ? "data/manufacturers.json" :
-                "http://" + mainFactory.defaultHost + ":8080/mongorest/mongo/query?host=10.153.211.57&database=dbname&collection=fda_enforcement&fields=openfda.manufacturer_name";
+                "http://" + mainFactory.defaultHost + "/mongorest/mongo/query?host=mongo&database=dbname&collection=fda_enforcement&fields=openfda.manufacturer_name";
             return $http.get(url, {cache: true})
                 .then( function( results ) {
                     return parseManufacturers( results.data['results'] )
@@ -71,7 +71,7 @@
 
         factory.getDrugRecallInfo = function( drug_name ) {
             var url = mainFactory.useTestData ? "data/sample-drug-recall-response.json" :
-                "http://" + mainFactory.defaultHost + ":8080/mongorest/mongo/query?host=10.153.211.57&database=dbname&collection=fda_enforcement&filter={\"openfda.brand_name.0.0\":\"" + drug_name + "\"}";
+                "http://" + mainFactory.defaultHost + "/mongorest/mongo/query?host=mongo&database=dbname&collection=fda_enforcement&filter={\"openfda.brand_name.0.0\":\"" + drug_name + "\"}";
 
             return $http.get(url)
                 .then( function( results ) {
@@ -84,7 +84,7 @@
         factory.getManufacturerInfo = function( maker_name ) {
             var maker_name_urlencode = maker_name.replace(" ", "%20");
             var url = mainFactory.useTestData ? "data/sample-manufacturer-response.json" :
-                "http://" + mainFactory.defaultHost + ":8080/mongorest/mongo/statecount?host=10.153.211.57&database=dbname&collection=fda_enforcement&manufacturer=" + maker_name_urlencode;
+                "http://" + mainFactory.defaultHost + "/mongorest/mongo/statecount?host=mongo&database=dbname&collection=fda_enforcement&manufacturer=" + maker_name_urlencode;
             return $http.get(url)
                 .then( function( results ) {
                     return results.data
@@ -133,13 +133,23 @@
 
         factory.getRecallsByState = function(selected_state) {
             var url = mainFactory.useTestData ? "data/state-search.json" :
-            "http://" + mainFactory.defaultHost + ":8080/mongorest/mongo/query?host=10.153.211.57&database=dbname&collection=fda_enforcement&filter={%22recall_area%22:%22" + selected_state + "%22}";
-
+                "http://" + mainFactory.defaultHost + "/mongorest/mongo/query?host=mongo&database=dbname&collection=fda_enforcement&filter={%22recall_area%22:%22" + selected_state + "%22}";
             return $http.get(url, {cache: true})
                 .then( function( results ) {
                     return parseDrugNames( results.data['results'] )
                 }, function( error ) {
                     return $q.reject(error.data)
+                });
+        };
+
+        factory.getRecallsCountByState = function(selected_state) {
+            var url = mainFactory.useTestData ? "data/state-search.json" :
+                "http://" + mainFactory.defaultHost + "/mongorest/mongo/query?host=mongo&database=dbname&collection=fda_enforcement&filter={%22recall_area%22:%22" + selected_state + "%22}";
+            return $http.get(url, {cache: true})
+                .then( function( results ) {
+                    return (results.data.count)
+                }, function( error ) {
+                    return 0
                 });
         };
 
@@ -152,17 +162,13 @@
                 drug_list_obj = {}
                 drug_list_obj.name = result[i].openfda.brand_name[0][0]
                 drug_list_obj.reason = result[i].reason_for_recall
-                dateString = result[i].recall_initiation_date
-                year = dateString.substring(0,4);
-                month = dateString.substring(4,6);
-                day = dateString.substring(6,8);
-                drug_list_obj.date = year + "-" + month + "-" + day
+                var date = result[i].recall_initiation_date
+                result[i].recall_initiation_date = new Date(date.substring(0,4), date.substring(4,6), date.substring(6,8)).toDateString();
+                drug_list_obj.date = result[i].recall_initiation_date
                 drug_list.push(drug_list_obj)
             }
-
             return drug_list;
         }
-
         return factory;
     };
     angular.module('App').factory('mapFactory', ['$http', '$q', 'mainFactory', mapFactory]);

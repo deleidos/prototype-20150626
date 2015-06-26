@@ -81,7 +81,7 @@
             $rootScope.$broadcast('reset-update', [])
             $scope.selected_drug = null
             $scope.selected_maker = null
-            $scope.all_drugs = null
+            $rootScope.all_drugs = null
         };
 
         $scope.getDrugData = function(drug) {
@@ -104,7 +104,7 @@
         };
 
         $scope.getManufacturerData = function(maker) {
-            this.search.maker_name = maker
+           this.search.maker_name = maker
             searchFactory.getManufacturerInfo(maker)
                 .then( function( data ) {
                     $scope.selected_maker = maker;
@@ -180,9 +180,11 @@
 
             var state_length = response.results.length;
             var maker_state_recalls = [];
+            var maker_state_count = [];
             $scope.manufacturer_count = 0;
             for(var j= 0; j<state_length; j++){
                 maker_state_recalls.push(response.results[j].state)
+                maker_state_count.push(response.results[j])
                 $scope.manufacturer_count = response.results[j].count + $scope.manufacturer_count
             }
             // helper method
@@ -203,6 +205,7 @@
 
             $rootScope.$broadcast('manufacturer-update', maker_state_recalls)
             $scope.manufacturer_states = maker_state_recalls
+            $rootScope.manufacturer_state_count = maker_state_count
         }
 
     };
@@ -215,7 +218,33 @@
      */
 
     var MapController = function($scope, $http, $rootScope, mapFactory) {
-        var type = false;
+
+        var tab;
+
+     /*   $scope.$on("leafletDirectiveGeoJson.click", function(event, args){
+             if (tab == "state"){
+                mapFactory.getRecallsCountByState(args.leafletObject.feature.properties.name)
+                    .then(function (results) {
+                        $scope.state_count = results
+                    });
+
+                mapFactory.getRecallsCountByState("Nationwide")
+                    .then(function (results) {
+                        $scope.nationwide_count = results
+                    });
+                $scope.total_recalls = $scope.state_count + $scope.nationwide_count
+                $scope.total_recalls_state = args.leafletObject.feature.properties.name
+            }
+        }); */
+
+        $scope.$on("leafletDirectiveGeoJson.mouseover", function(event, args){
+            if (tab != "maker") {
+                var layer = args.leafletEvent.target
+                layer.setStyle({
+                    fillColor: '#ee7600'
+                })
+            }
+        });
 
         angular.extend($scope, {
             center: {
@@ -226,6 +255,7 @@
         });
 
         $scope.$on('drug-update', function(event, args) {
+            tab = "drug";
             var all_locations = [];
             $http.get("data/us-states.json").success(function(response, status) {
                 state_location = response.features
@@ -238,22 +268,66 @@
                         });
                     });
             });
-            angular.extend($scope, {
-                geojson: {
-                    data: all_locations,
-                    style: {
-                        fillColor: "orange",
-                        weight: 1,
-                        opacity: 1,
-                        color: 'white',
-                        dashArray: '3',
-                        fillOpacity: 0.7
-                    }
-                }
-            });
+
+            $scope.geojson = {
+                data: all_locations,
+                style: {
+                    fillColor: 'orange',
+                    weight: 1,
+                    opacity: 1,
+                    color: 'white',
+                    dashArray: '3',
+                    fillOpacity: 0.7
+                },
+                resetStyleOnMouseout: true
+            }
+
         });
 
+        function style(feature) {
+            var vals = getColor(feature.properties.name)
+            return {
+                fillColor: vals,
+                weight: 1,
+                opacity: 1,
+                color: 'white',
+                dashArray: '3',
+                fillOpacity: 0.7
+            };
+        }
+
+        function getColor(name) {
+
+            var d = 0;
+
+            for(var i= 0; i<($rootScope.manufacturer_state_count).length; i++){
+
+                state = ($rootScope.manufacturer_state_count)[i].state
+                count = ($rootScope.manufacturer_state_count)[i].count
+
+                if ( name == state ) {
+                    d = d + count
+                }
+                if ( state == "Nationwide" ) {
+                    d = d + count
+                }
+            }
+
+            return  d > 40 ? '#FF410F' :
+                    d > 35 ? '#FF5423' :
+                    d > 30 ? '#FF6838' :
+                    d > 25 ? '#FF7C4C' :
+                    d > 20 ? '#FF9061' :
+                    d > 15 ? '#FFA375' :
+                    d > 10 ? '#FFB78A' :
+                    d > 5 ? '#FFCB9E' :
+                    d > 1 ? '#FFDBAE' :
+                '#FFDFB3';
+        }
+
+
         $scope.$on('manufacturer-update', function(event, args) {
+            tab = "maker";
             var maker_locations = [];
             $http.get("data/us-states.json").success(function(response, status) {
                 state_location = response.features
@@ -267,19 +341,11 @@
                 });
             });
 
-            angular.extend($scope, {
-                geojson: {
-                    data: maker_locations,
-                    style: {
-                        fillColor: "purple",
-                        weight: 1,
-                        opacity: 1,
-                        color: 'white',
-                        dashArray: '3',
-                        fillOpacity: 0.7
-                    }
-                }
-            });
+            $scope.geojson = {
+                data: maker_locations,
+                style: style,
+                resetStyleOnMouseout: true
+            }
 
         });
 
@@ -290,11 +356,15 @@
                 }
             });
 
+            $scope.total_recalls = null;
+
         });
 
         $scope.$on('state-update', function(event, args) {
-            selected_state = args;
 
+            tab = "state";
+
+            selected_state = args;
             $rootScope.all_drugs = []
 
             mapFactory.getRecallsByState("Nationwide")
@@ -328,25 +398,25 @@
                 });
             });
 
-            angular.extend($scope, {
-                geojson: {
-                    data: one_location,
-                    style: {
-                        fillColor: "red",
-                        weight: 1,
-                        opacity: 1,
-                        color: 'white',
-                        dashArray: '3',
-                        fillOpacity: 0.7
-                    }
-                }
-            });
+            $scope.geojson = {
+                data: one_location,
+                style: {
+                    fillColor: 'orange',
+                    weight: 1,
+                    opacity: 1,
+                    color: 'white',
+                    dashArray: '3',
+                    fillOpacity: 0.7
+                },
+                resetStyleOnMouseout: true
+            }
         });
 
     };
     angular.module('App').controller('MapController', ["$scope", "$http", "$rootScope", "mapFactory", MapController]);
 
-    angular.module('App').controller('PaginationCtrl', function ($scope, $rootScope, $log) {
+
+    var PaginationCtrl = function ($scope, $rootScope, $log) {
 
         $scope.$on('length-update', function(event, args){
             $scope.totalItems = args
@@ -364,7 +434,8 @@
             $log.log('Page changed to: ' + $scope.currentPage)
         };
 
-    });
+    };
+    angular.module('App').controller('PaginationCtrl', ["$scope", "$rootScope", '$log', PaginationCtrl]);
 
 
 }());

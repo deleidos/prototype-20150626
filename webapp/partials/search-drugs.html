@@ -17,31 +17,5 @@
         </div>
     </div>
 </div>
-<hr />
-<div class="row" ng-show="selected_drug" ng-controller="PaginationCtrl">
-    <div class="col-sm-12">
-        <h3>{{selected_drug}} &nbsp;<small>{{selected_drug_purpose}}</small></h3>
-        <p class="help-block drug-usage-description">{{selected_drug_usage | capitalize}}</p>
-        <p><strong>Manufacturer: </strong>{{manufacturer_name}}</p>
-        <p><strong>Active Ingredient(s): </strong><span ng-repeat="substance in active_ingredients">{{substance.name | capitalize:true}}{{$last ? '' : ', '}} </span>  </p>
-        <hr />
-        <h3>Recalls</h3>
-        <div ng-hide="recalls.length"><span class="glyphicon glyphicon-ok"></span> No recalls found!</div>
-        <table class="table table-hover" ng-show="recalls.length">
-            <thead>
-            <tr>
-                <th>Date</th><th>Quantity</th><th>Reason</th><th>Region</th>
-            </tr>
-            </thead>
-            <tbody>
-            <tr ng-repeat="recall in recalls.slice(((currentPage-1)*itemsPerPage), ((currentPage)*itemsPerPage))">
-                <td>{{recall.recall_initiation_date | date}}</td>
-                <td>{{recall.product_quantity}}</td>
-                <td>{{recall.reason_for_recall}}</td>
-                <td><span ng-repeat="region in recall.recall_area track by $index">{{region}}{{$last ? '' : ', '}} </span></td>
-            </tr>
-            </tbody>
-        </table>
-        <pagination total-items="totalItems" ng-model="currentPage" max-size="maxSize" class="pagination-sm" items-per-page="itemsPerPage" boundary-links="true"></pagination>
-    </div>
-</div>
+
+

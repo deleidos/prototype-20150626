@@ -1,0 +1,21 @@
+<div ng-show="all_drugs" ng-controller="PaginationCtrl">
+    <br /><hr />
+    <h3>Recalls</h3>
+    <table class="table table-hover">
+        <thead>
+        <tr>
+            <th>Drug Name</th>
+            <th>Recall Reason</th>
+            <th>Date</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr ng-repeat="recall_drug in all_drugs.slice(((currentPage-1)*itemsPerPage), ((currentPage)*itemsPerPage))">
+            <td>{{recall_drug.name}}</td>
+            <td>{{recall_drug.reason}}</td>
+            <td>{{recall_drug.date}}</td>
+        </tr>
+        </tbody>
+    </table>
+    <pagination total-items="totalItems" ng-model="currentPage" max-size="maxSize" class="pagination-sm" items-per-page="itemsPerPage" boundary-links="true"></pagination>
+</div>

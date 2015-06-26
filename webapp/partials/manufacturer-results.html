@@ -1,0 +1,22 @@
+<div ng-show="selected_maker" ng-controller="PaginationCtrl">
+    <br /><hr />
+    <h3>{{selected_maker}}</h3>
+    <p><strong>Location: </strong>{{manufacturer_city}}, {{manufacturer_state}}</p>
+    <p>{{manufacturer_count}} <strong>Total Recalls</strong></p>
+    <p ng-repeat="info in manufacturer_state_count">{{info.state}} : {{info.count}}</p>
+    <hr />
+    <h3>Recalls</h3>
+    <table class="table table-hover">
+        <thead>
+        <tr>
+            <th>Recalled Drug Name</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr ng-repeat="drug in maker_drug_recalls.slice(((currentPage-1)*itemsPerPage), ((currentPage)*itemsPerPage))">
+            <td>{{drug.name}}</td>
+        </tr>
+        </tbody>
+    </table>
+    <pagination total-items="totalItems" ng-model="currentPage" max-size="maxSize" class="pagination-sm" items-per-page="itemsPerPage" boundary-links="true"></pagination>
+</div>
