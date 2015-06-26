@@ -56,6 +56,6 @@ The software stack for this prototype includes [numerous open source licensed te
 Be sure to [check out the wiki](https://github.com/deleidos/prototype-20150626/wiki) to learn more about the prototype, the team and the process:
 + [Timeline of Prototype Creation](https://github.com/deleidos/prototype-20150626/wiki/Prototype-Timeline)
 + [DevOps Details](https://github.com/deleidos/prototype-20150626/wiki/DevOps)
-+ [Add More!](https://github.com/deleidos/prototype-20150626/wiki#build-and-install)
++ [Add More!](https://github.com/deleidos/prototype-20150626/wiki)
 
 &copy; Leidos 2015
