@@ -38,7 +38,7 @@ The wiki contains [a more specific presentation of the timeline unfolding using 
 
 ## Technical Focus
 
-This prototype was built to highlight the technical aspects of (1) consuming data from a publically available API; (2) enriching the data record by transforming a freeform text field into structured elements; (3) leveraging a populated data repository to create query-time summarizations and publishing those results via a ReST API; (4) presenting the data elements in an intuitive GUI; and (5) enabling the GUI to add supplementary information by dynamically querying the source API.
+This prototype was built to highlight the technical aspects of (1) consuming data from a publically available API; (2) enriching the data record by transforming the freeform text field "distribution_pattern" into structured geographic elements; (3) leveraging a populated data repository to create query-time summarizations and publishing those results via a ReST API; (4) presenting the data elements in an intuitive GUI; and (5) enabling the GUI to add supplementary information by dynamically querying the source API.
 
 ![](https://raw.githubusercontent.com/deleidos/prototype-20150626/master/docs/archive/prototype_architecture-v1b.png)
 
@@ -52,7 +52,9 @@ mvn clean install
 
 ## Software Licensing and Technologies
 
-The software stack for this prototype includes [numerous open source licensed technologies](https://github.com/deleidos/prototype-20150626/wiki#licenses). Specifically, Bootstrap, Docker, AngularJS, CentOS, MongoDB, Leaflet and DigitalEdge, to name at least five modern and open-sourced technologies.
+The software stack for this prototype includes [numerous open source licensed technologies](https://github.com/deleidos/prototype-20150626/wiki#licenses). Specifically, Bootstrap, Docker, AngularJS, CentOS, MongoDB, Leaflet and DigitalEdge, to name at least five modern and open-sourced technologies.  
+
+Leidos' DigitalEdge Team is well versed in many open source technologies. For this prototype, we took the opportunity to learn AngularJS and found it to be a very useful framework.
 
 ## Documentation
 Be sure to [check out the wiki](https://github.com/deleidos/prototype-20150626/wiki) to learn more about the prototype, the team and the process:
