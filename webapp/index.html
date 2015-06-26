@@ -23,6 +23,9 @@
 <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
 <![endif]-->
 
+
+<img id="banner" src="css/vendor/images/header-slice.png">
+
 <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation" ng-controller="NavController">
     <div class="container">
         <div class="navbar-header">
@@ -37,7 +40,7 @@
         <div class="collapse navbar-collapse" collapse="navCollapsed">
             <ul class="nav navbar-nav">
                 <li ng-class="{ active: isActive('/')}"><a href="#/" ng-click="navCollapsed=true">Home</a></li>
-                <li ng-class="{ active: isActive('/about')}"><a href="#/about" ng-click="navCollapsed=true">About</a></li>
+                <!--<li ng-class="{ active: isActive('/about')}"><a href="#/about" ng-click="navCollapsed=true">About</a></li>-->
             </ul>
             <ul class="nav navbar-nav navbar-right">
                 <li><a href="https://github.com/deleidos/prototype-20150626" target="_blank">GitHub</a></li>
