@@ -15,8 +15,7 @@
 			<id>linux</id>
 			<activation>
 				<file>
-			<!-- 		<exists>/etc/centos-release</exists> -->
-					<exists>pom.xml</exists>
+					<exists>/etc/centos-release</exists>
 				</file>
 			</activation>
 			<build>
