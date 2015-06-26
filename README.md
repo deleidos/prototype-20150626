@@ -1,8 +1,9 @@
 # prototype-20150626
 
 ## Demo
-Click below to view the working prototype and enjoy:  
-http://openfda.deleidos.com
+Check out the demo at http://openfda.deleidos.com
+
+[Version 1.0.0](https://github.com/deleidos/prototype-20150626/tree/1.0.0) of the prototype was created on June 26th at 1:50pm EST.  
 
 ## Status
 Continuous Integration:
