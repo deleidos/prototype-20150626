@@ -22,6 +22,8 @@ Leidos’ SCRUM agile development methodology emphasizes:
 +	Streamlined agility by process reduction, design simplification, and incubation of innovative ideas  
 +	A scaled-up set of agile management processes, to support larger, more diverse teams as well as apply agility across all organizations of the program  
 
+![](https://raw.githubusercontent.com/deleidos/prototype-20150626/master/docs/archive/scrum_diagram1.png)
+
 For the sake of this prototype, a couple individuals outside of the design/development team took on the role of "People". They asked two questions: (1) "Which drugs have been recalled in their state?" and (2) "For a given manufacturer, which states were affected by drugs produced by the manufacturer?".
 
 Generally, the team operates on short iterations of two weeks, called sprints, with daily status meetings. For this rapid prototype response, the team operated on 24-hours Sprints for the first three business days and then settled into daily scrums for the remainder of the prototyping period before submission. During this time, the team intermixed meetings with the "People" every other day and adjusted course based upon feedback, as well as usability testing. 
