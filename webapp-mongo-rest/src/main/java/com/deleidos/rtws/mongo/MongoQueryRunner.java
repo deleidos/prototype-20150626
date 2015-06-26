@@ -2,6 +2,7 @@ package com.deleidos.rtws.mongo;
 
 import java.net.UnknownHostException;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Iterator;
@@ -105,7 +106,7 @@ public class MongoQueryRunner {
 	}
 	
 	@ApiOperation(value = "Aggregates the number of recalls for a given manufacturer by state and returns the count of recalls per state",
-			notes = "This method accesses the same MongoDB recall records as described in the \"query\" method above",
+			notes = "This method accesses the same MongoDB recall records as described in the \"query\" method",
 		    response = String.class)
 	@Path("/statecount")
 	@GET
@@ -187,6 +188,75 @@ public class MongoQueryRunner {
 	    response.put("state", state);
 	    response.put("country", country);
 	    response.put("brand_names", brandList);
+		response.put("count", results.size());
+		response.put("results", results);
+		return response.toString();
+	}
+	
+	@ApiOperation(value = "Aggregates the number of recalls for a given manufacturer by drug and returns the count of recalls per drug",
+			notes = "This method accesses the same MongoDB recall records as described in the \"query\" method",
+		    response = String.class)
+	@Path("/drugCount")
+	@GET
+	@Produces(MediaType.TEXT_PLAIN)
+	public String drugCount(@ApiParam(value = "The Mongo hostname or IP address", defaultValue="mongo", required = true) @QueryParam("host") String host,
+			@ApiParam(value = "The Mongo database name", defaultValue="dbname", required = true) @QueryParam("database") String databaseName,
+			@ApiParam(value = "The Mongo collection name", defaultValue="fda_enforcement", required = true) @QueryParam("collection") String collectionName,
+			@ApiParam(value = "The name of the manufacturer, if omitted all recalls for all manufacturers are counted by drug name", required = false) @QueryParam("manufacturer") String manufacturer) {
+		
+		logger.info("manufacturer="+manufacturer);
+		Mongo mongoClient = getMongoClient(host);
+		DB mongoDatabase = mongoClient.getDB(databaseName);
+		DBCollection collection = mongoDatabase.getCollection(collectionName);
+		
+		DBObject query = new BasicDBObject();
+		if (manufacturer != null) {
+			query.put("openfda.manufacturer_name.0.0", manufacturer);
+		}
+		DBObject fieldNames = new BasicDBObject();
+		fieldNames.put("_id", 0);
+		fieldNames.put("recall_area", 1);
+		fieldNames.put("openfda.brand_name", 1);
+		
+		HashMap<String, Integer> drugCount = new HashMap<String, Integer>();
+		HashMap<String, HashSet<String>> drugToStates = new HashMap<String, HashSet<String>>();
+		DBCursor cursor = collection.find(query, fieldNames);
+		if (cursor.hasNext()) {
+			while (cursor.hasNext()) {
+				DBObject record = cursor.next();
+				BasicDBList areaList = (BasicDBList)record.get("recall_area");
+				List<String> states = Arrays.asList(areaList.toArray(new String[areaList.size()]));
+				
+				DBObject openfda = (DBObject)record.get("openfda");
+				BasicDBList bnList = (BasicDBList)openfda.get("brand_name");
+				BasicDBList brandList = (BasicDBList)bnList.get(0);
+				if (brandList != null) {
+					for (Object brandObj: brandList) {
+						String drugName = brandObj.toString();
+						int count = !drugCount.containsKey(drugName) ? 0 : drugCount.get(drugName).intValue();
+						drugCount.put(drugName, ++count);
+						
+						if (!drugToStates.containsKey(drugName)) {
+							drugToStates.put(drugName, new HashSet<String>());
+						}
+						drugToStates.get(drugName).addAll(states);
+					}
+				}
+			}
+		}
+		
+		List<DBObject> results = new ArrayList<DBObject>();
+		for (Map.Entry<String, Integer> entry : drugCount.entrySet()) {
+		    String drugName = entry.getKey();
+		    Integer count = entry.getValue();
+		    DBObject result = new BasicDBObject();
+		    result.put("drug_name", drugName);
+		    result.put("count", count);
+		    result.put("recall_area", drugToStates.get(drugName));
+		    results.add(result);
+		}
+		DBObject response = new BasicDBObject();
+		response.put("manufacturer", manufacturer);
 		response.put("count", results.size());
 		response.put("results", results);
 		return response.toString();
