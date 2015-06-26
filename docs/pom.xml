@@ -15,7 +15,8 @@
 			<id>linux</id>
 			<activation>
 				<file>
-					<exists>/etc/centos-release</exists>
+			<!-- 		<exists>/etc/centos-release</exists> -->
+					<exists>pom.xml</exists>
 				</file>
 			</activation>
 			<build>
@@ -50,7 +51,6 @@
 									<executable>dos2unix</executable>
 									<workingDirectory>${basedir}</workingDirectory>
 									<arguments>
-										<argument>+x</argument>
 										<argument>${basedir}/src/test/scripts/readme_test</argument>
 									</arguments>
 								</configuration>
