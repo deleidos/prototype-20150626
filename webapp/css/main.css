@@ -7,14 +7,9 @@ body {
    ========================================================================== */
 
 #banner {
-    position: absolute;
-    width: 100%;
-    -webkit-transform: rotate(180deg);
-    -moz-transform: rotate(180deg);
-    -o-transform: rotate(180deg);
-    -ms-transform: rotate(180deg);
-    transform: rotate(180deg);
-    z-index: 0;
+     position: absolute;
+     width: 100%;
+     z-index: 0;
 }
 
 #content{
@@ -46,10 +41,18 @@ body {
     }
 }
 
+@media (min-width: 1740px) {
+
+    #banner {
+        width: 80%;
+    }
+}
+
 @media (max-width: 480px) {
 
     #map {
         width: 80%;
+        margin-left: 10%;
     }
 
     #content{

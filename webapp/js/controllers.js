@@ -344,7 +344,7 @@
             $scope.geojson = {
                 data: maker_locations,
                 style: style,
-                resetStyleOnMouseout: true
+                resetStyleOnMouseout: false
             }
 
         });
