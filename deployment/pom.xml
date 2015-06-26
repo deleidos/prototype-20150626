@@ -35,7 +35,7 @@
 			<dependencies>
 				<dependency>
 					<groupId>com.deleidos</groupId>
-					<artifactId>webapp-centos-container</artifactId>
+					<artifactId>docker</artifactId>
 					<version>${project.version}</version>
 					<classifier>webapp-centos-container</classifier>
 					<type>tar</type>
