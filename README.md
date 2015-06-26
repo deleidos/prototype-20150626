@@ -3,7 +3,7 @@
 ## Demo
 Check out the demo at http://openfda.deleidos.com
 
-[Version 1.0.0](https://github.com/deleidos/prototype-20150626/tree/1.0.0) of the prototype was created on June 26th at 1:50pm EST.  
+[Version 1.0](https://github.com/deleidos/prototype-20150626/tree/1.0.0) of the prototype was created on June 26th at 1:50pm EST.  
 
 ## Status
 Continuous Integration:
@@ -27,8 +27,6 @@ Leidos’ SCRUM agile development methodology emphasizes:
 
 At the beginning of the prototyping effort, a product manager was designated and a multidisciplinary team assembled. The team was drawn from Leidos' DigitalEdge Team, which is a highly collaborative team supporting numerous ongoing efforts.
 
-For the sake of this prototype, a couple individuals outside of the design/development team took on the role of "People". They asked two questions: (1) "Which drugs have been recalled in their state?" and (2) "For a given manufacturer, which states were affected by drugs produced by the manufacturer?".
-
 Generally, the team operates on short iterations of two weeks, called sprints, with daily status meetings. For this rapid prototype response, the team operated on 24-hours Sprints for the first three business days and then settled into daily scrums for the remainder of the prototyping period before submission. During this time, the team intermixed meetings with the "People" every other day and adjusted course based upon feedback, as well as usability testing. 
 
 In addition to the team working with the end-user to create the prototype, the team also began setting up and working in the DevOps environment. This included setting up a GitHub repository, Jenkins, an AWS account and automated processes. 
@@ -37,7 +35,13 @@ In summary, for iterative projects such as this prototype, Leidos employs an agi
 
 The wiki contains [a more specific presentation of the timeline unfolding using this approach](https://github.com/deleidos/prototype-20150626/wiki/Prototype-Timeline). 
 
-## Technical Focus
+## Design
+
+In creation of the prototype, the following human-centered design techniques were utilitized: (1) adopting multidisciplinary skills and perspectives; (2) involvment of the consumer in the design and production process and (3) an iterative design process.
+
+For the sake of this prototype, a couple individuals outside of the design/development team took on the role of "People". They asked narrowed to asking two questions: (1) "Which drugs have been recalled in their state?" and (2) "For a given manufacturer, which states were affected by drugs produced by the manufacturer?".
+
+## Development Focus
 
 This prototype was built to highlight the technical aspects of (1) consuming data from a publically available API; (2) enriching the data record by transforming the freeform text field "distribution_pattern" into structured geographic elements; (3) leveraging a populated data repository to create query-time summarizations and publishing those results via a ReST API; (4) presenting the data elements in an intuitive GUI; and (5) enabling the GUI to add supplementary information by dynamically querying the source API.
 
