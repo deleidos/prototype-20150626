@@ -14,7 +14,7 @@ COPY root.war /root/jetty-distribution-9.3.0.v20150612/webapps/
 
 COPY mongorest.war /root/jetty-distribution-9.3.0.v20150612/webapps/
 
-COPY swaggerui.war /root/jetty-distribution-9.3.0.v20150612/webapps/
+COPY apidocs.war /root/jetty-distribution-9.3.0.v20150612/webapps/
 
 EXPOSE 8080
 
