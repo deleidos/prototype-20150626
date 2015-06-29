@@ -241,9 +241,19 @@
 
         $scope.$on("leafletDirectiveGeoJson.mouseover", function(event, args){
             if (tab != "maker") {
+                console.log("mouseover:", args)
                 var layer = args.leafletEvent.target
                 layer.setStyle({
                     fillColor: '#ee7600'
+                })
+            }
+        });
+
+        $scope.$on("leafletDirectiveGeoJson.mouseout", function(event, args){
+            if (tab != "maker") {
+                var layer = args.leafletEvent.target
+                layer.setStyle({
+                    fillColor: 'orange'
                 })
             }
         });
@@ -253,6 +263,11 @@
                 lat: 39,
                 lng: -100,
                 zoom: 4
+            },
+            legend: {
+                position: 'bottomleft',
+                colors: ['#FFFFFF'],
+                labels: ['Recalls']
             }
         });
 
@@ -270,6 +285,12 @@
                         });
                     });
             });
+
+            $scope.legend = {
+                    position: 'bottomleft',
+                    colors: ['orange'],
+                    labels: ['Recalls']
+                }
 
             $scope.geojson = {
                 data: all_locations,
@@ -343,6 +364,12 @@
                 });
             });
 
+            $scope.legend = {
+                position: 'bottomleft',
+                colors: ['#FFDBAE', '#FFCB9E', '#FFB78A', '#FFA375', '#FF9061', '#FF7C4C', '#FF6838', '#FF5423', '#FF410F'],
+                labels: ['>1', '>5', '>10', '>15', '>20', '>25', '>30', '>35', '>40']
+            }
+
             $scope.geojson = {
                 data: maker_locations,
                 style: style,
@@ -352,14 +379,17 @@
         });
 
         $scope.$on('reset-update', function(event, args) {
-             angular.extend($scope, {
-                geojson: {
-                    data: args
+                $scope.geojson = {
+                    data: args,
+                    resetStyleOnMouseout: true
                 }
-            });
-
             $scope.total_recalls = null;
 
+            $scope.legend = {
+                position: 'bottomleft',
+                colors: ['#FFFFFF'],
+                labels: ['Recalls']
+            }
         });
 
         $scope.$on('state-update', function(event, args) {
@@ -400,6 +430,12 @@
                     }
                 });
             });
+
+            $scope.legend = {
+                position: 'bottomleft',
+                colors: ['orange'],
+                labels: ['Recalls']
+            }
 
             $scope.geojson = {
                 data: one_location,
