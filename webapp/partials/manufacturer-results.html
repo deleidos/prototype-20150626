@@ -10,11 +10,13 @@
         <thead>
         <tr>
             <th>Recalled Drug Name</th>
+            <th>Affected Areas</th>
         </tr>
         </thead>
         <tbody>
         <tr ng-repeat="drug in maker_drug_recalls.slice(((currentPage-1)*itemsPerPage), ((currentPage)*itemsPerPage))">
-            <td>{{drug.name}}</td>
+            <td>{{drug.drug_name}}</td>
+            <td><span ng-repeat="region in drug.recall_area track by $index">{{region}}{{$last ? '' : ', '}} </span></td>
         </tr>
         </tbody>
     </table>

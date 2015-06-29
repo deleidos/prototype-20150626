@@ -93,6 +93,18 @@
                 });
         };
 
+        factory.getManufacturerDrugInfo = function( maker_name ) {
+            var maker_name_urlencode = maker_name.replace(" ", "%20");
+            var url = mainFactory.useTestData ? "data/sample-manufacturer-drug-response.json" :
+                "http://" + mainFactory.defaultHost + "/mongorest/mongo/drugcount?host=mongo&database=dbname&collection=fda_enforcement&manufacturer=" + maker_name_urlencode;
+            return $http.get(url)
+                .then( function( results ) {
+                    return results.data
+                }, function( error ) {
+                    return $q.reject(error.data)
+                });
+        };
+
         function parseDrugs( result ) {
             var drug_list = [];
 

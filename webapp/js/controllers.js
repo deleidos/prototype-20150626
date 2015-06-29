@@ -113,6 +113,15 @@
                     console.log("got an error: ", error);
                     $scope.selected_maker = null
                 });
+
+            searchFactory.getManufacturerDrugInfo(maker)
+                .then( function( data ) {
+                    $scope.selected_maker = maker;
+                    setManufacturerDrugInfo( data )
+                }, function( error ) {
+                    console.log("got an error: ", error);
+                    $scope.selected_maker = null
+                });
         };
 
         $scope.update = function(state){
@@ -173,12 +182,6 @@
         function setManufacturerInfo( response ){
             $scope.manufacturer_city = response.city
             $scope.manufacturer_state = response.state
-            var drug_length = response.brand_names.length;
-            $scope.maker_drug_recalls = [];
-            for(var i= 0; i<drug_length; i++){
-                $scope.maker_drug_recalls.push({name: response.brand_names[i]})
-            }
-            $rootScope.$broadcast('length-update', ($scope.maker_drug_recalls).length)
 
             var state_length = response.results.length;
             var maker_state_recalls = [];
@@ -209,6 +212,16 @@
             $scope.manufacturer_states = maker_state_recalls
             $rootScope.manufacturer_state_count = maker_state_count
         }
+
+        function setManufacturerDrugInfo( response ){
+            var drug_length = response.results.length;
+            $scope.maker_drug_recalls = [];
+            for(var i= 0; i<drug_length; i++){
+                $scope.maker_drug_recalls.push(response.results[i])
+            }
+            $rootScope.$broadcast('length-update', ($scope.maker_drug_recalls).length)
+        }
+
 
     };
     angular.module('App').controller('SearchController', ['$scope', '$rootScope', 'searchFactory', SearchController]);
