@@ -70,7 +70,9 @@ The day was mostly spent performing groundwork for the prototype. The Team met m
 An approach using bootstrap was decided on to ensure the prototype would work on multiple devices.
 
 ###Modern and Open-Source Technologies
-The software stack was chosen for this prototype to include only [open source licensed technologies](https://github.com/deleidos/prototype-20150626/wiki#licenses). Numerous open source packages are included. Highlighted are Bootstrap, Docker, AngularJS, CentOS, MongoDB, Leaflet and DigitalEdge, to name at least five modern and open-sourced technologies.  
+The software stack was chosen for this prototype to include only [open source licensed technologies](https://github.com/deleidos/prototype-20150626/tree/master/docs/licenses). Numerous open source packages are included. Highlighted are Bootstrap, Docker, AngularJS, CentOS, Java, JavaScript, MongoDB, Leaflet and DigitalEdge, to name at least five modern and open-sourced technologies.  
+
+Each of these included open source packages are pre-existing. DigitalEdge is a new addition to open source by Leidos, and is a container-based toolkit for creating big data solutions.
 
 ## Day #4: Tuesday, June 23rd
 
