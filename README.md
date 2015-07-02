@@ -83,7 +83,7 @@ Now that the team had a notion of what the data could support, it was time to co
 
 This was slightly different from the premise that was originally drawn from the data on Friday. It sought to address a customer who was in charge of PR for a manufacturer, and wished to know which states had been most affected by recalls, thus steering where to direct communications about the recalls.
 
-Consequently, the plan for the prototype was narrowed to highlight (1) consuming data from a publically available API; (2) enriching the data record by transforming the freeform text field "distribution_pattern" into structured geographic elements; (3) leveraging a populated data repository to create query-time summarizations and publishing those results via a ReST API; (4) presenting edited elements in an intuitive GUI; and (5) remixing additional information by dynamically querying the source API.
+Consequently, the plan for the prototype was narrowed to highlight (1) consuming data from a publically available API; (2) enriching the data record by transforming the freeform text field "distribution_pattern" into structured geographic elements; (3) leveraging a populated data repository to create query-time summarizations and publishing those results via a ReST API; (4) presenting enriched elements in an intuitive GUI; and (5) remixing additional information by dynamically querying the source API.
 
 ![](https://raw.githubusercontent.com/deleidos/prototype-20150626/master/docs/archive/prototype_architecture-v1b.png)
 
