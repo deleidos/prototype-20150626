@@ -9,7 +9,7 @@ Check out the demo at http://openfda.deleidos.com
 
 ## Build and Install
 
-Once the [dependencies are satisfied](https://github.com/deleidos/prototype-20150626/wiki#build-and-install), building the code including execution of applicable tests, can be achieved by executing the following where you have cloned this repo:
+Once the [dependencies are satisfied](https://github.com/deleidos/prototype-20150626/blob/master/docs/prerequisites.txt), building the code including execution of applicable tests, can be achieved by executing the following where you have cloned this repo:
 
 ```bash
 mvn clean install
