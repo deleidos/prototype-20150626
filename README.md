@@ -9,7 +9,7 @@ Check out the demo at http://openfda.deleidos.com
 
 ## Build and Install
 
-Once the [dependencies are satisfied](https://github.com/deleidos/prototype-20150626/blob/master/docs/prerequisites.txt), building the code including execution of applicable tests, can be achieved by executing the following where you have cloned this repo:
+Once the [dependencies are satisfied](https://github.com/deleidos/prototype-20150626/blob/master/docs/prerequisites.md), building the code including execution of applicable tests, can be achieved by executing the following where you have cloned this repo:
 
 ```bash
 mvn clean install
@@ -20,7 +20,7 @@ See the [docs for running the prototype](https://github.com/deleidos/prototype-2
 ***
 
 # Approach
-The creation of this prototype employed the [Scrum](https://en.wikipedia.org/wiki/Scrum_(software_development)) methodology, guidance of the [Digital Services Playbook](https://github.com/deleidos/prototype-20150626/blob/master/docs/playbook.txt) and principals of the [Lean Startup](https://en.wikipedia.org/wiki/Lean_startup).  
+The creation of this prototype employed the [Scrum](https://en.wikipedia.org/wiki/Scrum_(software_development)) methodology, guidance of the [Digital Services Playbook](https://github.com/deleidos/prototype-20150626/blob/master/docs/playbook.md) and principals of the [Lean Startup](https://en.wikipedia.org/wiki/Lean_startup).  
 
 Scrum focuses on developing value-added features collaboratively with the end users emphasizing frequent communication at all levels and delivering working software within short release cycles. This process is especially valuable when detailed requirements are not well understood early in the program while still supporting the release of new capabilities delivered within months.  
 
