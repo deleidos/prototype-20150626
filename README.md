@@ -9,16 +9,18 @@ Check out the demo at http://openfda.deleidos.com
 
 ## Build and Install
 
-Once the [dependencies are satisfied](https://github.com/deleidos/prototype-20150626/wiki#build-and-install), building the code including execution of applicable tests, can be achieved by executing the following where you have cloned this repo:
+Once the [dependencies are satisfied](https://github.com/deleidos/prototype-20150626/blob/master/docs/prerequisites.txt), building the code including execution of applicable tests, can be achieved by executing the following where you have cloned this repo:
 
 ```bash
 mvn clean install
 ``` 
 
+See the [docs for running the prototype](https://github.com/deleidos/prototype-20150626/tree/master/docs).
+
 ***
 
 # Approach
-The creation of this prototype employed the [Scrum](https://en.wikipedia.org/wiki/Scrum_(software_development)) methodology and principals of the [Lean Startup](https://en.wikipedia.org/wiki/Lean_startup).  
+The creation of this prototype employed the [Scrum](https://en.wikipedia.org/wiki/Scrum_(software_development)) methodology, guidance of the [Digital Services Playbook](https://github.com/deleidos/prototype-20150626/blob/master/docs/playbook.txt) and principals of the [Lean Startup](https://en.wikipedia.org/wiki/Lean_startup).  
 
 Scrum focuses on developing value-added features collaboratively with the end users emphasizing frequent communication at all levels and delivering working software within short release cycles. This process is especially valuable when detailed requirements are not well understood early in the program while still supporting the release of new capabilities delivered within months.  
 
@@ -70,7 +72,9 @@ The day was mostly spent performing groundwork for the prototype. The Team met m
 An approach using bootstrap was decided on to ensure the prototype would work on multiple devices.
 
 ###Modern and Open-Source Technologies
-The software stack was chosen for this prototype to include only [open source licensed technologies](https://github.com/deleidos/prototype-20150626/wiki#licenses). Numerous open source packages are included. Highlighted are Bootstrap, Docker, AngularJS, CentOS, MongoDB, Leaflet and DigitalEdge, to name at least five modern and open-sourced technologies.  
+The software stack was chosen for this prototype to include only [open source licensed technologies](https://github.com/deleidos/prototype-20150626/tree/master/docs/licenses). Numerous open source packages are included. Highlighted are Bootstrap, Docker, AngularJS, CentOS, Java, JavaScript, MongoDB, Leaflet and DigitalEdge, to name at least five modern and open-sourced technologies.  
+
+Each of these included open source packages are pre-existing. DigitalEdge is a new addition to open source by Leidos, and is a container-based toolkit for creating big data solutions.
 
 ## Day #4: Tuesday, June 23rd
 
@@ -79,7 +83,7 @@ Now that the team had a notion of what the data could support, it was time to co
 
 This was slightly different from the premise that was originally drawn from the data on Friday. It sought to address a customer who was in charge of PR for a manufacturer, and wished to know which states had been most affected by recalls, thus steering where to direct communications about the recalls.
 
-Consequently, the plan for the prototype was narrowed to highlight (1) consuming data from a publically available API; (2) enriching the data record by transforming the freeform text field "distribution_pattern" into structured geographic elements; (3) leveraging a populated data repository to create query-time summarizations and publishing those results via a ReST API; (4) presenting edited elements in an intuitive GUI; and (5) remixing additional information by dynamically querying the source API.
+Consequently, the plan for the prototype was narrowed to highlight (1) consuming data from a publically available API; (2) enriching the data record by transforming the freeform text field "distribution_pattern" into structured geographic elements; (3) leveraging a populated data repository to create query-time summarizations and publishing those results via a ReST API; (4) presenting enriched elements in an intuitive GUI; and (5) remixing additional information by dynamically querying the source API.
 
 ![](https://raw.githubusercontent.com/deleidos/prototype-20150626/master/docs/archive/prototype_architecture-v1b.png)
 
@@ -103,6 +107,8 @@ Since the prototype is deployed to a Docker execution environment the traditiona
 view-able here: http://openfda.deleidos.com:8080  
 
 Application health monitoring is also something that is traditionally configured to provide near real time information pertaining to the health of the various tiers of the application.  For the purposes of the prototype, a simple set of monitoring check(s) have been added with a very simple notification path in Jenkins.
+
+[Monitoring by auditd](https://github.com/deleidos/prototype-20150626/blob/master/docs/archive/audit1.log) is also installed. Future improvements could include OSIM and off-box logging.
 
 ## Container-based Deployment
 Docker was utilized for containerization of the deployed software. The decision to use the power of the Linux container technology, facilitated by Docker, and the decoupling of the deployment of the containers allows for the solution to run either on-prem, or in other cloud providers. Also, by using an Ansible playbook to provision the Centos 7 OS and not a container orchestration tool like the AWS Container Service or Kubernetes, allows for both the documentation of the OS packages required to run the prototype as well as the ability to provide a heterogeneous execution environment for the application (1 on prem, 1 in AWS, 1 in GCE; all load balanced through a proxy).
