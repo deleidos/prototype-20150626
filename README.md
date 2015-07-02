@@ -20,7 +20,7 @@ See the [docs for running the prototype](https://github.com/deleidos/prototype-2
 ***
 
 # Approach
-The creation of this prototype employed the [Scrum](https://en.wikipedia.org/wiki/Scrum_(software_development)) methodology and principals of the [Lean Startup](https://en.wikipedia.org/wiki/Lean_startup).  
+The creation of this prototype employed the [Scrum](https://en.wikipedia.org/wiki/Scrum_(software_development)) methodology, guidance of the [Digital Services Playbook](https://github.com/deleidos/prototype-20150626/blob/master/docs/playbook.txt) and principals of the [Lean Startup](https://en.wikipedia.org/wiki/Lean_startup).  
 
 Scrum focuses on developing value-added features collaboratively with the end users emphasizing frequent communication at all levels and delivering working software within short release cycles. This process is especially valuable when detailed requirements are not well understood early in the program while still supporting the release of new capabilities delivered within months.  
 
