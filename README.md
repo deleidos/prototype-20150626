@@ -143,6 +143,6 @@ High priority issues were addressed. Low-priority issues were left on the backlo
 ![](https://raw.githubusercontent.com/deleidos/prototype-20150626/master/docs/archive/issues1.jpg)
 
 ## Day #9: Thursday, July 2nd
-Some minor brushup of the interface was done to remove an image with limited distribution rights, plus added installation documentation.
+Some minor brushup of the interface were done, plus added installation documentation.
 
 &copy; Leidos 2015
