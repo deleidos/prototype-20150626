@@ -54,6 +54,10 @@ body {
     margin-right: 8px;
 }
 
+#header {
+    background-color: #0b4b78;
+    color: #fff;
+}
 
 
 @media (max-width: 1199px) {
