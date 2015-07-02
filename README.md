@@ -115,11 +115,13 @@ The product manager and interaction designer met again with the "People" to show
 A slightly different layout was discussed to better utilize real estate in different responsive modes. Also, scope was narrowed for Friday to focus on making the GUI stable for rendering remixed data.
 
 ###Design Style Guide
+A [Color Palette](https://raw.githubusercontent.com/deleidos/prototype-20150626/master/docs/archive/ColorPalette.png) was created for this prototype.
 
 ## Day #7: Friday, June 26th
 
 ###Unit Testing and Code Coverage
 The DevOps environment was configured to calculate code coverage, and also converted to HTTPS to protect password logins.
+![](https://raw.githubusercontent.com/deleidos/prototype-20150626/master/docs/archive/codecoverage1.png)
 
 ###Usability Testing
 Usability testing was conducted. Issues identified were entered into the issues page on GitHub for prioritization and workoff.
