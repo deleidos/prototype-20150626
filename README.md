@@ -108,6 +108,8 @@ view-able here: http://openfda.deleidos.com:8080
 
 Application health monitoring is also something that is traditionally configured to provide near real time information pertaining to the health of the various tiers of the application.  For the purposes of the prototype, a simple set of monitoring check(s) have been added with a very simple notification path in Jenkins.
 
+[Monitoring by auditd](https://github.com/deleidos/prototype-20150626/blob/master/docs/archive/audit1.log) is also installed. Future improvements could include OSIM and off-box logging.
+
 ## Container-based Deployment
 Docker was utilized for containerization of the deployed software. The decision to use the power of the Linux container technology, facilitated by Docker, and the decoupling of the deployment of the containers allows for the solution to run either on-prem, or in other cloud providers. Also, by using an Ansible playbook to provision the Centos 7 OS and not a container orchestration tool like the AWS Container Service or Kubernetes, allows for both the documentation of the OS packages required to run the prototype as well as the ability to provide a heterogeneous execution environment for the application (1 on prem, 1 in AWS, 1 in GCE; all load balanced through a proxy).
 
