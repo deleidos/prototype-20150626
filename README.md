@@ -86,7 +86,7 @@ Consequently, the plan for the prototype was narrowed to highlight (1) consuming
 ###Continuous Integration Stood-up
 Jenkins was stoodup to poll the repository, and configured to both build and test the software frequently, and also orchestrate the deployment of the Docker containers supporting the prototype to the provisioned EC2 instance. View the "[Build Status](https://jenkins.openfda.deleidos.com/buildStatus/icon?job=prototype-20150626_master)".
 
-###IaaS
+###IaaS Provider
 Amazon Web Services was selected to be the deployment environment.  
 ![](https://raw.githubusercontent.com/deleidos/prototype-20150626/master/docs/archive/aws-devtest3-screenshot1.png)
 
