@@ -123,6 +123,9 @@ A [Color Palette](https://raw.githubusercontent.com/deleidos/prototype-20150626/
 Unit tests were written and committed to the repo. The DevOps environment was configured to calculate code coverage.
 ![](https://raw.githubusercontent.com/deleidos/prototype-20150626/master/docs/archive/codecoverage1.png)
 
+###API Documentation
+Documentation was added for the [Mongo REST API](http://openfda.deleidos.com/apidocs/swaggerui).
+
 ###Usability Testing
 Usability testing was conducted by the summer interns, and issues identified were entered into the Issues page on GitHub
 
