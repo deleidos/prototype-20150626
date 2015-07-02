@@ -1,18 +1,23 @@
 # prototype-20150626
 
-## Demo
+# Demo
 Check out the demo at http://openfda.deleidos.com
 
 [Version 1.0](https://github.com/deleidos/prototype-20150626/tree/1.0.0) of the prototype was created on June 26th at 1:50pm EST.  
 
-## Status
-Continuous Integration:
-[![Build Status](https://jenkins.openfda.deleidos.com/buildStatus/icon?job=prototype-20150626_master)](https://jenkins.openfda.deleidos.com/job/prototype-20150626_master)
+***
 
-Continuous Deployment:
-[![Deployment Status](https://jenkins.openfda.deleidos.com/job/Deploy_Prototype/badge/icon)](https://jenkins.openfda.deleidos.com/job/Deploy_Prototype/)  
+## Build and Install
 
-## Approach
+Once the [dependencies are satisfied](https://github.com/deleidos/prototype-20150626/wiki#build-and-install), building the code including execution of applicable tests, can be achieved by executing the following where you have cloned this repo:
+
+```bash
+mvn clean install
+``` 
+
+***
+
+# Approach
 The creation of this prototype employed the [Scrum](https://en.wikipedia.org/wiki/Scrum_(software_development)) methodology and principals of the [Lean Startup](https://en.wikipedia.org/wiki/Lean_startup).  
 
 Scrum focuses on developing value-added features collaboratively with the end users emphasizing frequent communication at all levels and delivering working software within short release cycles. This process is especially valuable when detailed requirements are not well understood early in the program while still supporting the release of new capabilities delivered within months.  
@@ -25,46 +30,109 @@ Leidos’ SCRUM agile development methodology emphasizes:
 
 ![](https://raw.githubusercontent.com/deleidos/prototype-20150626/master/docs/archive/scrum_diagram1.png)
 
-At the beginning of the prototyping effort, a product manager was designated and a multidisciplinary team assembled. The team was drawn from Leidos' DigitalEdge Team, which is a highly collaborative team supporting numerous ongoing efforts.
+A description of this approach, as applied to the prototype, is as follows:
 
-Generally, the team operates on short iterations of two weeks, called sprints, with daily status meetings. For this rapid prototype response, the team operated on 24-hours Sprints for the first three business days and then settled into daily scrums for the remainder of the prototyping period before submission. During this time, the team intermixed meetings with the "People" every other day and adjusted course based upon feedback, as well as usability testing. 
+***
 
-In addition to the team working with the end-user to create the prototype, the team also began setting up and working in the DevOps environment. This included setting up a GitHub repository, Jenkins, an AWS account and automated processes. 
+## Day #0: Wednesday, June 18th
+RFQ is issued.
+
+## Day #1: Thursday, June 18th
+
+###Authorization and Accountability
+Line management authorizes a product manager to assemble a team and create a prototype for submission. ([See the email granting authorization and accountability](https://github.com/deleidos/prototype-20150626/blob/master/docs/archive/authorization.txt))
+
+## Day #2: Friday, June 19th
+
+###Assembly of Multidisciplinary and Collaborative Team
+A subset of the Leidos DigitalEdge Team, consisting of a product manager, technical architect, agile coach, interaction designer, front-end web developer, back-end developer and devops engineer, were assembled on Friday afternoon. 
+
+###Human-Centered Design Technique #1: Adopting multidisciplinary skills and perspectives
+Since the data source was dictated by the RFQ, the team took the approach of first understanding the data and how it could highlight requirements specified. Implicitedly, the RFQ was a stakeholder in the process, which the team interpretted to mean it would define the relevant marketspace the product manager and team was serving.  
+
+The multidisciplinary team discussed the data available and possibilities for new ways to serve the marketplace. In the ensuing discussion, the team began to focus on remixing the data to answer the question "Which drugs have been recalled in their state?".  
+
+Following this, the technical architect presented options for the prototype given the data available on openFDA and the known timeline for delivery of the prototype. A preliminary architecture was created.  
+![](https://raw.githubusercontent.com/deleidos/prototype-20150626/master/docs/archive/whiteboard-drawing_20150619.JPG) 
+The interaction designer proposed the following GUI mockup:
+![](https://raw.githubusercontent.com/deleidos/prototype-20150626/master/docs/archive/prototype-gui-mockup1.png)
+
+###Human-Centered Design Technique #2: Iterative Design Process
+Given this architecture and proposed GUI, the team discussed the prototype and populated tasks into VersionOne. This was the beginning of the interative process in agile, where tasks are specified and estimated, and updated continously during the effort.
+![](https://raw.githubusercontent.com/deleidos/prototype-20150626/master/docs/archive/versionone-tasks-screencapture-20150619.jpg)
+
+## Day #3: Monday, June 22nd
   
-In summary, for iterative projects such as this prototype, Leidos employs an agile development methodology as it is especially well suited to programs with unclear or evolving mission requirements. For more than a decade, Leidos has fine-tuned our agile development process across many customer engagements to produce optimized, cost effective and mission impacting results. We believe implementation of an agile approach will best enable our clients to thrive and adapt to changing needs, resources and schedules.  
+###Ground Work
+The day was mostly spent performing groundwork for the prototype. The Team met mid-day to review progress and update the plan for the next 24 hours. (This was in addition to other non-prototype projects the team was juggling)  
 
-The wiki contains [a more specific presentation of the timeline unfolding using this approach](https://github.com/deleidos/prototype-20150626/wiki/Prototype-Timeline). 
+###Responsive Design
+An approach using bootstrap was decided on to ensure the prototype would work on multiple devices.
 
-## Design
+###Modern and Open-Source Technologies
+The software stack was chosen for this prototype to include only [open source licensed technologies](https://github.com/deleidos/prototype-20150626/wiki#licenses). Numerous open source packages are included. Highlighted are Bootstrap, Docker, AngularJS, CentOS, MongoDB, Leaflet and DigitalEdge, to name at least five modern and open-sourced technologies.  
 
-In creation of the prototype, the following human-centered design techniques were utilitized: (1) adopting multidisciplinary skills and perspectives; (2) involvment of the consumer in the design and production process and (3) an iterative design process.
+## Day #4: Tuesday, June 23rd
 
-For the sake of this prototype, a couple individuals outside of the design/development team took on the role of "People". They asked narrowed to asking two questions: (1) "Which drugs have been recalled in their state?" and (2) "For a given manufacturer, which states were affected by drugs produced by the manufacturer?".
+###Human-Centered Design Technique #3: Involvement of the consumer in the design and production process
+Now that the team had a notion of what the data could support, it was time to consult with the "People" who were in the food &amp; drug marketspace. For the sake of this prototype, a couple individuals outside of the design/development team took on the role of "People". In reviewing the data with the team, the "People" focused on the particular question of "For a given manufacturer, which states were affected by drugs produced by the manufacturer?".
 
-## Development Focus
+This was slightly different from the premise that was originally drawn from the data on Friday. It sought to address a customer who was in charge of PR for a manufacturer, and wished to know which states had been most affected by recalls, thus steering where to direct communications about the recalls.
 
-This prototype was built to highlight the technical aspects of (1) consuming data from a publically available API; (2) enriching the data record by transforming the freeform text field "distribution_pattern" into structured geographic elements; (3) leveraging a populated data repository to create query-time summarizations and publishing those results via a ReST API; (4) presenting the data elements in an intuitive GUI; and (5) enabling the GUI to add supplementary information by dynamically querying the source API.
+Consequently, the plan for the prototype was narrowed to highlight (1) consuming data from a publically available API; (2) enriching the data record by transforming the freeform text field "distribution_pattern" into structured geographic elements; (3) leveraging a populated data repository to create query-time summarizations and publishing those results via a ReST API; (4) presenting edited elements in an intuitive GUI; and (5) remixing additional information by dynamically querying the source API.
 
 ![](https://raw.githubusercontent.com/deleidos/prototype-20150626/master/docs/archive/prototype_architecture-v1b.png)
 
-## Build and Install
+###Continuous Integration Stood-up
+Jenkins was stoodup to poll the repository, and configured to both build and test the software frequently, and also orchestrate the deployment of the Docker containers supporting the prototype to the provisioned EC2 instance. View the "[Build Status](https://jenkins.openfda.deleidos.com/buildStatus/icon?job=prototype-20150626_master)".
 
-Once the [dependencies are satisfied](https://github.com/deleidos/prototype-20150626/wiki#build-and-install), building the code including execution of applicable tests, can be achieved by executing the following where you have cloned this repo:
+###IaaS Provider
+Amazon Web Services was selected to be the deployment environment.  
+![](https://raw.githubusercontent.com/deleidos/prototype-20150626/master/docs/archive/aws-devtest3-screenshot1.png)
 
-```bash
-mvn clean install
-``` 
+## Day #5: Wednesday, June 24th
 
-## Software Licensing and Technologies
+###Continuous Deployment Stood-up
+A Jenkins job allows for the automated deployment of the prototype to one or more Centos 7 instances.   A Vagrantfile is provided in the deployment project which allows configuration of a simple control machine outside of the Jenkins environment to use for development/testing.  View the "[![Deployment Status](https://jenkins.openfda.deleidos.com/job/Deploy_Prototype/badge/icon)](https://jenkins.openfda.deleidos.com/job/Deploy_Prototype/)". 
 
-The software stack for this prototype includes [numerous open source licensed technologies](https://github.com/deleidos/prototype-20150626/wiki#licenses). Specifically, Bootstrap, Docker, AngularJS, CentOS, MongoDB, Leaflet and DigitalEdge, to name at least five modern and open-sourced technologies.  
+## Configuration Management 
+Ansible was used to orchestrate the installation and configuration of a Centos 7 OS (currently using the official Centos 7 EC2 Amazon Machine Image (AMI) from the AWS Marketplace) used for hosting the prototype.  For alternate deployment environments, any Centos 7 OS (bare metal on prem or in the cloud, or cloud provided VMs) will suffice.
 
-Leidos' DigitalEdge Team is well versed in many open source technologies. For this prototype, we took the opportunity to learn AngularJS and found it to be a very useful framework.
+## Continuous Monitoring
+Since the prototype is deployed to a Docker execution environment the traditional OS metrics tools (Cloudwatch, Ganglia, Graphite, Nagios, etc..) could be used however; it was chosen to use the similarly awesome Cadvisor monitoring tool to perform both traditional OS and container monitoring.  The Cadvisor interface is 
+view-able here: http://openfda.deleidos.com:8080  
 
-## Documentation
-Be sure to [check out the wiki](https://github.com/deleidos/prototype-20150626/wiki) to learn more about the prototype, the team and the process:
-+ [Timeline of Prototype Creation](https://github.com/deleidos/prototype-20150626/wiki/Prototype-Timeline)
-+ [DevOps Details](https://github.com/deleidos/prototype-20150626/wiki/DevOps)
-+ [Add More!](https://github.com/deleidos/prototype-20150626/wiki)
+Application health monitoring is also something that is traditionally configured to provide near real time information pertaining to the health of the various tiers of the application.  For the purposes of the prototype, a simple set of monitoring check(s) have been added with a very simple notification path in Jenkins.
+
+## Container-based Deployment
+Docker was utilized for containerization of the deployed software. The decision to use the power of the Linux container technology, facilitated by Docker, and the decoupling of the deployment of the containers allows for the solution to run either on-prem, or in other cloud providers. Also, by using an Ansible playbook to provision the Centos 7 OS and not a container orchestration tool like the AWS Container Service or Kubernetes, allows for both the documentation of the OS packages required to run the prototype as well as the ability to provide a heterogeneous execution environment for the application (1 on prem, 1 in AWS, 1 in GCE; all load balanced through a proxy).
+
+## Day #6: Thursday, June 25th
+
+###Further Iterations
+The product manager and interaction designer met again with the "People" to show them the latest version of the prototype and get feedback for further refinements.  
+
+A slightly different layout was discussed to better utilize real estate in different responsive modes. Also, scope was narrowed for Friday to focus on making the GUI stable for rendering remixed data.
+
+###Design Style Guide
+A [Color Palette](https://raw.githubusercontent.com/deleidos/prototype-20150626/master/docs/archive/ColorPalette.png) was created for this prototype.
+
+## Day #7: Friday, June 26th
+
+###Unit Testing and Code Coverage
+Unit tests were written and committed to the repo. The DevOps environment was configured to [calculate code coverage](https://jenkins.openfda.deleidos.com/job/prototype-20150626_master/lastBuild/jacoco/).
+![](https://raw.githubusercontent.com/deleidos/prototype-20150626/master/docs/archive/codecoverage1.png)
+
+###API Documentation
+Documentation was added for the [Mongo REST API](http://openfda.deleidos.com/apidocs/swaggerui).
+
+###Usability Testing
+Usability testing was conducted by the summer interns, and issues identified were entered into the Issues page on GitHub
+
+## Day #8: Monday, June 29th
+
+###Issues Work-off
+High priority issues were addressed. Low-priority issues were left on the backlog.
+![](https://raw.githubusercontent.com/deleidos/prototype-20150626/master/docs/archive/issues1.jpg)
 
 &copy; Leidos 2015

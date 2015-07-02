@@ -4,7 +4,7 @@
 
 CT="$(wc -w ../README.md | awk '{print $1 }')"
 
-if [[ "$CT" -gt 750 ]]; then
+if [[ "$CT" -gt 1500 ]]; then
 	echo "ERROR: ../README.md exceeds the allowed number of words.  Current count is: $CT"
 	exit 1
 fi
