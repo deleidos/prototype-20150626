@@ -1,0 +1,17 @@
+login as: centos
+Authenticating with public key "imported-openssh-key"
+Last login: Thu Jul  2 18:45:23 2015
+[centos@ip-10-0-1-34 ~]$ sudo -i
+[root@ip-10-0-1-34 ~]# head -15 /var/log/audit/audit.log
+type=CRYPTO_KEY_USER msg=audit(1435612821.959:93852): pid=29714 uid=0 auid=4294967295 ses=4294967295 msg='op=destroy kind=server fp=09:8b:61:74:a1:0d:fc:bb:4f:ae:48:81:20:11:c8:bc direction=? spid=29714 suid=0  exe="/usr/sbin/sshd" hostname=? addr=183.195.251.67 terminal=? res=success'
+type=CRYPTO_KEY_USER msg=audit(1435612821.959:93853): pid=29714 uid=0 auid=4294967295 ses=4294967295 msg='op=destroy kind=server fp=ba:18:1c:61:84:06:50:5a:ca:8e:3c:9b:cf:88:5b:4a direction=? spid=29714 suid=0  exe="/usr/sbin/sshd" hostname=? addr=183.195.251.67 terminal=? res=success'
+type=USER_LOGIN msg=audit(1435612821.959:93854): pid=29714 uid=0 auid=4294967295 ses=4294967295 msg='op=login acct="root" exe="/usr/sbin/sshd" hostname=? addr=183.195.251.67 terminal=ssh res=failed'
+type=CRYPTO_KEY_USER msg=audit(1435612822.469:93855): pid=29717 uid=0 auid=4294967295 ses=4294967295 msg='op=destroy kind=server fp=09:8b:61:74:a1:0d:fc:bb:4f:ae:48:81:20:11:c8:bc direction=? spid=29717 suid=0  exe="/usr/sbin/sshd" hostname=? addr=183.195.251.67 terminal=? res=success'
+type=CRYPTO_KEY_USER msg=audit(1435612822.469:93856): pid=29717 uid=0 auid=4294967295 ses=4294967295 msg='op=destroy kind=server fp=ba:18:1c:61:84:06:50:5a:ca:8e:3c:9b:cf:88:5b:4a direction=? spid=29717 suid=0  exe="/usr/sbin/sshd" hostname=? addr=183.195.251.67 terminal=? res=success'
+type=CRYPTO_SESSION msg=audit(1435612822.723:93857): pid=29716 uid=0 auid=4294967295 ses=4294967295 msg='op=start direction=from-client cipher=aes256-ctr ksize=256 mac=hmac-sha1 spid=29717 suid=74 rport=36671 laddr=10.0.1.34 lport=2 exe="/usr/sbin/sshd" hostname=? addr=183.195.251.67 terminal=? res=success'
+type=CRYPTO_SESSION msg=audit(1435612822.724:93858): pid=29716 uid=0 auid=4294967295 ses=4294967295 msg='op=start direction=from-server cipher=aes256-ctr ksize=256 mac=hmac-sha1 spid=29717 suid=74 rport=36671 laddr=10.0.1.34 lport=2 exe="/usr/sbin/sshd" hostname=? addr=183.195.251.67 terminal=? res=success'
+type=CRYPTO_KEY_USER msg=audit(1435612824.076:93859): pid=29716 uid=0 auid=4294967295 ses=4294967295 msg='op=destroy kind=session fp=? direction=both spid=29717 suid=74 rport=36671 laddr=10.0.1.34 lport=22  exe="/usr/sbin/sshd" hostname=? addr=183.195.251.67 terminal=? res=success'
+type=USER_ERR msg=audit(1435612824.077:93860): pid=29716 uid=0 auid=4294967295 ses=4294967295 msg='op=PAM:bad_ident acct="?" exe="/usr/sbin/sshd" hostname=183.195.251.67 addr=183.195.251.67 terminal=ssh res=failed'
+type=CRYPTO_KEY_USER msg=audit(1435612824.077:93861): pid=29716 uid=0 auid=4294967295 ses=4294967295 msg='op=destroy kind=server fp=09:8b:61:74:a1:0d:fc:bb:4f:ae:48:81:20:11:c8:bc direction=? spid=29716 suid=0  exe="/usr/sbin/sshd" hostname=? addr=183.195.251.67 terminal=? res=success'
+type=CRYPTO_KEY_USER msg=audit(1435612824.077:93862): pid=29716 uid=0 auid=4294967295 ses=4294967295 msg='op=destroy kind=server fp=ba:18:1c:61:84:06:50:5a:ca:8e:3c:9b:cf:88:5b:4a direction=? spid=29716 suid=0  exe="/usr/sbin/sshd" hostname=? addr=183.195.251.67 terminal=? res=success'
+type=USER_LOGIN msg=audit(1435612824.077:93863): pid=29716 uid=0 auid=4294967295 ses=4294967295 msg='op=login acct="root" exe="/usr/sbin/sshd" hostname=? addr=183.195.251.67 terminal=ssh res=failed'
