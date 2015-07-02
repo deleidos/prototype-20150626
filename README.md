@@ -30,6 +30,10 @@ Leidos’ SCRUM agile development methodology emphasizes:
 
 ![](https://raw.githubusercontent.com/deleidos/prototype-20150626/master/docs/archive/scrum_diagram1.png)
 
+A description of this approach, as applied to the prototype, is as follows:
+
+***
+
 ## Day #0: Wednesday, June 18th
 RFQ is issued.
 
@@ -48,9 +52,8 @@ Since the data source was dictated by the RFQ, the team took the approach of fir
 
 The multidisciplinary team discussed the data available and possibilities for new ways to serve the marketplace. In the ensuing discussion, the team began to focus on remixing the data to answer the question "Which drugs have been recalled in their state?".  
 
-To start the technical architect presented options for the prototype given the data available on openFDA and the known timeline for delivery of the prototype. A preliminary architecture was created.  
+Following this, the technical architect presented options for the prototype given the data available on openFDA and the known timeline for delivery of the prototype. A preliminary architecture was created.  
 ![](https://raw.githubusercontent.com/deleidos/prototype-20150626/master/docs/archive/whiteboard-drawing_20150619.JPG) 
-  
 The interaction designer proposed the following GUI mockup:
 ![](https://raw.githubusercontent.com/deleidos/prototype-20150626/master/docs/archive/prototype-gui-mockup1.png)
 
