@@ -120,7 +120,7 @@ A [Color Palette](https://raw.githubusercontent.com/deleidos/prototype-20150626/
 ## Day #7: Friday, June 26th
 
 ###Unit Testing and Code Coverage
-Unit tests were written and committed to the repo. The DevOps environment was configured to calculate code coverage.
+Unit tests were written and committed to the repo. The DevOps environment was configured to [calculate code coverage](https://jenkins.openfda.deleidos.com/job/prototype-20150626_master/lastBuild/jacoco/).
 ![](https://raw.githubusercontent.com/deleidos/prototype-20150626/master/docs/archive/codecoverage1.png)
 
 ###API Documentation
