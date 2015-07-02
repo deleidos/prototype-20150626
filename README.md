@@ -15,6 +15,8 @@ Once the [dependencies are satisfied](https://github.com/deleidos/prototype-2015
 mvn clean install
 ``` 
 
+See the [docs for running the prototype](https://github.com/deleidos/prototype-20150626/tree/master/docs).
+
 ***
 
 # Approach
