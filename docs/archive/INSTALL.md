@@ -28,8 +28,39 @@ sudo reboot
 
 
 
-The machine where Ansible runs is typically known as the "Control Machine".  This machine has very minimial requirements as it's only purpose is to invoke the Ansible
-playbook which configures the 
+The machine where Ansible runs is typically known as the "Control Machine".  This machine has very minimal requirements as it's only purpose is to invoke the Ansible
+playbook which configures the machine to run the prototype.  That being said, below are the minimum requirements for the "Control Machine":
 
-## Control Machine Pre-requisits
-* Centos 7 VM
+* 1 1.5GHz Intel or AMD CPU
+* 512MB of RAM
+* 10GB of Disk Space
+* 100Mbps Network Connectivity with SSH access to the machine to be configured to run the prototype
+* Centos 7.0 (verified against Centos 7.0.1406)
+
+To configure the "Control Machine" perform a "Minimum Install" of CentOS 7 using the GUI installer that comes with it by default, and create the user you desire
+to run the Ansible playbook.  After the OS of the "Control Machine" has been installed, log into it and change over to the root user:
+```
+su - 
+<when prompted, enter the root password>
+```
+
+As root, install Ansible by running the following:
+```
+yum -y install epel-release
+yum -y install gcc sshpass python-pip python-devel wget
+	
+pip install ansible==1.8.3 docker-py==1.2.2 boto==2.32.0
+	
+mkdir -p /etc/ansible
+echo '' > /etc/ansible/hosts 
+```
+
+At this point, the "Control Machine" is sufficiently configured to run the Ansible playbook to configure the machine to run the prototype.  
+To configure the machine to run the prototype, execute the following as the non-root user you created at the time of the "Control Machine" install in order
+to download the Ansible playbook and prep it for execution:
+```
+cd $HOME
+wget --no-check-certificate -O playbook.tar.gz https://jenkins.openfda.deleidos.com/job/prototype-20150626_master/ws/deployment/target/
+tar -xzvf ./playbook.tar.gz
+```
+
