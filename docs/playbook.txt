@@ -5,7 +5,7 @@ What user needs will this service address?
 -	Visual perspective of recalled drugs by geography.
 
 Why does the user want or need this service?
--	Liability and malpractice.
+-	PR response to highest affected areas.
 
 Which people will have the most difficulty with the service?
 -	TBD
