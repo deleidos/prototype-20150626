@@ -115,13 +115,14 @@ Docker was utilized for containerization of the deployed software. The decision 
 
 ## Day #6: Thursday, June 25th
 
+###Design Style Guide
+A [Color Palette](https://raw.githubusercontent.com/deleidos/prototype-20150626/master/docs/archive/ColorPalette.png) was created for this prototype.
+
 ###Further Iterations
 The product manager and interaction designer met again with the "People" to show them the latest version of the prototype and get feedback for further refinements.  
 
 A slightly different layout was discussed to better utilize real estate in different responsive modes. Also, scope was narrowed for Friday to focus on making the GUI stable for rendering remixed data.
-
-###Design Style Guide
-A [Color Palette](https://raw.githubusercontent.com/deleidos/prototype-20150626/master/docs/archive/ColorPalette.png) was created for this prototype.
+![](https://raw.githubusercontent.com/deleidos/prototype-20150626/master/docs/archive/versionone-tasks-screencapture-20150625.jpg)
 
 ## Day #7: Friday, June 26th
 
@@ -140,5 +141,8 @@ Usability testing was conducted by the summer interns, and issues identified wer
 ###Issues Work-off
 High priority issues were addressed. Low-priority issues were left on the backlog.
 ![](https://raw.githubusercontent.com/deleidos/prototype-20150626/master/docs/archive/issues1.jpg)
+
+## Day #9: Thursday, July 2nd
+Some minor brushup of the interface was done to remove an image with limited distribution rights, plus added installation documentation.
 
 &copy; Leidos 2015
