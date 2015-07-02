@@ -1,4 +1,5 @@
 Who are the primary users?
+- Communication directors for drug manufacturers.
 -	Nationwide chain of hospitals, drug stores, etc. Anyone distributing pharmaceuticals over a wide supply chain. Especially if the supply chain is not integrated.
 
 What user needs will this service address?
