@@ -42,7 +42,7 @@ RFQ is issued.
 ## Day #1: Thursday, June 18th
 
 ###Authorization and Accountability
-Line management authorizes a product manager to assemble a team and create a prototype for submission. ([See the email granting authorization and accountability](https://github.com/deleidos/prototype-20150626/blob/master/docs/archive/authorization.txt))
+Line management authorizes a product manager to assemble a team and create a prototype for submission. ([See the email granting authorization and accountability](https://github.com/deleidos/prototype-20150626/blob/master/docs/archive/authorization.md))
 
 ## Day #2: Friday, June 19th
 
