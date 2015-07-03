@@ -55,7 +55,9 @@ mkdir -p /etc/ansible
 echo '' > /etc/ansible/hosts 
 ```
 
+
 ***
+
 
 At this point, the "Control Machine" is sufficiently configured to run the Ansible playbook to configure the machine to run the prototype.  
 To configure the machine to run the prototype, execute the following as the non-root user you created at the time of the "Control Machine" install in order
@@ -75,6 +77,4 @@ ansible-playbook site.yml -i inventory -l private_config -v
 ```
 
 The playbook will install the necessary packages to run Docker, then load the required Docker container images and 
-start them with the proper configuration.  Once complete, the prototype's UI should be accessible via:
-
-http://<ip>
+start them with the proper configuration.  Once complete, the prototype's UI should be accessible via http://IP_OF_MACHINE in either Chrome or Firefox
