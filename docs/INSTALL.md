@@ -3,7 +3,7 @@ The following instructions provide the detailed steps to re-create the prototype
 either a bare-metal install or a VM in the cloud provider of choice.  The machine to run the prototype has 
 the following minimum requirements:
 
-* 1 2.5GHz Dual-Core Intel or AMD CPU
+* 2.5GHz Dual-Core Intel or AMD CPU
 * 3GB of RAM
 * 20GB of Disk Space
 * 100Mbps Network Connectivity with external access
@@ -31,7 +31,7 @@ sudo reboot
 The machine where Ansible runs is typically known as the "Control Machine".  This machine has very minimal requirements as it's only purpose is to invoke the Ansible
 playbook which configures the machine to run the prototype.  That being said, below are the minimum requirements for the "Control Machine":
 
-* 1 1.5GHz Intel or AMD CPU
+* 1.5GHz Intel or AMD CPU
 * 512MB of RAM
 * 10GB of Disk Space
 * 100Mbps Network Connectivity with SSH access to the machine to be configured to run the prototype
@@ -60,7 +60,19 @@ To configure the machine to run the prototype, execute the following as the non-
 to download the Ansible playbook and prep it for execution:
 ```
 cd $HOME
-wget --no-check-certificate -O playbook.tar.gz https://jenkins.openfda.deleidos.com/job/prototype-20150626_master/ws/deployment/target/
-tar -xzvf ./playbook.tar.gz
+wget --no-check-certificate -O deployment-playbook.tar.gz "https://jenkins.openfda.deleidos.com/job/prototype-20150626_master/ws/deployment/target/deployment-playbook.tar.gz"
+tar -xzvf ./deployment-playbook.tar.gz
 ```
 
+Using the editor of your choosing, open the ''centos7-standalone/inventory'' and modify the ''public_config'' entry to be the accessible IP
+address of the machine you have configured to run the prototype.  Then, save and exit the editor and run the following to 
+execute the playbook as the non-root user:
+```
+cd centos7-standalone
+ansible-playbook site.yml -i inventory -l private_config -v
+```
+
+The playbook will install the necessary packages to run Docker, then load the required Docker container images and 
+start them with the proper configuration.  Once complete, the prototype's UI should be accessible via:
+
+http://<ip>
