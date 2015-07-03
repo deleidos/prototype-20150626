@@ -72,9 +72,9 @@ Using the editor of your choosing, open the ''centos7-standalone/inventory'' and
 address of the machine you have configured to run the prototype.  Then, save and exit the editor and run the following to 
 execute the playbook as the non-root user:
 ```
-cd centos7-standalone
+cd $HOME/centos7-standalone
 ansible-playbook site.yml -i inventory -l private_config -v
 ```
 
 The playbook will install the necessary packages to run Docker, then load the required Docker container images and 
-start them with the proper configuration.  Once complete, the prototype's UI should be accessible via http://IP_OF_MACHINE in either Chrome or Firefox
+start them with the proper configuration.  Once complete, the prototype's UI should be accessible via http://IP_OF_MACHINE_RUNNING_PROTOTYPE in either Chrome or Firefox
