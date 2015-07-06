@@ -73,8 +73,17 @@ address of the machine you have configured to run the prototype.  Then, save and
 execute the playbook as the non-root user:
 ```
 cd $HOME/centos7-standalone
+ansible-playbook site.yml -i inventory -l public_config -v
+```
+
+If you are going to be using a "Control Machine" and target machine for the prototype in AWS, you will have to 
+modify the ''private_config'' entry to be the private IP of the EC2 instance to run the prototype, and execute the playbook as the non-root user using
+the ''private_config'' section of the inventory. e.g.)
+```
+cd $HOME/centos7-standalone
 ansible-playbook site.yml -i inventory -l private_config -v
 ```
+
 
 The playbook will install the necessary packages to run Docker, then load the required Docker container images and 
 start them with the proper configuration.  Once complete, the prototype's UI should be accessible via http://IP_OF_MACHINE_RUNNING_PROTOTYPE in either Chrome or Firefox.
