@@ -51,12 +51,12 @@ Line management authorized a product manager to assemble a team and create a pro
 ## Day 2: Friday, June 19
 
 ###Assembly of Multidisciplinary and Collaborative Team
-A subset of the Leidos DigitalEdge Team, consisting of a product manager, technical architect, agile coach, interaction designer, front-end web developer, back-end developer, and devops engineer, were assembled on Friday afternoon. 
+A subset of the Leidos DigitalEdge Team, consisting of a Product Manager, Technical Architect, Agile Coach, Interaction Designer, Delivery Manager, Front-end Web Developer and Back-end Web Developer, were assembled on Friday afternoon. 
 
 ###Human-Centered Design Technique No. 1: Adopting Multidisciplinary Skills and Perspectives
 Because the data source was dictated by the RFQ, the team took the approach of first understanding the data and how the data could highlight the specified requirements.  
 
-The multidisciplinary team discussed the data available and possibilities for new ways to serve the marketplace. In the ensuing discussion, the team began to focus on remixing the data to answer the question "Which drugs have been recalled in their state?"  
+The multidisciplinary team discussed the data available and possibilities for new ways to serve the marketplace. In the ensuing discussion, the team began to focus on remixing the data to answer the question "Which drugs have been recalled in which states?"  
 
 Following this, the technical architect presented options for the prototype given the data available on openFDA and the known timeline for delivery of the prototype. A preliminary architecture was created.  
 ![](https://raw.githubusercontent.com/deleidos/prototype-20150626/master/docs/archive/whiteboard-drawing_20150619.JPG) 
@@ -91,8 +91,8 @@ Consequently, the plan for the prototype was narrowed to highlight (1) consuming
 
 ![](https://raw.githubusercontent.com/deleidos/prototype-20150626/master/docs/archive/prototype_architecture-v1b.png)
 
-###Continuous Integration Stood Up
-Jenkins was stood up to poll the repository and configured to not only build and test the software frequently but also orchestrate the deployment of the Docker containers supporting the prototype to the provisioned EC2 instance. View the "[Build Status](https://jenkins.openfda.deleidos.com/buildStatus/icon?job=prototype-20150626_master)".
+###Continuous Integration
+[Jenkins was stood up](https://jenkins.openfda.deleidos.com) to poll the repository and configured to not only build and test the software frequently but also orchestrate the deployment of the Docker containers supporting the prototype to the provisioned EC2 instance. View the "[Build Status](https://jenkins.openfda.deleidos.com/buildStatus/icon?job=prototype-20150626_master)".
 
 ###IaaS Provider
 Amazon Web Services was selected to be the deployment environment.  
@@ -100,7 +100,7 @@ Amazon Web Services was selected to be the deployment environment.
 
 ## Day 5: Wednesday, June 24
 
-###Continuous Deployment Stood Up
+###Continuous Deployment
 A Jenkins job allows for the automated deployment of the prototype to one or more CentOS 7 instances.   A Vagrantfile is provided in the deployment project, which allows configuration of a simple control machine outside the Jenkins environment to use for development and testing.  View the "[![Deployment Status](https://jenkins.openfda.deleidos.com/job/Deploy_Prototype/badge/icon)](https://jenkins.openfda.deleidos.com/job/Deploy_Prototype/)". 
 
 ## Configuration Management 
@@ -138,7 +138,7 @@ Unit tests were written and committed to the repo. The DevOps environment was co
 Documentation was added for the [Mongo REST API](http://openfda.deleidos.com/apidocs/swaggerui).
 
 ###Usability Testing
-Usability testing was conducted by the summer interns, and issues identified were entered into the Issues page on GitHub.
+Usability testing was conducted, and issues identified were entered into the Issues page on GitHub.
 
 ## Day 8: Monday, June 29
 
@@ -148,5 +148,8 @@ High-priority issues were addressed. Low-priority issues were left on the backlo
 
 ## Day 9: Thursday, July 2
 The team completed some minor brush-up of the interface and added installation documentation.
+
+## Day 10 &amp; 11: July 6th and 7th
+Install docs testing. A couple last tweaks. Done.
 
 &copy; Leidos 2015
