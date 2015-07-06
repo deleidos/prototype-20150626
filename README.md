@@ -115,7 +115,7 @@ Application health monitoring is also traditionally configured to provide nearâ€
 [Monitoring by auditd](https://github.com/deleidos/prototype-20150626/blob/master/docs/archive/audit1.log) is also installed. Future improvements could include OSIM and off-box logging.
 
 ## Container-Based Deployment
-Docker was used for containerization of the deployed software. The decision to use the power of the Linux container technology, facilitated by Docker, and the decoupling of the deployment of the containers enables the solution to run either on premise or in other cloud providers. Also, using an Ansible playbook to provision the CentOS 7 OS (and not a container orchestration tool like the AWS Container Service or Kubernetes) facilitates  the documentation of the OS packages required to run the prototype and provides a heterogeneous execution environment for the application (one on premise, one in AWS, one in GCE; all load balanced through a proxy).
+Docker was used for containerization of the deployed software. The decision to use the power of the Linux container technology, facilitated by Docker, and the decoupling of the deployment of the containers enables the solution to run either on premise or in other cloud providers. Also, using an Ansible playbook to provision the CentOS 7 OS (and not a container orchestration tool like the AWS Container Service or Kubernetes) facilitates the documentation of the OS packages required to run the prototype and provides a heterogeneous execution environment for the application (one on premise, one in AWS, one in GCE; all load balanced through a proxy).
 
 ## Day 6: Thursday, June 25
 
@@ -123,15 +123,15 @@ Docker was used for containerization of the deployed software. The decision to u
 A [Color Palette](https://raw.githubusercontent.com/deleidos/prototype-20150626/master/docs/archive/ColorPalette.png) was created for this prototype. Web-safe fonts were used for the type.
 
 ###Further Iterations
-The product manager and interaction designer met again with the "People" to show them the latest version of the prototype and get feedback for further refinements.  
+The Product Manager and Interaction Designer met again with the "People" to show them the latest version of the prototype and get feedback for further refinements.  
 
-A slightly different layout was discussed to promote better use of real estate in different responsive modes. Also, scope was narrowed for Friday to focus on making the GUI stable for rendering remixed data.
+A slightly different layout was discussed to promote better use of real estate in different responsive modes. Also, scope was narrowed to focus on making the GUI stable for rendering remixed data.
 ![](https://raw.githubusercontent.com/deleidos/prototype-20150626/master/docs/archive/versionone-tasks-screencapture-20150625.jpg)
 
 ## Day 7: Friday, June 26
 
 ###Unit Testing and Code Coverage
-Unit tests were written and committed to the repo. The DevOps environment was configured to [calculate code coverage](https://jenkins.openfda.deleidos.com/job/prototype-20150626_master/lastBuild/jacoco/).
+Unit tests were written and committed to the repo. The DevOps environment was configured by the Delivery Manager to [calculate code coverage](https://jenkins.openfda.deleidos.com/job/prototype-20150626_master/lastBuild/jacoco/).
 ![](https://raw.githubusercontent.com/deleidos/prototype-20150626/master/docs/archive/codecoverage1.png)
 
 ###API Documentation
