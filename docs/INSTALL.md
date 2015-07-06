@@ -77,7 +77,9 @@ ansible-playbook site.yml -i inventory -l public_config -v
 ```
 
 If you are going to be using a "Control Machine" and target machine for the prototype in AWS, you will have to 
-modify the ''private_config'' entry to be the private IP of the EC2 instance to run the prototype, and execute the playbook as the non-root user using
+modify the ''private_config'' entry to be the private IP of the EC2 instance to run the prototype and also append ansible_ssh_private_key_file=<path to your pem>.  Remember, that 
+the permissions on your pem file for the EC2 instance must have read only permissions (e.g. chmod 400 <path to your pem>).  Once your inventory file has been updated
+you can execute the playbook as the non-root user using
 the ''private_config'' section of the inventory. e.g.)
 ```
 cd $HOME/centos7-standalone
