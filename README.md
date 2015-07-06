@@ -1,9 +1,7 @@
-# prototype-20150626
-
 # Demo
 Check out the demo at http://openfda.deleidos.com
 
-[Version 1.0](https://github.com/deleidos/prototype-20150626/tree/1.0.0) of the prototype was created on June 26th at 1:50pm EST.  
+[Version 1.0](https://github.com/deleidos/prototype-20150626/tree/1.0.0) was created on June 26th at 1:50pm EST.  
 
 ***
 
@@ -15,7 +13,7 @@ Once the [dependencies are satisfied](https://github.com/deleidos/prototype-2015
 mvn clean install
 ``` 
 
-See the [docs for running the prototype](https://github.com/deleidos/prototype-20150626/tree/master/docs/INSTALL.md).
+See the [install doc for running the prototype](https://github.com/deleidos/prototype-20150626/tree/master/docs/INSTALL.md).
 
 ***
 
@@ -34,6 +32,12 @@ Leidos’ SCRUM agile development methodology emphasizes:
 
 A description of this approach, as applied to the prototype, is as follows:
 
+## Prototype Stakeholders
+
+Implicitedly, the RFQ was a stakeholder in the process, which the team interpretted to mean it would define the relevant marketspace the product manager and team was serving. Our process would involve regular contact with all stakeholders. However, during the RFQ process, there was only one Q&A round permitted.
+
+For the sake of this prototype, a couple individuals outside of the design/development team took on the role of "People" in the relevant marketspace. The team met with the "People" every other day during the design and development period. 
+
 ***
 
 ## Day #0: Wednesday, June 18th
@@ -50,7 +54,7 @@ Line management authorizes a product manager to assemble a team and create a pro
 A subset of the Leidos DigitalEdge Team, consisting of a product manager, technical architect, agile coach, interaction designer, front-end web developer, back-end developer and devops engineer, were assembled on Friday afternoon. 
 
 ###Human-Centered Design Technique #1: Adopting multidisciplinary skills and perspectives
-Since the data source was dictated by the RFQ, the team took the approach of first understanding the data and how it could highlight requirements specified. Implicitedly, the RFQ was a stakeholder in the process, which the team interpretted to mean it would define the relevant marketspace the product manager and team was serving.  
+Since the data source was dictated by the RFQ, the team took the approach of first understanding the data and how it could highlight requirements specified.  
 
 The multidisciplinary team discussed the data available and possibilities for new ways to serve the marketplace. In the ensuing discussion, the team began to focus on remixing the data to answer the question "Which drugs have been recalled in their state?".  
 
@@ -79,7 +83,7 @@ Each of these included open source packages are pre-existing. DigitalEdge is a n
 ## Day #4: Tuesday, June 23rd
 
 ###Human-Centered Design Technique #3: Involvement of the consumer in the design and production process
-Now that the team had a notion of what the data could support, it was time to consult with the "People" who were in the food &amp; drug marketspace. For the sake of this prototype, a couple individuals outside of the design/development team took on the role of "People". In reviewing the data with the team, the "People" focused on the particular question of "For a given manufacturer, which states were affected by drugs produced by the manufacturer?".
+Now that the team had a notion of what the data could support, it was time to consult with the "People" who were in the food &amp; drug marketspace. In reviewing the data with the team, the "People" focused on the particular question of "For a given manufacturer, which states were affected by drugs produced by the manufacturer?".
 
 This was slightly different from the premise that was originally drawn from the data on Friday. It sought to address a customer who was in charge of PR for a manufacturer, and wished to know which states had been most affected by recalls, thus steering where to direct communications about the recalls.
 
