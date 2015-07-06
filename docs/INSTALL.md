@@ -1,25 +1,25 @@
 # Installation
-The following instructions provide the detailed steps to re-create the prototype on a CentOS 7 machine.  The CentOS 7 machine can be 
-either a bare-metal install or VM and running on-prem or in the cloud provider of your choosing.  The machine to run the prototype has 
+The following instructions provide the detailed steps to recreate the prototype on a CentOS 7 machine.  The CentOS 7 machine can be 
+either a bare-metal install or VM and running on premise or in the cloud provider of your choosing.  The machine to run the prototype has 
 the following minimum requirements:
 
 * 2.5GHz Dual-Core Intel or AMD CPU
 * 3GB of RAM
-* 20GB of Disk Space
-* 100Mbps Network Connectivity with external access
-* CentOS 7.0 (verified against CentOS 7.0.1406)
+* 20GB of disk space
+* 100Mbps network connectivity with external access
+* CentOS 7.0 (verified against CentOS 7.0.1406).
 ** The current prototype is running in AWS and using the official CentOS 7 (x86_64) with Updates HVM AMI available in the AWS Marketplace (https://aws.amazon.com/marketplace/pp/B00O7WM7QW/ref=srh_res_product_title?ie=UTF8&sr=0-2&qid=1435867213346).
-   At the time the prototype was launched, the AMI id of the official CentOS 7 AMI used is: ami-96a818fe in the us-east-1 region.
+   At the time the prototype was launched, the AMI ID of the official CentOS 7 AMI used is: ami-96a818fe in the us-east-1 region.
 
-For those not using the AWS AMI (ami-96a818fe), perform a "Minimum Install" of CentOS 7 using the GUI installer that comes with it by default, and when prompted, 
+For those not using the AWS AMI (ami-96a818fe), perform a "Minimum Install" of CentOS 7 using the GUI installer that comes with it by default; when prompted, 
 create a 'centos' user and set the root user's password.  The 'centos' user must have password-less sudo access in order to run the installation Ansible playbook.
-Please use the procedures of your choosing to provide this level of access required.  After the install is complete, ensure that a working network connection 
-exists and you are able to reach external sites like dockerhub.com.
+Please use the procedures of your choosing to provide the level of access required.  After the install is complete, ensure that a working network connection 
+exists and you are able to reach external sites, such as dockerhub.com.
 
 For those using the AWS AMI (ami-96a818fe), use the AWS console and launch a c3.large instance, but configure the root volume to be 
-at least 20 GB.  Once the instance is accessible via ssh, log into the instance using your ssh key as the 'centos' user, and issue the following to 
-grow the size of the root volume from the default 8 GB to 20 GB:
-The install of gdisk allows for the filesystem to auto expand at startup for this AMI.
+at least 20GB.  Once the instance is accessible via SSH, log into the instance using your SSH key as the 'centos' user, and issue the following to 
+grow the size of the root volume from the default 8GB to 20GB:
+The install of gdisk allows for the filesystem to auto expand at start-up for this AMI.
 ```
 sudo yum -y install epel-release
 sudo yum -y install gdisk
@@ -28,16 +28,16 @@ sudo reboot
 
 ***
 
-The machine where Ansible runs is typically known as the "Control Machine".  This machine has very minimal requirements as it's only purpose is to invoke the Ansible
-playbook which configures the machine to run the prototype.  That being said, below are the minimum requirements for the "Control Machine":
+The machine where Ansible runs is typically known as the "Control Machine."  This machine has very minimal requirements as its only purpose is to invoke the Ansible
+playbook, which configures the machine to run the prototype.  That being said, the following are the minimum requirements for the "Control Machine":
 
 * 1.5GHz Intel or AMD CPU
 * 512MB of RAM
-* 10GB of Disk Space
-* 100Mbps Network Connectivity with SSH access to the machine to be configured to run the prototype
-* CentOS 7.0 (verified against CentOS 7.0.1406)
+* 10GB of disk space
+* 100Mbps network connectivity with SSH access to the machine to be configured to run the prototype
+* CentOS 7.0 (verified against CentOS 7.0.1406).
 
-To configure the "Control Machine" perform a "Minimum Install" of CentOS 7 using the GUI installer that comes with it by default, and create the user you desire
+To configure the "Control Machine," perform a "Minimum Install" of CentOS 7 using the GUI installer that comes with it by default, and create the user you desire
 to run the Ansible playbook.  After the OS of the "Control Machine" has been installed, log into it and change over to the root user:
 ```
 su - 
@@ -77,4 +77,4 @@ ansible-playbook site.yml -i inventory -l private_config -v
 ```
 
 The playbook will install the necessary packages to run Docker, then load the required Docker container images and 
-start them with the proper configuration.  Once complete, the prototype's UI should be accessible via http://IP_OF_MACHINE_RUNNING_PROTOTYPE in either Chrome or Firefox
+start them with the proper configuration.  Once complete, the prototype's UI should be accessible via http://IP_OF_MACHINE_RUNNING_PROTOTYPE in either Chrome or Firefox.
