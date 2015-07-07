@@ -92,7 +92,7 @@ Consequently, the plan for the prototype was narrowed to highlight (1) consuming
 ![](https://raw.githubusercontent.com/deleidos/prototype-20150626/master/docs/archive/prototype_architecture-v1b.png)
 
 ###Continuous Integration
-[jenkins-openfda was stood up](https://jenkins-openfda.deleidos.com) to poll the repository and configured to not only build and test the software frequently but also orchestrate the deployment of the Docker containers supporting the prototype to the provisioned EC2 instance. [![Build Status](https://jenkins.openfda.deleidos.com/job/prototype-20150626_master/badge/icon)](https://jenkins.openfda.deleidos.com/job/prototype-20150626_master/).
+[jenkins-openfda was stood up](https://jenkins-openfda.deleidos.com) to poll the repository and configured to not only build and test the software frequently but also orchestrate the deployment of the Docker containers supporting the prototype to the provisioned EC2 instance. [![Build Status](https://jenkins-openfda.deleidos.com/job/prototype-20150626_master/badge/icon)](https://jenkins-openfda.deleidos.com/job/prototype-20150626_master/).
 
 ###IaaS Provider
 Amazon Web Services was selected to be the deployment environment.  
