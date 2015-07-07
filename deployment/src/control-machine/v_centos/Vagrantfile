@@ -65,7 +65,7 @@ Vagrant.configure(2) do |config|
 	$script = <<SCRIPT
 
 	yum -y install epel-release
-	yum -y install gcc sshpass python-pip python-devel
+	yum -y install gcc sshpass python-pip python-devel wget
 	
 	pip install ansible==1.8.3 docker-py==1.2.2 boto==2.32.0
 	

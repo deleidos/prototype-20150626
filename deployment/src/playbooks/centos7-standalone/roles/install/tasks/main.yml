@@ -38,9 +38,9 @@
   #                delay=60 timeout=600 state=started
   #  sudo: false
  
-  - include: stop_cadvisor.yml
-  
   - include: docker.yml
+  
+  - include: stop_cadvisor.yml
   
   - include: mongo_container.yml
   

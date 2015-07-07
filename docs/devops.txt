@@ -1,5 +1,5 @@
 ## Continuous Integration
-[Build Status](https://jenkins.openfda.deleidos.com/buildStatus/icon?job=prototype-20150626_master)
+[Build Status](https://jenkins-openfda.deleidos.com/buildStatus/icon?job=prototype-20150626_master)
 
 Jenkins is an awesome piece of software that we have utilized for the continuous integration (CI) environment.  Jenkins jobs are configured to both build and test the software frequently, and also orchestrate the deployment of the Docker containers supporting the prototype to the provisioned EC2 instance. Status of the compilation/testing/packaging of the software can be viewed at the top of this section via the "Build Status" button.
 
@@ -15,6 +15,6 @@ Ansible was used to orchestrate the installation and configuration of a Centos 7
 It should also be stated that the Ansible playbook is run in Jenkins for continuous deployment however; the Ansible playbook can be run outside of the Jenkins environment as was done for the development and testing of the deployment approach in any Centos 7 OS (cloud or on-prem aka laptop) as the processing requirements of the machine executing the playbook, known as the control machine, are minimal.
 
 ## Continuous Deployment
-[![Deployment Status](https://jenkins.openfda.deleidos.com/job/Deploy_Prototype/badge/icon)](https://jenkins.openfda.deleidos.com/job/Deploy_Prototype/)  
+[![Deployment Status](https://jenkins-openfda.deleidos.com/job/Deploy_Prototype/badge/icon)](https://jenkins-openfda.deleidos.com/job/Deploy_Prototype/)  
 A Jenkins job allows for the automated deployment of the prototype to one or more Centos 7 instances.   A Vagrantfile is provided in the deployment project which will allow you 
 to configure a simple control machine outside of the Jenkins environment to use for development/testing.  The status of the deploy can be viewed at the top of this section via the "Deployment Status" button.  By using a Jenkins job to execute the Ansible playbook used to deploy the prototype to one or more Centos 7 instances, any member of the team from development, testing to program management, can deploy a built and tested version of the software.  This removes the "fear" and/or apprehension traditionally known to exist on programs that have a separate team for development, testing, operations, etc.. which not only impede progress but also makes it that only a small portion of the team truly knows how the software is placed into operations which is detrimental to a project's longevity.  The added benefit to having a "push button deployment" capability is that in source control, there is both the code and deployment orchestration which can both evolve in lock step, and avoids the usually situation where the software imposed a dependency on the OS's packages or configuration, but that fact is only realized when the software is deployed operationally. 
