@@ -34,9 +34,9 @@ A description of this approach, as applied to the prototype, is as follows:
 
 ## Prototype Stakeholders
 
-Implicitly, the RFQ was a stakeholder in the process. In addition to specified requirements, the team interpreted the RFQ to define the relevant marketspace the product manager and team it was serving. Our process would involve regular contact with all stakeholders. However, there was only one Q&A round permitted with this stakeholder.
+Implicitly, the RFQ was a stakeholder in the process. Our process would normally involve regular contact with all stakeholders. However, there was only one Q&A round permitted with this stakeholder.
 
-For the sake of this prototype, a couple individuals outside of the design/development team took on the role of "People", who role played in the marketspace. The team met with the "People" every other day during the design and development period. 
+In addition to specified requirements, the team interpreted the RFQ to define the relevant marketspace that the product manager and team was serving. For the sake of this prototype, a couple individuals outside of the design/development team took on the role of "People", who role-played in the marketspace. The team met with the "People" every other day during the design and development period. 
 
 ***
 
