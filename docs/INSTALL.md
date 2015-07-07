@@ -1,6 +1,6 @@
 # Installation
 The following instructions provide the detailed steps to recreate the prototype on a CentOS 7 machine.  The CentOS 7 machine can be 
-either a bare-metal install or VM and running on premise or in the cloud provider of your choosing.  The machine to run the prototype has 
+either a bare-metal install or VM either running on premise or in the cloud provider of your choosing.  The machine to run the prototype has 
 the following minimum requirements:
 
 * 2.5GHz Dual-Core Intel or AMD CPU
@@ -64,7 +64,7 @@ To configure the machine to run the prototype, execute the following as the non-
 to download the Ansible playbook and prep it for execution:
 ```
 cd $HOME
-wget --no-check-certificate -O deployment-playbook.tar.gz "https://jenkins.openfda.deleidos.com/job/prototype-20150626_master/ws/deployment/target/deployment-playbook.tar.gz"
+wget --no-check-certificate -O deployment-playbook.tar.gz "https://jenkins-openfda.deleidos.com/job/prototype-20150626_master/ws/deployment/target/deployment-playbook.tar.gz"
 tar -xzvf ./deployment-playbook.tar.gz
 ```
 
