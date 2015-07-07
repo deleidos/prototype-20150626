@@ -34,9 +34,9 @@ A description of this approach, as applied to the prototype, is as follows:
 
 ## Prototype Stakeholders
 
-Implicitly, the RFQ was a stakeholder in the process, which the team interpreted to mean it would define the relevant marketspace the product manager and team it was serving. Our process would involve regular contact with all stakeholders. However, during the RFQ process, there was only one Q&A round permitted.
+Implicitly, the RFQ was a stakeholder in the process. In addition to specified requirements, the team interpreted the RFQ to define the relevant marketspace the product manager and team it was serving. Our process would involve regular contact with all stakeholders. However, there was only one Q&A round permitted with this stakeholder.
 
-For the sake of this prototype, a couple individuals outside of the design/development team took on the role of "People" in the relevant marketspace. The team met with the "People" every other day during the design and development period. 
+For the sake of this prototype, a couple individuals outside of the design/development team took on the role of "People", who role played in the marketspace. The team met with the "People" every other day during the design and development period. 
 
 ***
 
@@ -85,7 +85,7 @@ Each of these included open source packages is pre-existing. DigitalEdge, a new 
 ###Human-Centered Design Technique No. 3: Involvement of the Consumer in the Design and Production Process
 Now that the team had a notion of what the data could support, it was time to consult with the "People" who were in the food and drug marketspace. In reviewing the data with the team, the "People" focused on the particular question of "For a given manufacturer, which states were affected by drugs produced by the manufacturer?"
 
-This was slightly different from the premise that was originally drawn from the data on Friday. It sought to address a customer who was in charge of PR for a manufacturer and wished to know which states had been most affected by recalls, thus steering where to direct communications about the recalls.
+This was slightly different from the premise that was originally drawn from the data on Friday. Now, it sought to address a customer who was in charge of PR for a manufacturer and wished to know which states had been most affected by recalls, thus steering where to direct communications about the recalls.
 
 Consequently, the plan for the prototype was narrowed to highlight (1) consuming data from a publicly available API, (2) enriching the data record by transforming the freeform text field "distribution_pattern" into structured geographic elements, (3) leveraging a populated data repository to create query-time summarizations and publishing those results via a REST API, (4) presenting enriched elements in an intuitive GUI, and (5) remixing additional information by dynamically querying the source API.
 
@@ -107,7 +107,7 @@ A Jenkins job allows for the automated deployment of the prototype to one or mor
 Ansible was used to orchestrate the installation and configuration of a CentOS 7 OS (currently using the official CentOS 7 EC2 Amazon Machine Image (AMI) from the AWS Marketplace) used for hosting the prototype.  For alternate deployment environments, any CentOS 7 OS (bare metal on premise or in the cloud, or cloud-provided VMs) will suffice.
 
 ## Continuous Monitoring
-Because the prototype is deployed to a Docker execution environment, the traditional OS metrics tools (e.g., Cloudwatch, Ganglia, Graphite, Nagios) could be used; however, the team chose to use the similarly awesome cAdvisor monitoring tool to perform traditional OS and container monitoring.  The cAdvisor interface is 
+Because the prototype is deployed to a Docker execution environment, the traditional OS metrics tools (e.g., Cloudwatch, Ganglia, Graphite, Nagios) could be used; however, the team chose to use the awesome cAdvisor monitoring tool to perform traditional OS and container monitoring.  The cAdvisor interface is 
 viewable here: http://openfda.deleidos.com:8080  
 
 Application health monitoring is also traditionally configured to provide near–real-time information pertaining to the health of the various tiers of the application.  For the purposes of the prototype, a simple set of monitoring checks has been added with a very simple notification path in Jenkins.
@@ -143,7 +143,7 @@ Usability testing was conducted, and issues identified were entered into the Iss
 ## Day 8: Monday, June 29
 
 ###Issues Work-Off
-High-priority issues were addressed. Low-priority issues were left on the backlog.
+[Issues were identified](https://github.com/deleidos/prototype-20150626/issues). High priority issues were worked and closed.
 ![](https://raw.githubusercontent.com/deleidos/prototype-20150626/master/docs/archive/issues1.jpg)
 
 ## Day 9: Thursday, July 2
