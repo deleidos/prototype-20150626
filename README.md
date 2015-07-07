@@ -120,7 +120,7 @@ Docker was used for containerization of the deployed software. The decision to u
 ## Day 6: Thursday, June 25
 
 ###Design Style Guide
-A [Color Palette](https://raw.githubusercontent.com/deleidos/prototype-20150626/master/docs/archive/ColorPalette.png) was created for this prototype. [fonts](https://raw.githubusercontent.com/deleidos/prototype-20150626/master/docs/archive/TypographyStyleGuide.jpg) were selected for the type.
+A [Color Palette](https://raw.githubusercontent.com/deleidos/prototype-20150626/master/docs/archive/ColorPalette.png) was created for this prototype. [Fonts](https://raw.githubusercontent.com/deleidos/prototype-20150626/master/docs/archive/TypographyStyleGuide.jpg) were selected for the type.
 
 ###Further Iterations
 The Product Manager and Interaction Designer met again with the "People" to show them the latest version of the prototype and get feedback for further refinements.  
