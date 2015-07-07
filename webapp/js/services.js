@@ -5,7 +5,7 @@
      */
     var mainFactory = function() {
         var factory = {};
-        factory.defaultHost = "openfda.deleidos.com";
+        factory.defaultHost = location.host;
         return factory;
     };
     angular.module('App').factory('mainFactory', [ mainFactory ]);
