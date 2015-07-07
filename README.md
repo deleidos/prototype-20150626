@@ -92,7 +92,7 @@ Consequently, the plan for the prototype was narrowed to highlight (1) consuming
 ![](https://raw.githubusercontent.com/deleidos/prototype-20150626/master/docs/archive/prototype_architecture-v1b.png)
 
 ###Continuous Integration
-[jenkins-openfda was stood up](https://jenkins-openfda.deleidos.com) to poll the repository and configured to not only build and test the software frequently but also orchestrate the deployment of the Docker containers supporting the prototype to the provisioned EC2 instance. Current build status: [Build Status](https://jenkins-openfda.deleidos.com/buildStatus/icon?job=prototype-20150626_master).
+[jenkins-openfda was stood up](https://jenkins-openfda.deleidos.com) to poll the repository and configured to not only build and test the software frequently but also orchestrate the deployment of the Docker containers supporting the prototype to the provisioned EC2 instance. Current build status: (https://jenkins-openfda.deleidos.com/buildStatus/icon?job=prototype-20150626_master).
 
 ###IaaS Provider
 Amazon Web Services was selected to be the deployment environment.  
@@ -101,7 +101,7 @@ Amazon Web Services was selected to be the deployment environment.
 ## Day 5: Wednesday, June 24
 
 ###Continuous Deployment
-A Jenkins job allows for the automated deployment of the prototype to one or more CentOS 7 instances.   A Vagrantfile is provided in the deployment project, which allows configuration of a simple control machine outside the Jenkins environment to use for development and testing.  View the "[![Deployment Status](https://jenkins-openfda.deleidos.com/job/Deploy_Prototype/badge/icon)](https://jenkins-openfda.deleidos.com/job/Deploy_Prototype/)". 
+A Jenkins job allows for the automated deployment of the prototype to one or more CentOS 7 instances.   A Vagrantfile is provided in the deployment project, which allows configuration of a simple control machine outside the Jenkins environment to use for development and testing.  Current deployment status: [(https://jenkins-openfda.deleidos.com/job/Deploy_Prototype/badge/icon)](https://jenkins-openfda.deleidos.com/job/Deploy_Prototype/). 
 
 ## Configuration Management 
 Ansible was used to orchestrate the installation and configuration of a CentOS 7 OS (currently using the official CentOS 7 EC2 Amazon Machine Image (AMI) from the AWS Marketplace) used for hosting the prototype.  For alternate deployment environments, any CentOS 7 OS (bare metal on premise or in the cloud, or cloud-provided VMs) will suffice.
